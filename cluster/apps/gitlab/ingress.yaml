@@ -1,0 +1,47 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gitlab-internal
+  namespace: gitlab
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: &host gitlab.iwrite.software
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gitlab-webservice-default
+                port:
+                  number: 8181
+  tls:
+    - hosts:
+        - *host
+      secretName: acme-crt-secret-iwrite-software
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gitlab-registry-internal
+  namespace: gitlab
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: &host registry.iwrite.software
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gitlab-registry
+                port:
+                  number: 5000
+  tls:
+    - hosts:
+        - *host
+      secretName: acme-crt-secret-iwrite-software

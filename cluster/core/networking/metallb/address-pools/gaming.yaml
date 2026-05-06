@@ -1,0 +1,22 @@
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: gaming
+  namespace: metallb-system
+spec:
+  addresses:
+    - 10.10.202.0/24
+  autoAssign: false
+status: {}
+
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: gaming
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - gaming
+status: {}

@@ -1,0 +1,31 @@
+# Editors
+.vscode/
+
+# Trash
+.DS_Store
+Thumbs.db
+
+# k8s
+kubeconfig
+
+# vscode-sops
+.decrypted~*.yaml
+.config.env
+*.agekey
+
+# Ansible
+xanmanning.k3s*
+.dependencies
+
+# Terraform
+.terraform
+.terraform.tfstate*
+terraform.tfstate*
+
+# manual secrets
+secrets
+**/age.sops.yaml.j2
+
+# Nix
+/result
+/.direnv

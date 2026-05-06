@@ -1,0 +1,149 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: home-assistant
+  namespace: home
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    defaultPodOptions:
+      nodeSelector:
+        kubernetes.io/hostname: whiskey
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "1"
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      automountServiceAccountToken: false
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: homeassistant/home-assistant
+              tag: "2026.5"
+            env:
+              TZ: "America/Chicago"
+            resources:
+              requests:
+                cpu: 50m
+                memory: 1Gi
+              limits:
+                cpu: 150m
+                memory: 1.5Gi
+      code:
+        containers:
+          code:
+            image:
+              repository: ghcr.io/coder/code-server
+              tag: 4.117.0
+            args:
+              - --auth
+              - "none"
+              - --user-data-dir
+              - "/config/.vscode"
+              - --extensions-dir
+              - "/config/.vscode"
+              - --port
+              - "8081"
+              - "/config"
+            resources:
+              requests:
+                cpu: 50m
+                memory: 128Mi
+              limits:
+                cpu: 100m
+                memory: 512Mi
+    persistence:
+      config:
+        enabled: true
+        existingClaim: home-assistant-pvc
+        globalMounts:
+          - path: /config
+      media:
+        enabled: true
+        existingClaim: home-assistant-pvc-media
+        globalMounts:
+          - path: /media
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 8123
+      code:
+        type: ClusterIP
+        controller: code
+        ports:
+          http:
+            port: 8081
+    ingress:
+      main:
+        enabled: true
+        className: "cloudflare-tunnel"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Home Assistant"
+          hajimari.io/info: Home management system
+          hajimari.io/icon: "home-assistant"
+          hajimari.io/targetBlank: "true"
+          # authentik.sparks.codes/enabled: "true"
+        hosts:
+          - host: home.sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - secretName: acme-crt-secret-sparks-codes
+            hosts:
+              - home.sparks.codes
+      internal:
+        enabled: true
+        className: "traefik"
+        annotations:
+          hajimari.io/enable: "false"
+        hosts:
+          - host: home.sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - photos.sparks.codes
+            secretName: acme-crt-secret-sparks-codes
+      code:
+        enabled: true
+        className: traefik
+        annotations:
+          nginx.ingress.kubernetes.io/auth-type: basic
+          nginx.ingress.kubernetes.io/auth-secret: codeserver-auth-secret
+          nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+        hosts:
+          - host: &host "codeserver-home.sparks.codes"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: code
+                  port: http
+        tls:
+          - secretName: acme-crt-secret-sparks-codes
+            hosts:
+              - *host

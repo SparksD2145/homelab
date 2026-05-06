@@ -1,0 +1,165 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: hajimari
+  namespace: tools
+spec:
+  interval: 15m
+  chart:
+    spec:
+      # renovate: registryUrl=https://hajimari.io
+      chart: hajimari
+      version: 2.0.2
+      sourceRef:
+        kind: HelmRepository
+        name: hajimari-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    image:
+      repository: ghcr.io/toboshii/hajimari
+      tag: v0.3.1
+    env:
+      TZ: "America/Chicago"
+    hajimari:
+      defaultEnable: false
+      name: "Sparks"
+      title: "Dashboard"
+      showGreeting: true
+      showAppGroups: false
+      showAppUrls: true
+      showAppInfo: true
+      showAppStatus: true
+      defaultAppIcon: mdi:application
+      showBookmarkGroups: true
+      showGlobalBookmarks: true
+      lightTheme: blackboard
+      darkTheme: blackboard
+      alwaysTargetBlank: true
+      namespaceSelector:
+        matchNames:
+          - ai
+          - auth
+          - databases
+          - finance
+          - games
+          - gitlab
+          - kube-system
+          - home
+          - media
+          - monitoring
+          - networking
+          - nginx
+          - rook-ceph
+          - security
+          - tools
+      customApps:
+        - group: LAN
+          apps:
+            - name: Gitlab
+              url: https://gitlab.iwrite.software
+              icon: "gitlab"
+            - name: MikroTik Switch
+              url: http://mikrotik-switch.sparks.codes
+              icon: "remote-desktop"
+            - name: Lambda iDRAC
+              url: https://idrac-lambda.sparks.codes
+              icon: "remote-desktop"
+            - name: Omega iDRAC
+              url: https://idrac-omega.sparks.codes
+              icon: "remote-desktop"
+            - name: Dome Camera 1
+              url: http://dome-camera-1.sparks.codes
+              icon: "webcam"
+            - name: Dome Camera 2
+              url: http://dome-camera-2.sparks.codes
+              icon: "webcam"
+      globalBookmarks:
+        - group: Infrastructure
+          bookmarks:
+            - name: SparksD2145/flux-infra
+              url: "https://github.com/sparksd2145/flux-infra"
+            - name: SparksD2145/nixos-config
+              url: "https://github.com/SparksD2145/nixos-config"
+            - name: christianmetal3/home-infra
+              url: https://github.com/christianmetal3/home-infra
+        - group: Media
+          bookmarks:
+            - name: YouTube
+              url: "https://youtube.com/"
+            - name: Google Drive
+              url: "https://drive.google.com"
+            - name: Google Photos
+              url: "https://photos.google.com"
+            - name: Gmail
+              url: "https://mail.google.com"
+            - name: Google Calendar
+              url: "https://calendar.google.com"
+            - name: YouTube Music
+              url: "https://music.youtube.com"
+            - name: My Soundcloud
+              url: "https://soundcloud.com/SparksD2145"
+        - group: Services
+          bookmarks:
+            - name: Cloudflare
+              url: "https://dash.cloudflare.com"
+            - name: Namecheap
+              url: "https://namecheap.com"
+        - group: Finance
+          bookmarks:
+            - name: Monarch
+              url: "https://app.monarch.com/dashboard"
+            - name: Credit Karma
+              url: "https://creditkarma.com"
+            - name: Ally Bank
+              url: "https://ally.com"
+            - name: Chase
+              url: "https://chase.com"
+            - name: PayPal
+              url: "https://paypal.com"
+            - name: Charles Schwab
+              url: "https://www.schwab.com/"
+        - group: Shopping
+          bookmarks:
+            - name: Amazon
+              url: "https://amazon.com"
+            - name: eBay
+              url: "https://ebay.com"
+            - name: Craigslist (San Antonio)
+              url: "https://sanantonio.craigslist.org"
+            - name: Craigslist (Austin)
+              url: "https://austin.craigslist.org"
+            - name: Craigslist (Dallas)
+              url: "https://dallas.craigslist.org"
+            - name: FB Marketplace
+              url: "https://facebook.com/marketplace"
+
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "traefik"
+        hosts:
+          - host: "dashboard.sparks.codes"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - dashboard.sparks.codes
+            secretName: acme-crt-secret-sparks-codes
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "hajimari-settings"
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        cpu: 100m
+        memory: 256Mi
+    persistence:
+      data:
+        enabled: true
+        accessMode: ReadWriteMany
+        size: 1Gi

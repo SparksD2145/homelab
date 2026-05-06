@@ -1,0 +1,74 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: calibre
+  namespace: media
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: linuxserver/calibre
+              tag: version-v5.21.0
+            env:
+              TZ: America/Chicago
+              GUAC_USER: calibre
+              GUAC_PASS: "${MEDIA_CALIBRE_GUAC_PASSWORD}"
+              PUID: "0"
+              PGID: "0"
+              UMASK_SET: "022"
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 8080
+      # webserver:
+      #   enabled: false
+      #   type: ClusterIP
+      #   ports:
+      #     webserver:
+      #       enabled: true
+      #       port: 8081
+      #       protocol: TCP
+      #       targetPort: 8081
+    ingress:
+      main:
+        enabled: true
+        className: "traefik"
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: 1024m
+          hajimari.io/enable: "false"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: "books-backend.sparks.codes"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - "books-backend.sparks.codes"
+            secretName: acme-crt-secret-sparks-codes
+    persistence:
+      config:
+        enabled: true
+        existingClaim: local-calibre-config
+      books:
+        enabled: true
+        existingClaim: local-calibre-books

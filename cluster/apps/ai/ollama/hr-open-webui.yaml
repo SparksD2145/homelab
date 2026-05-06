@@ -1,0 +1,68 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ollama-webui
+  namespace: ai
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    defaultPodOptions:
+      # runtimeClassName: nvidia
+      nodeSelector:
+        kubernetes.io/hostname: beta
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/open-webui/open-webui
+              tag: "main"
+              pullPolicy: Always
+            env:
+              TZ: "America/Chicago"
+              ENV: dev
+              OLLAMA_BASE_URL: "https://ollama.sparks.codes"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: ollama-web-pvc
+        globalMounts:
+          - path: /app/backend/data
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        className: traefik
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: cloud-search
+          hajimari.io/info: "Ollama frontend"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: &host "ollama-webui.sparks.codes"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - secretName: acme-crt-secret-sparks-codes
+            hosts:
+              - *host

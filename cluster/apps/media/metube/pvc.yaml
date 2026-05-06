@@ -1,0 +1,35 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-metube-downloads-pv
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteMany
+  local:
+    path: /mnt/local/metube.sparks.codes
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - tango
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-metube-downloads-pvc
+  namespace: media
+spec:
+  volumeName: local-metube-downloads-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 20Gi

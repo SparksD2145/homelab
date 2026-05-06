@@ -1,0 +1,140 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: littlelinks
+  namespace: tools
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/techno-tim/littlelink-server
+              tag: latest
+            env:
+              TZ: "America/Chicago"
+              META_TITLE: Thomas Ibarra - Links Page
+              META_DESCRIPTION: Thomas Ibarra - Links Page
+              META_AUTHOR: Thomas Ibarra <hello@imake.software>
+              THEME: Dark
+              FAVICON_URL: https://www.gravatar.com/avatar/d22d82dec0d1b27fab6e5d770685e7d8
+              AVATAR_URL: https://www.gravatar.com/avatar/d22d82dec0d1b27fab6e5d770685e7d8
+              AVATAR_2X_URL: https://www.gravatar.com/avatar/d22d82dec0d1b27fab6e5d770685e7d8
+              AVATAR_ALT: Thomas Ibarra <hello@imake.software>
+              NAME: Thomas Ibarra
+              BIO: Chip-to-Ship, software engineering, and everything in-between.
+              BUTTON_ORDER: GITHUB,GITLAB,LINKED_IN,SOUND_CLOUD,TUMBLR,YOUTUBE
+              CUSTOM_BUTTON_TEXT: Personal Gitlab
+              CUSTOM_BUTTON_URL: https://sprk.sh/gitlab
+              CUSTOM_BUTTON_COLOR: "#000000"
+              CUSTOM_BUTTON_TEXT_COLOR: "#ffffff"
+              CUSTOM_BUTTON_ALT_TEXT: Personal Gitlab
+              CUSTOM_BUTTON_NAME: "GITLAB"
+              CUSTOM_BUTTON_ICON: "fa-brands fa-gitlab"
+              GITHUB: https://sprk.sh/github
+              # TWITTER: https://sprk.sh/twitter
+              # INSTAGRAM: https://www.instagram.com/techno.tim
+              YOUTUBE: https://sprk.sh/youtube
+              # TWITCH: https://www.twitch.tv/technotim/
+              # DISCORD: https://discord.gg/DJKexrJ
+              # TIKTOK: https://www.tiktok.com/@technotim
+              # KIT: https://kit.co/TechnoTim
+              # FACEBOOK: https://facebook.com
+              # FACEBOOK_MESSENGER: https://facebook.com
+              LINKED_IN: https://sprk.sh/linkedin
+              # PRODUCT_HUNT: https://www.producthunt.com/
+              # SNAPCHAT: https://www.snapchat.com/
+              # SPOTIFY: https://www.spotify.com/
+              # REDDIT: https://www.reddit.com/
+              # MEDIUM: https://medium.com
+              # PINTEREST: https://www.pinterest.com/
+              # EMAIL: hello@imake.software
+              # EMAIL_ALT: you@example.com
+              SOUND_CLOUD: https://sprk.sh/soundcloud
+              # FIGMA: https://figma.com
+              # TELEGRAM: https://telegram.org/
+              TUMBLR: https://sprk.sh/tumblr
+              # STEAM: https://steamcommunity.com/
+              # VIMEO: https://vimeo.com/
+              # WORDPRESS: https://wordpress.com/
+              # GOODREADS: https://www.goodreads.com/
+              # SKOOB: https://www.skoob.com.br/
+              FOOTER: Thanks for stopping by!
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 3000
+    ingress:
+      main:
+        enabled: true
+        className: "cloudflare-tunnel"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appname: "links"
+          hajimari.io/info: "Personal Links"
+          hajimari.io/icon: "link"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: imake.software
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - imake.software
+            secretName: acme-crt-secret-imake-software
+      additional-iwrite-software:
+        enabled: true
+        className: "cloudflare-tunnel"
+        annotations:
+          hajimari.io/enable: "false"
+          hajimari.io/appname: "links"
+          hajimari.io/icon: "link"
+        hosts:
+          - host: iwrite.software
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - iwrite.software
+            secretName: acme-crt-secret-iwrite-software
+      additional-sparks-codes:
+        enabled: true
+        className: "cloudflare-tunnel"
+        annotations:
+          hajimari.io/enable: "false"
+          hajimari.io/appname: "links"
+          hajimari.io/icon: "link"
+        hosts:
+          - host: sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - sparks.codes
+            secretName: acme-crt-secret-sparks-codes

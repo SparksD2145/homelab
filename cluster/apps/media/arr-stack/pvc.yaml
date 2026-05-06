@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: arr-pv
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 3Ti
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /mnt/local2/arr-stack
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - tango
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: arr-pvc
+  namespace: media
+spec:
+  volumeName: arr-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 3Ti

@@ -1,0 +1,119 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: davinci-autoconverter-samba
+  namespace: media
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: dockurr/samba
+              tag: "4.23.5"
+            env:
+              TZ: "America/Chicago"
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
+
+    service:
+      main:
+        enabled: true
+        controller: main
+        type: LoadBalancer
+        annotations:
+          metallb.io/loadBalancerIPs: 10.10.201.14
+        ports:
+          smb1:
+            port: 139
+            protocol: UDP
+          smb2:
+            port: 445
+            protocol: TCP
+
+    persistence:
+      config:
+        enabled: true
+        type: configMap
+        name: davinci-autoconverter-samba-config
+        advancedMounts:
+          main:
+            main:
+              - path: /etc/samba/smb.conf
+                subPath: config
+                readOnly: true
+
+      users:
+        enabled: true
+        type: secret
+        name: davinci-autoconverter-samba-users
+        advancedMounts:
+          main:
+            main:
+              - path: /etc/samba/users.conf
+                subPath: smb
+                readOnly: true
+
+      ingest-input:
+        existingClaim: local-davinci-autoconverter-input
+        advancedMounts:
+          main:
+            main:
+              - path: /input
+                readOnly: false
+                subPath: consume
+
+      ingest-output:
+        existingClaim: local-davinci-autoconverter-output
+        advancedMounts:
+          main:
+            main:
+              - path: /smb
+                readOnly: false
+                subPath: consume
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: davinci-autoconverter-samba-config
+  namespace: media
+data:
+  config: |
+    [global]
+      server string = samba
+      idmap config * : range = 3000-7999
+      security = user
+      server min protocol = SMB2
+
+      # disable printing services
+      load printers = no
+      printing = bsd
+      printcap name = /dev/null
+      disable spoolss = yes
+
+    [Data]
+      path = /storage
+      comment = Shared
+      valid users = @smb
+      browseable = yes
+      writable = yes
+      read only = no
+      force user = root
+      force group = root

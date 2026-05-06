@@ -1,0 +1,174 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rook-ceph-cluster
+  namespace: rook-ceph
+spec:
+  interval: 15m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.rook.io/release
+      chart: rook-ceph-cluster
+      version: v1.19.5
+      sourceRef:
+        kind: HelmRepository
+        name: rook-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    monitoring:
+      enabled: false
+    ingress:
+      dashboard:
+        annotations:
+          kubernetes.io/ingress.class: traefik
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Rook"
+          hajimari.io/info: "Ceph distributed storage"
+          hajimari.io/icon: "database"
+          hajimari.io/targetBlank: "true"
+        host:
+          name: rook.sparks.codes
+          path: "/"
+        tls:
+          - hosts:
+              - rook.sparks.codes
+            secretName: acme-crt-secret-sparks-codes
+    toolbox:
+      enabled: true
+    cephClusterSpec:
+      dashboard:
+        enabled: true
+        port: 8080
+        ssl: false
+      storage:
+        useAllNodes: false
+        useAllDevices: false
+        config:
+          osdsPerDevice: "1"
+        nodes:
+          - name: sierra
+            devices:
+              - name: /dev/disk/by-id/ata-ST2000VN004-2E4164_Z5278FMJ
+          - name: romeo
+            devices:
+              - name: /dev/disk/by-id/ata-ST2000VN004-2E4164_Z5278FQG
+          - name: xray
+            devices:
+              - name: /dev/disk/by-id/ata-ST2000DM006-2DM164_Z4ZBHPQB
+          # - name: lambda
+          #   devices:
+          #     - name: sdb
+          # - name: omega
+          #   devices:
+          #     - name: /dev/disk/by-id/scsi-36c81f660e209af0024db2ede06115d1d-part1
+
+    cephBlockPools:
+      - name: ceph-blockpool
+        spec:
+          failureDomain: host
+          replicated:
+            size: 3
+        storageClass:
+          name: ceph-block
+          enabled: true
+          isDefault: false
+          reclaimPolicy: Retain
+          allowVolumeExpansion: true
+          # see https://github.com/rook/rook/blob/master/Documentation/ceph-block.md#provision-storage for available configuration
+          parameters:
+            # (optional) mapOptions is a comma-separated list of map options.
+            # For krbd options refer
+            # https://docs.ceph.com/docs/master/man/8/rbd/#kernel-rbd-krbd-options
+            # For nbd options refer
+            # https://docs.ceph.com/docs/master/man/8/rbd-nbd/#options
+            # mapOptions: lock_on_read,queue_depth=1024
+
+            # (optional) unmapOptions is a comma-separated list of unmap options.
+            # For krbd options refer
+            # https://docs.ceph.com/docs/master/man/8/rbd/#kernel-rbd-krbd-options
+            # For nbd options refer
+            # https://docs.ceph.com/docs/master/man/8/rbd-nbd/#options
+            # unmapOptions: force
+
+            # RBD image format. Defaults to "2".
+            imageFormat: "2"
+            # RBD image features. Available for imageFormat: "2". CSI RBD currently supports only `layering` feature.
+            imageFeatures: layering
+            # The secrets contain Ceph admin credentials.
+            csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
+            csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+            csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
+            csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+            csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
+            csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+            # Specify the filesystem type of the volume. If not specified, csi-provisioner
+            # will set default as `ext4`. Note that `xfs` is not recommended due to potential deadlock
+            # in hyperconverged settings where the volume is mounted on the same node as the osds.
+            csi.storage.k8s.io/fstype: ext4
+
+    cephFileSystems:
+      - name: ceph-filesystem
+        # see https://github.com/rook/rook/blob/master/Documentation/ceph-filesystem-crd.md#filesystem-settings for available configuration
+        spec:
+          metadataPool:
+            replicated:
+              size: 3
+          dataPools:
+            - failureDomain: host
+              replicated:
+                size: 3
+          metadataServer:
+            activeCount: 1
+            activeStandby: true
+        storageClass:
+          enabled: true
+          isDefault: true
+          name: ceph-filesystem
+          reclaimPolicy: Retain
+          allowVolumeExpansion: true
+          # see https://github.com/rook/rook/blob/master/Documentation/ceph-filesystem.md#provision-storage for available configuration
+          parameters:
+            # The secrets contain Ceph admin credentials.
+            csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
+            csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+            csi.storage.k8s.io/controller-expand-secret-name: rook-csi-cephfs-provisioner
+            csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+            csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
+            csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+            # Specify the filesystem type of the volume. If not specified, csi-provisioner
+            # will set default as `ext4`. Note that `xfs` is not recommended due to potential deadlock
+            # in hyperconverged settings where the volume is mounted on the same node as the osds.
+            csi.storage.k8s.io/fstype: ext4
+
+    cephObjectStores: []
+    #   - name: ceph-objectstore
+    #     # see https://github.com/rook/rook/blob/master/Documentation/ceph-object-store-crd.md#object-store-settings for available configuration
+    #     spec:
+    #       metadataPool:
+    #         failureDomain: host
+    #         replicated:
+    #           size: 3
+    #       dataPool:
+    #         failureDomain: host
+    #         erasureCoded:
+    #           dataChunks: 2
+    #           codingChunks: 1
+    #       preservePoolsOnDelete: true
+    #       gateway:
+    #         port: 80
+    #         # securePort: 443
+    #         # sslCertificateRef:
+    #         instances: 1
+    #       healthCheck:
+    #         bucket:
+    #           interval: 60s
+    #     storageClass:
+    #       enabled: true
+    #       name: ceph-bucket
+    #       reclaimPolicy: Retain
+    #       # see https://github.com/rook/rook/blob/master/Documentation/ceph-object-bucket-claim.md#storageclass for available configuration
+    #       parameters:
+    #         # note: objectStoreNamespace and objectStoreName are configured by the chart
+    #         region: us-east-1

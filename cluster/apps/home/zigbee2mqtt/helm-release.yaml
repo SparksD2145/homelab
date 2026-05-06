@@ -1,0 +1,156 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: zigbee2mqtt
+  namespace: home
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  dependsOn:
+    - name: emqx
+      namespace: home
+  values:
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/library/common/values.schema.json
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: koenkk/zigbee2mqtt
+              tag: latest
+            env:
+              TZ: "America/Chicago"
+            securityContext:
+              privileged: true
+            resources:
+              requests:
+                memory: 128Mi
+                cpu: 50m
+              limits:
+                memory: 256Mi
+                cpu: 100m
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        className: "traefik"
+        annotations:
+          nginx.ingress.kubernetes.io/auth-type: basic
+          nginx.ingress.kubernetes.io/auth-secret: zigbee2mqtt-secret
+          nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Zigbee2MQTT"
+          hajimari.io/info: "Zigbee device dashboard"
+          hajimari.io/icon: "zigbee"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: zigbee2mqtt.sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - zigbee2mqtt.sparks.codes
+            secretName: acme-crt-secret-sparks-codes
+
+    persistence:
+      data:
+        enabled: true
+        type: persistentVolumeClaim
+        globalMounts:
+          - path: /app/data
+        existingClaim: zigbee2mqtt-data-pvc
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/ttyUSB0
+        advancedMounts:
+          main:
+            main:
+              - path: /dev/ttyUSB0
+                readOnly: false
+
+    config:
+      # These will be applied ONLY on first run
+      # Home Assistant integration (MQTT discovery)
+      homeassistant:
+        enabled: true
+        discovery_topic: "homeassistant"
+        status_topic: "homeassistant/status"
+
+      # allow new devices to join
+      # WARNING: Disable this after all devices have been paired! (default: false)
+      # Note: this will be controllable in the UI
+      permit_join: false
+
+      # MQTT settings
+      mqtt:
+        # MQTT base topic for zigbee2mqtt MQTT messages
+        base_topic: zigbee2mqtt
+        # MQTT server URL
+        server: "mqtt://10.10.201.3:1883"
+        # MQTT server authentication, uncomment if required:
+        user: "zigbee2mqtt"
+        password: "${HOME_ZIGBEE2MQTT_SPARKS_PASSWORD}"
+        reject_unauthorized: false
+        # client_id: my_id
+        # Alternatively, credentials may be put into a separate file, managed through a secret:
+        # password: '!secret password'
+
+        # Optional: Include device information to mqtt messages (default: false)
+        include_device_information: true
+
+      # USB / Serial settings
+      serial:
+        # Location of your zigbee device
+        port: /dev/ttyUSB0
+        # Optional: adapter type, not needed unless you are experiencing problems (options: zstack, deconz)
+        adapter: zstack
+
+      advanced:
+        network_key: ${HOME_ZIGBEE2MQTT_NETWORK_KEY}
+        pan_id: ${HOME_ZIGBEE2MQTT_PANID}
+        log_output:
+          - console
+        log_level: advanced
+
+        # Optional: ZigBee channel, changing requires re-pairing of all devices. (Note: use a ZLL channel: 11, 15, 20, or 25 to avoid Problems)
+        # default: 11
+        # channel: 11
+
+        # Optional: Baudrate for serial port (default: 115200 for Z-Stack, 38400 for Deconz)
+        # baudrate: 38400
+
+        # Optional: RTS / CTS Hardware Flow Control for serial port (default: false)
+        # rtscts: true
+
+        # Optional: Add a last_seen attribute to MQTT messages, contains date/time of last Zigbee message
+        # possible values are: disable (default), ISO_8601, ISO_8601_local, epoch (default: disable)
+        last_seen: "ISO_8601"
+
+        # Optional: Enables report feature (see information -> report for more details) (default: false)
+        # report: true
+
+        # Optional: Add an elapsed attribute to MQTT messages, contains milliseconds since the previous msg (default: false)
+        # elapsed: true
+
+      # Both of these need to be enabled for the webui
+      frontend:
+        port: 8080

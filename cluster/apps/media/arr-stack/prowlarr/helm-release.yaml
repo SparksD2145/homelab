@@ -1,0 +1,84 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: prowlarr
+  namespace: media
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 4.6.2
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  dependsOn: []
+  values:
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 100
+        fsGroup: 100
+        fsGroupChangePolicy: OnRootMismatch
+    controllers:
+      prowlarr:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: lscr.io/linuxserver/prowlarr
+              tag: 2.3.7-develop
+            env:
+              TZ: America/Chicago
+              PUID: 1000
+              PGID: 100
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 1Gi
+    persistence:
+      tmpfs:
+        type: persistentVolumeClaim
+        existingClaim: arr-pvc
+        advancedMounts:
+          prowlarr:
+            app:
+              - path: /config
+                subPath: prowlarr/config
+              - path: /tmp
+                subPath: tmp
+    service:
+      app:
+        ports:
+          http:
+            port: 9696
+
+    ingress:
+      main:
+        enabled: true
+        className: traefik
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Prowlarr"
+          hajimari.io/info: "Media Tracking"
+          hajimari.io/icon: "movie-search"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: &host prowlarr.sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: app
+                  port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: acme-crt-secret-sparks-codes

@@ -1,0 +1,12 @@
+---
+- hosts: linux
+  become: true
+  tasks:
+    - name: Update Packages
+      apt:
+        update_cache: "yes"
+        name: "*"
+        state: latest
+    - name: Autoremove unused packages
+      apt:
+        autoremove: yes

@@ -1,0 +1,52 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minecraft-superdigdug-rectify
+  namespace: games
+spec:
+  interval: 15m
+  chart:
+    spec:
+      # renovate: registryUrl=https://itzg.github.io/minecraft-server-charts/
+      chart: minecraft
+      version: 5.1.2
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    image:
+      repository: itzg/minecraft-server
+      tag: latest
+    nodeSelector:
+      services/minecraft: "true"
+    resources:
+      requests:
+        memory: 1024Mi
+        cpu: 200m
+    minecraftServer:
+      eula: "TRUE"
+      version: "1.21.7"
+      type: PAPER
+      motd: "superdigdug-rectify.mc.sparks.codes"
+      difficulty: normal
+      ops: "superdigdug"
+      worldSaveName: superdigdug_rectify
+      maxPlayers: 20
+      viewDistance: 14
+      # levelSeed:
+      gameMode: survival
+      pvp: true
+      onlineMode: false
+      memory: 1024M
+      serviceType: LoadBalancer
+      loadBalancerIP: 10.10.202.9
+      rcon:
+        enabled: true
+        password: ${GAMES_MINECRAFT_BUNGEECORD_RCON_PASSWORD}
+    persistence:
+      dataDir:
+        enabled: true
+        existingClaim: local-mc-superdigdug-rectify

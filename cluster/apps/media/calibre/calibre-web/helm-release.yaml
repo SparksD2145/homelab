@@ -1,0 +1,69 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: calibre-web
+  namespace: media
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: linuxserver/calibre-web
+              tag: version-0.6.12
+            env:
+              TZ: America/Chicago
+              PUID: "0"
+              PGID: "0"
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 8083
+    ingress:
+      main:
+        enabled: true
+        className: "traefik"
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: 1024m
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Books"
+          hajimari.io/info: "Book storage and E-reader"
+          hajimari.io/icon: "book"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: "books.sparks.codes"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - "books.sparks.codes"
+            secretName: acme-crt-secret-sparks-codes
+    persistence:
+      config:
+        enabled: true
+        globalMounts:
+          - path: /config
+        existingClaim: local-calibre-config
+      books:
+        enabled: true
+        globalMounts:
+          - path: /books
+        existingClaim: local-calibre-books

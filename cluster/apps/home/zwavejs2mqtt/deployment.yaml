@@ -1,0 +1,130 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zwavejs2mqtt
+  namespace: home
+spec:
+  selector:
+    matchLabels:
+      run: zwavejs2mqtt
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: zwavejs2mqtt
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: xray
+      containers:
+        - name: zwavejs2mqtt
+          image: zwavejs/zwave-js-ui:latest
+          env:
+            - name: NETWORK_KEY
+            - name: TZ
+              value: "America/Chicago"
+          ports:
+            - name: http
+              containerPort: 8091
+              protocol: TCP
+            - name: zwavejs
+              containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: data
+              mountPath: /usr/src/app/store
+            - name: usb
+              mountPath: /dev/ttyACM0
+          livenessProbe:
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8091
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8091
+            timeoutSeconds: 1
+          securityContext:
+            privileged: true
+          startupProbe:
+            failureThreshold: 30
+            periodSeconds: 5
+            successThreshold: 1
+            tcpSocket:
+              port: 8091
+            timeoutSeconds: 1
+          resources:
+            requests:
+              cpu: 50m
+              memory: 256Mi
+            limits:
+              cpu: 100m
+              memory: 512Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: zwavejs2mqtt-data-pvc
+        - name: usb
+          hostPath:
+            path: /dev/ttyACM0
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zwavejs2mqtt
+  namespace: home
+  annotations:
+    metallb.io/loadBalancerIPs: 10.10.201.4
+  labels:
+    run: home
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8091
+      protocol: TCP
+    - name: ws
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    run: zwavejs2mqtt
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zwavejs2mqtt
+  namespace: home
+  labels:
+    name: zwavejs2mqtt
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    hajimari.io/enable: "true"
+    hajimari.io/appName: "ZwaveJS2MQTT"
+    hajimari.io/info: "Z-Wave device dashboard"
+    hajimari.io/icon: "z-wave"
+    hajimari.io/targetBlank: "true"
+spec:
+  rules:
+    - host: zwavejs2mqtt.sparks.codes
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: zwavejs2mqtt
+                port:
+                  number: 80
+  tls:
+    - secretName: acme-crt-secret-sparks-codes
+      hosts:
+        - zwavejs2mqtt.sparks.codes

@@ -1,0 +1,49 @@
+---
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: MariaDB
+metadata:
+  name: shlink-mariadb
+  namespace: tools
+spec:
+  database: "${TOOLS_SHLINK_DB_DB}"
+
+  username: "${TOOLS_SHLINK_DB_USER}"
+
+  passwordSecretKeyRef:
+    name: shlink-secret
+    key: SHLINK_DB_PASSWORD
+    generate: false
+
+  replicas: 1
+
+  port: 3306
+
+  storage:
+    size: 15Gi
+    storageClassName: ceph-block
+
+  myCnf: |
+    [mariadb]
+    bind-address=*
+    default_storage_engine=InnoDB
+    binlog_format=row
+    innodb_autoinc_lock_mode=2
+    innodb_buffer_pool_size=800M
+    max_allowed_packet=256M
+
+  # Tune your startup probe accordingly to ensure that the SST completes with a large amount of data.
+  # failureThreshold × periodSeconds = 30 × 10 = 300s = 5m until the container gets restarted if unhealthy
+  startupProbe:
+    failureThreshold: 10
+    periodSeconds: 30
+    timeoutSeconds: 5
+
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      memory: 1Gi
+
+  metrics:
+    enabled: true

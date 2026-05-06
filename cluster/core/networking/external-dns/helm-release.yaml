@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: networking
+spec:
+  interval: 15m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.bitnami.com/bitnami
+      chart: external-dns
+      version: 9.0.3
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    provider: cloudflare
+    policy: upsert-only
+    cloudflare:
+      email: sparksd2145@gmail.com
+      secretName: cloudflare-credentials-externaldns
+      proxied: true
+    sources:
+      - service
+    serviceTypeFilter:
+      - ExternalName
+    domainFilters:
+      - imake.software
+      - iwrite.software
+      - sparks.codes
+      - sprk.sh
+    txtPrefix: sparks-txt-
