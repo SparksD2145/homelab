@@ -24,41 +24,22 @@ all:
     linux:
       children:
         linux_servers:
-        # linux_workstations:
-
-    # linux_workstations:
-    #   hosts:
-    #     gamma.sparks.codes:
 
     linux_servers:
-      children:
-        liunx_virtual_machines:
       hosts:
-        beta.sparks.codes:
-        tango.sparks.codes:
-        omega.sparks.codes:
         rpi4-poe-1.sparks.codes:
         rpi4-poe-2.sparks.codes:
         rpi4-poe-3.sparks.codes:
-        sierra.sparks.codes:
-        romeo.sparks.codes:
-        whiskey.sparks.codes:
-        xray.sparks.codes:
-        kappa.sparks.codes:
-        lambda.sparks.codes:
-
-    liunx_virtual_machines:
-      children:
-        linux_dedicated_gpu_servers:
-
-    linux_dedicated_gpu_servers:
-      hosts:
-        beta.sparks.codes:
 
     nixos:
       vars:
         executable: /run/current-system/sw/bin/bash
         ansible_shell_interpreter: /run/current-system/sw/bin/bash
+      children:
+        nixos_servers:
+        nixos_workstations:
+    
+    nixos_servers:
       hosts:
         beta.sparks.codes:
         tango.sparks.codes:
@@ -69,23 +50,14 @@ all:
         xray.sparks.codes:
         lambda.sparks.codes:
 
-    # -------------------------------------------
-    # All Windows Machines ----------------------
-    # -------------------------------------------
-    windows_workstations:
+    nixos_workstations:
       hosts:
         alpha.sparks.codes:
-
-    windows:
-      children:
-        windows_workstations:
+        delta.sparks.codes:
 
     # -------------------------------------------
     # Networking --------------------------------
     # -------------------------------------------
-    cisco_ios_switches:
-      hosts:
-        1gbe-switch.sparks.codes:
 
     cisco_nxos_switches:
       hosts:
@@ -101,13 +73,6 @@ all:
 
     k3s_masters:
       hosts:
-
-    # -------------------------------------------
-    # Virtual Machine Hypervisors ---------------
-    # -------------------------------------------
-    hypervisors:
-      hosts:
-        beta.sparks.codes:
 
     # -------------------------------------------
     # Aliases  ----------------------------------
