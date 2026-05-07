@@ -8,6 +8,7 @@ with pkgs;
   # fun stuff
   obs-studio
   vlc
+  discord
 
   # video editing
   davinci-resolve
