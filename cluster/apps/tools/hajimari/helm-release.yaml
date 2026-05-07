@@ -78,10 +78,10 @@ spec:
       globalBookmarks:
         - group: Infrastructure
           bookmarks:
-            - name: github/SparksD2145/homelab
-              url: "https://github.com/sparksd2145/homelab"
             - name: gitlab/SparksD2145/homelab
               url: "https://gitlab.iwrite.software/sparks/homelab"
+            - name: github/SparksD2145/homelab
+              url: "https://github.com/sparksd2145/homelab"
             - name: christianmetal3/home-infra
               url: https://github.com/christianmetal3/home-infra
         - group: Media
