@@ -55,4 +55,7 @@
 
   # enable bluetooth
   hardware.bluetooth.enable = true;
+
+  # Enable power management
+  powerManagement.enable = true;
 }
