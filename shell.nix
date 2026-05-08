@@ -4,20 +4,31 @@
 
 pkgs.mkShell {
   packages = with pkgs; [
+    # Kubernetes
     kubectl
     krew
     kubernetes-helm
+    kustomize
     fluxcd
+
+    # Infrastructure
     ansible
     opentofu
-    kustomize
-    gitleaks
     ipmitool
+
+    # Utilities
+    gitleaks
     sops
     age
-    pre-commit
-    go
     go-task
+    pre-commit
+    jq
+    yq
+
+    # Nix
+    nix-output-monitor
+    nixfmt
+    nil
   ];
 
   # env.VAR = "${VAR}";

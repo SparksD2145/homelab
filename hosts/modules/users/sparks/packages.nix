@@ -25,7 +25,6 @@ with pkgs;
   ipcalc # it is a calculator for the IPv4/v6 addresses
 
   # misc
-  cowsay
   file
   which
   tree
