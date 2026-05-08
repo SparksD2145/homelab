@@ -1,4 +1,3 @@
-# save this as shell.nix
 {
   pkgs ? import <nixpkgs> { },
 }:
@@ -17,6 +16,8 @@ pkgs.mkShell {
     sops
     age
     pre-commit
+    go
+    go-task
   ];
 
   # env.VAR = "${VAR}";
