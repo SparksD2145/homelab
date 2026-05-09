@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -25,6 +25,10 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  environment.systemPackages = [
+    pkgs.nemo
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
