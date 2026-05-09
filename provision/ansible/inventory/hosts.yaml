@@ -38,7 +38,7 @@ all:
       children:
         nixos_servers:
         nixos_workstations:
-    
+
     nixos_servers:
       hosts:
         beta.sparks.codes:
