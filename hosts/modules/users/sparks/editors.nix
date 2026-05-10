@@ -49,7 +49,7 @@
         visualstudioexptteam.vscodeintellicode
         eamodio.gitlens
         christian-kohler.path-intellisense
-        hashicorp.terraform
+        opentofu.vscode-opentofu
         rust-lang.rust-analyzer
       ];
     };
