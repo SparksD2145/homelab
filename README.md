@@ -55,7 +55,7 @@ This repository also contains a `shell.nix`, which `direnv` reads to set up all 
 - **workstations** directory contains all workstation definitions (desktop and laptop configurations)
 
 ```
-    flake.nix
+flake.nix
 hosts
 ├── modules
 ├── servers
@@ -75,7 +75,7 @@ cluster
 ├── apps
 │   ├── default
 │   ├── networking
-│   └── 
+│   └──
 ├── base
 │   └── flux-system
 ├── core

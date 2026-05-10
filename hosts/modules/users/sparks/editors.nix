@@ -49,7 +49,6 @@
         visualstudioexptteam.vscodeintellicode
         eamodio.gitlens
         christian-kohler.path-intellisense
-        opentofu.vscode-opentofu
         rust-lang.rust-analyzer
       ];
     };
