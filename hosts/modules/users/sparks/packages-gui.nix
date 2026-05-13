@@ -4,6 +4,7 @@ with pkgs;
   virt-manager
   remmina
   wl-clipboard
+  scrcpy
 
   # fun stuff
   obs-studio
