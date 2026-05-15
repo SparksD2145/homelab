@@ -98,7 +98,7 @@ resource "opnsense_unbound_host_override" "lb-piper" {
 }
 
 resource "opnsense_unbound_host_override" "lb-mailserver" {
-  enabled     = true
+  enabled     = false
   description = "Mail Server"
 
   hostname = "mail"
