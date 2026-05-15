@@ -6,6 +6,9 @@ with pkgs;
   wl-clipboard
   scrcpy
 
+  # development
+  opencode
+
   # fun stuff
   obs-studio
   vlc

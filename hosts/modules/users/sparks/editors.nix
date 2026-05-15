@@ -52,5 +52,12 @@
         rust-lang.rust-analyzer
       ];
     };
+
+    home.file.".config/opencode/opencode.json" = {
+      enable = true;
+      force = true;
+      target = ".config/opencode/opencode.json";
+      source = ./dotfiles/opencode.json;
+    };
   };
 }
