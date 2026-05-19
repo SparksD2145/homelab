@@ -50,6 +50,7 @@
         eamodio.gitlens
         christian-kohler.path-intellisense
         rust-lang.rust-analyzer
+        continue.continue
       ];
     };
 
