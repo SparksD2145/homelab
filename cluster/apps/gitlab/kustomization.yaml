@@ -5,3 +5,5 @@ resources:
   # - external-name.yaml
   - ingress.yaml
   - ssh-tcproute.yaml
+  - postgres-db.yaml
+  - valkey-db.yaml
