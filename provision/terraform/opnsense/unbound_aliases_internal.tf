@@ -142,6 +142,15 @@ resource "opnsense_unbound_host_alias" "svc-metube-sparks-codes" {
   domain      = "sparks.codes"
 }
 
+resource "opnsense_unbound_host_alias" "svc-navidrome-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "Media - navidrome"
+  hostname    = "navidrome"
+  domain      = "sparks.codes"
+}
+
 resource "opnsense_unbound_host_alias" "svc-monitoring-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
