@@ -1550,10 +1550,11 @@ spec:
         ## https://docs.gitlab.com/charts/charts/gitlab/migrations
         migrations:
           enabled: true
-        objectStorage:
-          config:
-            secret: gitlab-secrets
-            key: RUSTFS_CREDENTIALS
+        backups:
+          objectStorage:
+            config:
+              secret: gitlab-secrets
+              key: RUSTFS_CREDENTIALS
       ## https://docs.gitlab.com/charts/charts/gitlab/webservice
       #   webservice:
       #     enabled: false
