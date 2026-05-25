@@ -48,7 +48,7 @@ spec:
         enabled: true
         globalMounts:
           - path: /data
-        type: PersistentVolumeClaim
+        type: persistentVolumeClaim
         accessMode: ReadWriteMany
         storageClass: ceph-filesystem
         size: 60Gi
