@@ -126,7 +126,7 @@ spec:
                   port: http
         tls:
           - hosts:
-              - photos.sparks.codes
+              - home.sparks.codes
             secretName: acme-crt-secret-sparks-codes
       code:
         enabled: true

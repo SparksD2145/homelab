@@ -15,6 +15,7 @@ pkgs.mkShell {
     ansible
     opentofu
     ipmitool
+    minio-client
 
     # Utilities
     gitleaks

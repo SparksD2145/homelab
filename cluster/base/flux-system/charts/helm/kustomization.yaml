@@ -8,6 +8,7 @@ resources:
   - blakeshome-charts.yaml
   - coredns-charts.yaml
   - cilium-charts.yaml
+  - cnpg-charts.yaml
   - deliveryhero-charts.yaml
   - descheduler-charts.yaml
   - emqx-charts.yaml
