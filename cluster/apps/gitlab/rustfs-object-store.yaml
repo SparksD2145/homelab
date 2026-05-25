@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: rustfs/rustfs
-              tag: "latest"
+              tag: "1.0.0-beta.4"
             env:
               TZ: "America/Chicago"
               RUSTFS_CONSOLE_ENABLE: false
