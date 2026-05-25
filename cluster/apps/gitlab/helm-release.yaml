@@ -1549,7 +1549,11 @@ spec:
             app: gitaly
         ## https://docs.gitlab.com/charts/charts/gitlab/migrations
         migrations:
-          enabled: false
+          enabled: true
+        objectStorage:
+          config:
+            secret: gitlab-secrets
+            key: RUSTFS_CREDENTIALS
       ## https://docs.gitlab.com/charts/charts/gitlab/webservice
       #   webservice:
       #     enabled: false
