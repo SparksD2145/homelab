@@ -177,7 +177,7 @@ spec:
         database: gitlab
         # applicationName:
         # preparedStatements: false
-        # databaseTasks: true
+        databaseTasks: true
         main: {}
           # host: postgresql.hostedsomewhere.else
           # port: 123
