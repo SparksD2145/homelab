@@ -6,4 +6,6 @@ resources:
   - ingress.yaml
   - ssh-tcproute.yaml
   - postgres-db.yaml
+  - rustfs-object-store.yaml
   - valkey-db.yaml
+  - secret.sops.yaml

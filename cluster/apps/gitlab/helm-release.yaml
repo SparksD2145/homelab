@@ -391,14 +391,14 @@ spec:
 
         ## https://docs.gitlab.com/charts/charts/globals#lfs-artifacts-uploads-packages-external-mr-diffs-and-dependency-proxy
         object_store:
-          enabled: false
+          enabled: true
           proxy_download: true
           storage_options: {}
             # server_side_encryption:
             # server_side_encryption_kms_key_id
-          connection: {}
-            # secret:
-            # key:
+          connection:
+            secret: gitlab-secrets
+            key: RUSTFS_CREDENTIALS
         lfs:
           enabled: true
           proxy_download: true
@@ -426,21 +426,21 @@ spec:
           bucket: gitlab-packages
           connection: {}
         externalDiffs:
-          enabled: false
+          enabled: true
           when:
           proxy_download: true
           bucket: gitlab-mr-diffs
           connection: {}
         terraformState:
-          enabled: false
+          enabled: true
           bucket: gitlab-terraform-state
           connection: {}
         ciSecureFiles:
-          enabled: false
+          enabled: true
           bucket: gitlab-ci-secure-files
           connection: {}
         dependencyProxy:
-          enabled: false
+          enabled: true
           proxy_download: true
           bucket: gitlab-dependency-proxy
           connection: {}
