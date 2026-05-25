@@ -168,7 +168,7 @@ spec:
         keepalivesCount:
         tcpUserTimeout:
         password:
-          secret: postgres.gitlab-postgres.credentials.postgresql.acid.zalan.do
+          secret: postgres.gitlab-postgresql.credentials.postgresql.acid.zalan.do
           key: password
           # file:
         host: gitlab-postgres.gitlab.svc.cluster.local
