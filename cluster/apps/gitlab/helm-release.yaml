@@ -173,7 +173,7 @@ spec:
           # file:
         host: gitlab-postgres.gitlab.svc.cluster.local
         port: 5432
-        username: gitlab
+        username: postgres
         database: gitlab
         # applicationName:
         # preparedStatements: false
