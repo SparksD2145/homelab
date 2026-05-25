@@ -270,7 +270,7 @@ spec:
 
       ## https://docs.gitlab.com/charts/charts/globals#configure-minio-settings
       minio:
-        enabled: true
+        enabled: false
         credentials: {}
           # secret:
 
@@ -1021,11 +1021,6 @@ spec:
         apiVersion: "" # newer apiVersion: "traefik.io/v1alpha1"
 
     ## End of global
-
-    minio:
-      persistence:
-        storageClass: ceph-block
-        size: 60Gi
 
     upgradeCheck:
       enabled: true
