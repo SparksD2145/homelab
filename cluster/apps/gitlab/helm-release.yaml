@@ -168,12 +168,12 @@ spec:
         keepalivesCount:
         tcpUserTimeout:
         password:
-          secret: postgres.gitlab-postgresql.credentials.postgresql.acid.zalan.do
+          secret: gitlab.gitlab-postgresql.credentials.postgresql.acid.zalan.do
           key: password
           # file:
         host: gitlab-postgresql.gitlab.svc.cluster.local
         port: 5432
-        username: postgres
+        username: gitlab
         database: gitlab
         # applicationName:
         # preparedStatements: false
