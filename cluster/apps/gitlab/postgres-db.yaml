@@ -21,7 +21,7 @@ spec:
   users:
     gitlab: []
   databases:
-    gitlab: gitlab
+    gitlab: postgres
   patroni:
     pg_hba:
       - local   all             all                                   trust
@@ -31,6 +31,7 @@ spec:
       - host    all             all                 ::1/128           md5
       - local   replication     standby                               trust
       - hostssl replication     standby             all               md5
+      - hostnossl all           +zalandos           all               pam
       - hostnossl all           all                 all               md5
       - hostssl all             +zalandos           all               pam
       - hostssl all             all                 all               md5
