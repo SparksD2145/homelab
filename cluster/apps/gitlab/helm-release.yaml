@@ -171,7 +171,7 @@ spec:
           secret: postgres.gitlab-postgresql.credentials.postgresql.acid.zalan.do
           key: password
           # file:
-        host: gitlab-postgresql.gitlab.svc.cluster.local
+        host: gitlab-postgresql-repl.gitlab.svc.cluster.local
         port: 5432
         username: postgres
         database: gitlab
