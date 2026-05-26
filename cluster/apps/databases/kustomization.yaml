@@ -5,4 +5,5 @@ resources:
   - mariadb
   # - mongodb
   - postgresql
+  - postgresql-cnpg
   - valkey
