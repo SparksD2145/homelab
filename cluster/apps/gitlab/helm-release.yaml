@@ -173,28 +173,29 @@ spec:
           key: password
           # file:
         host: gitlab-postgresql.gitlab.svc.cluster.local
-        port: 5432
+        # port: 5432
         username: postgres
         database: gitlab
         # applicationName:
         # preparedStatements: false
         databaseTasks: true
-        main:
-          # host: postgresql.hostedsomewhere.else
-          # port: 123
-          # username: gitlab
-          database: gitlab
-          # applicationName:
-          # preparedStatements: false
-          # databaseTasks: true
-        ci:
-          # host: postgresql.hostedsomewhere.else
-          # port: 123
-          # username: gitlab
-          database: gitlab_ci
-          # applicationName:
-          # preparedStatements: false
-          # databaseTasks: false
+        sslmode: disable
+        # main:
+        #   # host: postgresql.hostedsomewhere.else
+        #   # port: 123
+        #   # username: gitlab
+        #   database: gitlab
+        #   # applicationName:
+        #   # preparedStatements: false
+        #   # databaseTasks: true
+        # ci:
+        #   # host: postgresql.hostedsomewhere.else
+        #   # port: 123
+        #   # username: gitlab
+        #   database: gitlab_ci
+        #   # applicationName:
+        #   # preparedStatements: false
+        #   # databaseTasks: false
 
       ## https://docs.gitlab.com/charts/charts/globals#configure-redis-settings
       redis:
