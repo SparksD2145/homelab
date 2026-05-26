@@ -179,19 +179,19 @@ spec:
         # applicationName:
         # preparedStatements: false
         databaseTasks: true
-        main: {}
+        main:
           # host: postgresql.hostedsomewhere.else
           # port: 123
           # username: gitlab
-          # database: gitlabhq_production
+          database: gitlab
           # applicationName:
           # preparedStatements: false
           # databaseTasks: true
-        ci: {}
+        ci:
           # host: postgresql.hostedsomewhere.else
           # port: 123
           # username: gitlab
-          # database: gitlabhq_production_ci
+          database: gitlab_ci
           # applicationName:
           # preparedStatements: false
           # databaseTasks: false

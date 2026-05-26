@@ -22,6 +22,7 @@ spec:
     gitlab: []
   databases:
     gitlab: postgres
+    gitlab_ci: postgres
   patroni:
     pg_hba:
       - local   all             all                                   trust
