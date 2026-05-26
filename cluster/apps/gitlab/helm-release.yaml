@@ -179,7 +179,6 @@ spec:
         # applicationName:
         # preparedStatements: false
         databaseTasks: true
-        sslmode: disable
         # main:
         #   # host: postgresql.hostedsomewhere.else
         #   # port: 123
