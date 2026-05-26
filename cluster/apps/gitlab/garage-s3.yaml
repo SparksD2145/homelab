@@ -21,22 +21,22 @@ spec:
         containers:
           main:
             image:
-              repository: rustfs/rustfs
-              tag: "1.0.0-beta.4"
+              repository: dxflrs/garage
+              tag: "v2.3.0"
             env:
               TZ: "America/Chicago"
               RUSTFS_CONSOLE_ENABLE: false
               RUSTFS_SERVER_DOMAINS: iwrite.software
-              RUSTFS_ACCESS_KEY:
+              GARAGE_DEFAULT_ACCESS_KEY:
                 valueFrom:
                   secretKeyRef:
                     name: gitlab-secrets
-                    key: RUSTFS_ACCESS_KEY
-              RUSTFS_SECRET_KEY:
+                    key: GARAGE_DEFAULT_ACCESS_KEY
+              GARAGE_DEFAULT_SECRET_KEY:
                 valueFrom:
                   secretKeyRef:
                     name: gitlab-secrets
-                    key: RUSTFS_SECRET_KEY
+                    key: GARAGE_DEFAULT_SECRET_KEY
     service:
       main:
         controller: main
