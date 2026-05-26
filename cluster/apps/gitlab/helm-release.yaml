@@ -168,6 +168,7 @@ spec:
         keepalivesCount:
         tcpUserTimeout:
         password:
+          useSecret: true
           secret: postgres.gitlab-postgresql.credentials.postgresql.acid.zalan.do
           key: password
           # file:
