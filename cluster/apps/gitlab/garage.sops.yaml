@@ -1,0 +1,24 @@
+apiVersion: v1
+stringData:
+    GARAGE_DEFAULT_ACCESS_KEY: ENC[AES256_GCM,data:HTHTRTniRmLeOdKPEC/WFg==,iv:GsYo36BFw5lSbkdAAz4Q0NmY/gzcTuRu2UKRRuHymps=,tag:+re4Ebr4cMWfnQP+5gXDdA==,type:str]
+    GARAGE_DEFAULT_SECRET_KEY: ENC[AES256_GCM,data:nLvvT9VNfnSIzXhvtEPbBQ==,iv:kNDNVc7bsju7r/R+F2QoiOcV1cnQVi3x8acq7QkYiw0=,tag:ifYFwzC56VcGjvv1ZGnzDA==,type:str]
+    GARAGE_DEFAULT_BUCKET: ENC[AES256_GCM,data:LaFla1gvXXE2WQW4Tv4=,iv:Xef41lezKUyQFq1fdStIhVQeHFjKSAuLUwhx9We79EE=,tag:d1+f/leKCPMQUGwOiz6a4Q==,type:str]
+kind: Secret
+metadata:
+    name: gitlab-garage-secrets
+    namespace: gitlab
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA0MXN4SnU3ZTN2bEgwbm5L
+            aE1qZExmMDJUeDJvalJZWE1mU1BPblBrN1NJCk1nV3U4TGp0d3M5d2YzeGdROUM2
+            VUxremVVWllONVU2bzJodk50NklBUFEKLS0tIHZmZXppMXAvT3N6QlYzbDdsWnFs
+            QUlwZndKNG1meTJZUHZBSTdHYVRBQ1EK6GO15QnFvo9Z68Ix6rExNfjjVFYoInWv
+            pWxGJtH+nepwjzP5hMvhPxvQ8p4gVAjaRgkkucbQnlpSyYFd8tY91w==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-05-28T18:30:14Z"
+    mac: ENC[AES256_GCM,data:yKcN5lh3dVeOUUirazQrfMWYta2zwy/gbsgo+mb9KwmzjUxHaUETE6FXK1alLU3IG2qf5pRP5oAqnsm88peuVjW9lFyrsf1kbDS5S4tVDKt6CWXolmjIJFxpqQC+F6obAl2RA/f/1rdd6U/CusNU4w67OI9pk2O1wCLPk9x9vuU=,iv:cDuYWw55FODQUm3TFqGzABzF+ThBkJqowmX4rFYKRnI=,tag:p1IXL6h/2fnpxEIBu31GdQ==,type:str]
+    version: 3.13.0
