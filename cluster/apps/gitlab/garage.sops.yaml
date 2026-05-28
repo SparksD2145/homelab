@@ -3,6 +3,9 @@ stringData:
     GARAGE_DEFAULT_ACCESS_KEY: ENC[AES256_GCM,data:HTHTRTniRmLeOdKPEC/WFg==,iv:GsYo36BFw5lSbkdAAz4Q0NmY/gzcTuRu2UKRRuHymps=,tag:+re4Ebr4cMWfnQP+5gXDdA==,type:str]
     GARAGE_DEFAULT_SECRET_KEY: ENC[AES256_GCM,data:nLvvT9VNfnSIzXhvtEPbBQ==,iv:kNDNVc7bsju7r/R+F2QoiOcV1cnQVi3x8acq7QkYiw0=,tag:ifYFwzC56VcGjvv1ZGnzDA==,type:str]
     GARAGE_DEFAULT_BUCKET: ENC[AES256_GCM,data:LaFla1gvXXE2WQW4Tv4=,iv:Xef41lezKUyQFq1fdStIhVQeHFjKSAuLUwhx9We79EE=,tag:d1+f/leKCPMQUGwOiz6a4Q==,type:str]
+    GARAGE_RPC_SECRET: ENC[AES256_GCM,data:wS0eOKHhoHZRyIrg2Rdvh1WV17BOfyoYyBl6SV0rBF6D25D6EIo3R4e1ftRgytImKuLSFJO0wO+ns7NM28pShQ==,iv:YJnF+l4qaCLmVPnx6/HM0VNAWA7yoUM0pQDKTygRKWQ=,tag:eJTf89dRJKuoumY1kzyzmg==,type:str]
+    GARAGE_ADMIN_TOKEN: ENC[AES256_GCM,data:Sz2GFm8DZwmVokbLGP7E+eCI1a/fyPKTBp5LEDQOjCmEpC5RoDHBZNcHsH4=,iv:sVRSUi09XwIBV9T7J3JXbmF1/fhpeuuIusPHs3dVhKY=,tag:XGUtlMmOUo0NQW5fIxCpRw==,type:str]
+    GARAGE_METRICS_TOKEN: ENC[AES256_GCM,data:KGg+9b0LL00ytSWm4tie4kzm6wHg9Lw3M2VBZwZLpzlC17wjdHZqVHOdAEc=,iv:8vHAqhx0HVv0EPUABmCWElAjrE1Z8plhVAFAhWFCbkY=,tag:rhpqHfqfGCunwNDEeXR0dg==,type:str]
 kind: Secret
 metadata:
     name: gitlab-garage-secrets
@@ -19,6 +22,6 @@ sops:
             -----END AGE ENCRYPTED FILE-----
           recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
     encrypted_regex: ^(data|stringData)$
-    lastmodified: "2026-05-28T18:30:14Z"
-    mac: ENC[AES256_GCM,data:yKcN5lh3dVeOUUirazQrfMWYta2zwy/gbsgo+mb9KwmzjUxHaUETE6FXK1alLU3IG2qf5pRP5oAqnsm88peuVjW9lFyrsf1kbDS5S4tVDKt6CWXolmjIJFxpqQC+F6obAl2RA/f/1rdd6U/CusNU4w67OI9pk2O1wCLPk9x9vuU=,iv:cDuYWw55FODQUm3TFqGzABzF+ThBkJqowmX4rFYKRnI=,tag:p1IXL6h/2fnpxEIBu31GdQ==,type:str]
+    lastmodified: "2026-05-28T18:38:30Z"
+    mac: ENC[AES256_GCM,data:xzpqKkCLam7aGzwXogSwS4WiKXaH7waoOvvdY8JSclugbFa+zJ/LMVYsDTaVcwn701MMjbptVozzC9h1MoomoC9NLKc6ZsxNS2CGPGD8VosULPqjfjFA2xq9YqGc3Y+03CN3SGtYxD4yTP+hWHPOW3W64+OzxcWnNy3OANS3UIg=,iv:h0g5RkEVSYTsBHMcNR6klgxemXPy1AqtMiswnLP1AvM=,tag:Lqq6mvWVVGvlXjFrABqTmA==,type:str]
     version: 3.13.0
