@@ -19,17 +19,17 @@
           }
           {
             name = "gitlab";
-            url = "https://gitlab.iwrite.software/sparks/homelab.git";
+            url = "https://git.iwrite.software/sparks/homelab.git";
             branches.main.name = "master";
             poller.period = 30; # Poll every 30 seconds
-            auth.access_token_path = "/run/secrets/comin/glab_token";
+            auth.access_token_path = "/run/secrets/comin/forgejo_token";
           }
         ];
       };
 
       sops = {
         secrets."comin/gh_token" = { };
-        secrets."comin/glab_token" = { };
+        secrets."comin/forgejo_token" = { };
       };
     };
 }
