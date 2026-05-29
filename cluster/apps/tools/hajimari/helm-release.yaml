@@ -42,9 +42,9 @@ spec:
           - ai
           - auth
           - databases
+          - development
           - finance
           - games
-          - gitlab
           - kube-system
           - home
           - media
