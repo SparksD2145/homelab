@@ -56,7 +56,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/appName: "Forgejo"
           hajimari.io/info: Code repository
-          hajimari.io/icon: "forgejo"
+          hajimari.io/icon: "code-braces-box"
           hajimari.io/targetBlank: "true"
         hosts:
           - host: git.iwrite.software
