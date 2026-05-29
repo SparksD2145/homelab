@@ -106,12 +106,12 @@ resource "opnsense_unbound_host_alias" "svc-frigate-sparks-codes" {
   domain      = "sparks.codes"
 }
 
-resource "opnsense_unbound_host_alias" "svc-gitlab-iwrite-software" {
+resource "opnsense_unbound_host_alias" "svc-git-iwrite-software" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
   enabled     = true
-  description = "Gitlab"
-  hostname    = "gitlab"
+  description = "Forgejo"
+  hostname    = "git"
   domain      = "iwrite.software"
 }
 

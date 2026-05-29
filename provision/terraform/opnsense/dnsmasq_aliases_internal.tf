@@ -17,7 +17,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "emqx-dashboard.sparks.codes",
     "esphome.sparks.codes",
     "frigate.sparks.codes",
-    "gitlab.sparks.codes",
+    "git.sparks.codes",
     "home.sparks.codes",
     "media.sparks.codes",
     "metube.sparks.codes",
