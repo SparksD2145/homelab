@@ -1,0 +1,106 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo
+  namespace: development
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/library/common/values.schema.json
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [10000]
+        seccompProfile: { type: RuntimeDefault }
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: codeberg.org/forgejo/forgejo
+              tag: 15.0.2-rootless
+            env:
+              TZ: "America/Chicago"
+              USER_UID: 1000
+              USER_GID: 1000
+            # envFrom:
+            #   - secretRef:
+            #       name: gitlab-garage-secrets
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 3000
+          ssh:
+            port: 22
+    ingress:
+      main:
+        enabled: true
+        className: "cloudflare-tunnel"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Forgejo"
+          hajimari.io/info: Code repository
+          hajimari.io/icon: "gitlab"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: git.iwrite.software
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - secretName: acme-crt-secret-iwrite-software
+            hosts:
+              - git.iwrite.software
+      internal:
+        enabled: true
+        className: "traefik"
+        annotations:
+          hajimari.io/enable: "false"
+        hosts:
+          - host: git.iwrite.software
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - git.iwrite.software
+            secretName: acme-crt-secret-iwrite-software
+    persistence:
+      config:
+        enabled: true
+        type: secret
+        name: forgejo-secrets
+        globalMounts:
+          - path: /var/lib/gitea/custom/conf/app.ini
+            subPath: app.ini
+            readOnly: true
+      data:
+        enabled: true
+        globalMounts:
+          - path: /var/lib/gitea/data
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 250Gi
