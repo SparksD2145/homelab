@@ -99,7 +99,7 @@ spec:
       data:
         enabled: true
         globalMounts:
-          - path: /var/lib/gitea/data
+          - path: /var/lib/gitea
         type: persistentVolumeClaim
         accessMode: ReadWriteMany
         storageClass: ceph-filesystem
