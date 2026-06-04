@@ -111,16 +111,7 @@ resource "opnsense_unbound_host_alias" "svc-git-iwrite-software" {
 
   enabled     = true
   description = "Forgejo"
-  hostname    = "git"
-  domain      = "iwrite.software"
-}
-
-resource "opnsense_unbound_host_alias" "svc-registry-iwrite-software" {
-  override = opnsense_unbound_host_override.lb-internal-services.id
-
-  enabled     = true
-  description = "Gitlab Registry"
-  hostname    = "registry"
+  hostname    = "forgejo"
   domain      = "iwrite.software"
 }
 

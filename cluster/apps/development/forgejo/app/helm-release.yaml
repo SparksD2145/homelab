@@ -55,11 +55,11 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/appName: "Forgejo"
-          hajimari.io/info: Code repository
+          hajimari.io/info: Code Repository
           hajimari.io/icon: "code-braces-box"
           hajimari.io/targetBlank: "true"
         hosts:
-          - host: git.iwrite.software
+          - host: forgejo.iwrite.software
             paths:
               - path: "/"
                 pathType: "Prefix"
@@ -69,14 +69,14 @@ spec:
         tls:
           - secretName: acme-crt-secret-iwrite-software
             hosts:
-              - git.iwrite.software
+              - forgejo.iwrite.software
       internal:
         enabled: true
         className: "traefik"
         annotations:
           hajimari.io/enable: "false"
         hosts:
-          - host: git.iwrite.software
+          - host: forgejo.iwrite.software
             paths:
               - path: "/"
                 pathType: "Prefix"
@@ -85,7 +85,7 @@ spec:
                   port: http
         tls:
           - hosts:
-              - git.iwrite.software
+              - forgejo.iwrite.software
             secretName: acme-crt-secret-iwrite-software
     persistence:
       config:
