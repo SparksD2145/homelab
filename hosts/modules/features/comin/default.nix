@@ -19,7 +19,7 @@
           }
           {
             name = "forgejo";
-            url = "https://git.iwrite.software/sparks/homelab.git";
+            url = "https://forgejo.iwrite.software/sparks/homelab.git";
             branches.main.name = "master";
             poller.period = 30; # Poll every 30 seconds
             auth.access_token_path = "/run/secrets/comin/forgejo_token";
