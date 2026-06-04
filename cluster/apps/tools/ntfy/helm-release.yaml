@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: binwiederhier/ntfy
-              tag: "v2.23"
+              tag: "v2.24"
             env:
               TZ: America/Chicago
             args:
