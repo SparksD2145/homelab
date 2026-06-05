@@ -20,7 +20,7 @@
       self.nixosModules.hosts-power-management
 
       # K3s
-      self.nixosModules.k3s-agent
+      # self.nixosModules.k3s-agent
     ];
   };
 }
