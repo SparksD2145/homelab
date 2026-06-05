@@ -4,7 +4,7 @@
     { config, lib, ... }:
     {
       services.k3s = {
-        enable = true;
+        enable = false;
         role = "server";
         tokenFile = config.sops.secrets."k3s/node-token".path;
         serverAddr = "https://10.10.1.11:6443";

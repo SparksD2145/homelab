@@ -5,7 +5,7 @@
     {
       # K3s agent configuration
       services.k3s = {
-        enable = true;
+        enable = false;
         role = "agent";
         serverAddr = "https://10.10.1.11:6443";
         tokenFile = config.sops.secrets."k3s/node-token".path;

@@ -5,7 +5,7 @@
     {
       # K3s server configuration for the master node.
       services.k3s = {
-        enable = true;
+        enable = false;
         role = "server";
         tokenFile = config.sops.secrets."k3s/node-token".path;
 
