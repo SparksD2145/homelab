@@ -20,9 +20,9 @@
       self.nixosModules.hosts-power-management
 
       # K3s
-      # self.nixosModules.k3s-agent
-      # self.nixosModules.k3s-gpu-intel
-      # self.nixosModules.k3s-coral
+      self.nixosModules.k3s-agent
+      self.nixosModules.k3s-gpu-intel
+      self.nixosModules.k3s-coral
     ];
   };
 }
