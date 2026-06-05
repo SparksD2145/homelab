@@ -6,6 +6,9 @@ metadata:
   namespace: rook-ceph
 spec:
   interval: 15m
+  dependsOn:
+    - name: rook-ceph-operator
+    - name: rook-ceph-csi
   chart:
     spec:
       # renovate: registryUrl=https://charts.rook.io/release
