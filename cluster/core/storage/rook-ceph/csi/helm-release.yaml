@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: rook-ceph-csi
+  name: rook-ceph-csi-drivers
   namespace: rook-ceph
 spec:
   interval: 15m
@@ -11,11 +11,11 @@ spec:
   chart:
     spec:
       # renovate: registryUrl=https://charts.rook.io/release
-      chart: rook-ceph
+      chart: ceph-csi-drivers
       version: v1.20.0
       sourceRef:
         kind: HelmRepository
-        name: rook-charts
+        name: rook-ceph-csi-charts
         namespace: flux-system
       interval: 15m
   values:
