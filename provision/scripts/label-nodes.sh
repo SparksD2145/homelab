@@ -14,6 +14,6 @@ kubectl label node tango node-role.kubernetes.io/gpu=true
 kubectl label node beta node-role.kubernetes.io/gpu=true
 
 # Lambda
-kubectl label node lambda services/gaming=true
-kubectl label node lambda services/minecraft=true
-kubectl taint node lambda minecraft-dedicated=true:NoSchedule
+# kubectl label node lambda services/gaming=true
+# kubectl label node lambda services/minecraft=true
+# kubectl taint node lambda minecraft-dedicated=true:NoSchedule

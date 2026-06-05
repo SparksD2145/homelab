@@ -1,0 +1,20 @@
+---
+- hosts: nixos
+  become: true
+  tasks:
+    - name: DELETE K3s REPO
+      ansible.builtin.file:
+        path: /var/lib/rancher
+        state: absent
+    - name: DELETE Kube REPO
+      ansible.builtin.file:
+        path: /var/lib/kubernetes
+        state: absent
+    - name: DELETE Kube REPO
+      ansible.builtin.file:
+        path: /var/lib/kubelet
+        state: absent
+    - name: DELETE ROOK
+      ansible.builtin.file:
+        path: /var/lib/rook
+        state: absent
