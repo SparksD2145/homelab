@@ -8,7 +8,7 @@ spec:
   interval: 15m
   dependsOn:
     - name: rook-ceph-operator
-    - name: rook-ceph-csi-drivers
+    # - name: rook-ceph-csi-drivers
   chart:
     spec:
       # renovate: registryUrl=https://charts.rook.io/release
