@@ -20,7 +20,7 @@
       self.nixosModules.hosts-power-management
 
       # K3s
-      # self.nixosModules.k3s-server-master
+      self.nixosModules.k3s-server-master
     ];
   };
 }
