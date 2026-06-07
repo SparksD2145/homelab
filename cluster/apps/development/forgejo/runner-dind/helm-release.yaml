@@ -1,0 +1,167 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo-runner
+  namespace: development
+spec:
+  interval: 15m
+  # dependsOn:
+  #   - name: forgejo
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/library/common/values.schema.json
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [10000]
+        seccompProfile: { type: RuntimeDefault }
+    controllers:
+      main:
+        initContainers:
+          # create-runner-user:
+          #   image:
+          #     repository: codeberg.org/forgejo/forgejo
+          #     tag: 15.0.2-rootless
+          #   env:
+          #     TZ: "America/Chicago"
+          #     USER_UID: 1000
+          #     USER_GID: 1000
+          #   command:
+          #     - bash
+          #   args:
+          #     - -c
+          #     - >-
+          #       userlist=$(forgejo admin user list | awk 'NR > 1 {print $2}');
+          #       if [[ "${userlist[@]}" =~ "actions-runner" ]]; then
+          #         echo "Actions user found! Aborting user registration.";
+          #         exit 0;
+          #       else
+          #         echo "Actions user not found! Initializing user registration.";
+          #         forgejo admin user create --username actions-runner --email 'actions@forgejo.iwrite.software' --password $(cat /var/lib/forgejo-actions-passwd) && exit 0;
+          #         exit $?;
+          #       fi
+
+          register-runner:
+            image:
+              repository: codeberg.org/forgejo/forgejo
+              tag: 15.0.2-rootless
+            env:
+              TZ: "America/Chicago"
+              USER_UID: 1000
+              USER_GID: 1000
+            command:
+              - bash
+            args:
+              - -c
+              - >-
+                if [ -f "/var/lib/actions/actions-runner-secret" ]; then
+                  echo "Runner already registered." ;
+                else
+                  forgejo forgejo-cli actions generate-secret > /var/lib/actions/actions-runner-secret ;
+                  forgejo forgejo-cli actions register --name "actions-runner" --secret-file /var/lib/actions/actions-runner-secret > /var/lib/actions/actions-runner-uuid ;
+                  echo "Runner Registered!";
+                fi;
+
+                cp /var/lib/actions/config.tmpl.yaml /var/lib/actions/config.yaml ;
+                sed -i "s/<RUNNER_TOKEN>/$(cat /var/lib/actions/actions-runner-secret)/" /var/lib/actions/config.yaml ;
+                sed -i "s/<RUNNER_UUID>/$(cat /var/lib/actions/actions-runner-uuid)/" /var/lib/actions/config.yaml ;
+
+        containers:
+          docker-in-docker:
+            securityContext:
+              runAsNonRoot: false
+              privileged: true
+              runAsUser: 0
+              runAsGroup: 0
+            image:
+              repository: code.forgejo.org/oci/docker
+              tag: dind
+            command: ["dockerd", "-H", "tcp://0.0.0.0:2376", "--tls=false"]
+            env: []
+              # DOCKER_TLS_CERTDIR: /certs
+
+          runner-daemon:
+            image:
+              repository: data.forgejo.org/forgejo/runner
+              tag: 12.10.2
+            env:
+              DOCKER_HOST: tcp://0.0.0.0:2376
+              # DOCKER_CERT_PATH: /certs/client
+              # DOCKER_TLS_VERIFY: "1"
+            command:
+              - bash
+            args:
+              - -c
+              - >-
+                sleep 30;
+                forgejo-runner daemon --config /var/lib/actions/config.yaml ;
+
+    service:
+      runner:
+        controller: main
+        ports:
+          http:
+            port: 3000
+          ssh:
+            port: 22
+    persistence:
+      runner-data:
+        enabled: true
+        globalMounts:
+          - path: /data
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 2Gi
+
+      runner-secret:
+        enabled: true
+        globalMounts:
+          - path: /var/lib/actions
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 10Mi
+
+      runner-config-template:
+        enabled: true
+        type: configMap
+        name: forgejo-runner-config-template
+        globalMounts:
+          - path: /var/lib/actions/config.tmpl.yaml
+            subPath: config.tmpl.yaml
+
+      forgejo-config:
+        enabled: true
+        type: secret
+        name: forgejo-secrets
+        globalMounts:
+          - path: /var/lib/gitea/custom/conf/app.ini
+            subPath: app.ini
+            readOnly: true
+
+      forgejo-data:
+        enabled: true
+        type: persistentVolumeClaim
+        existingClaim: forgejo
+        advancedMounts:
+          main:
+            # create-runner-user:
+            #   - path: /var/lib/gitea
+            #     readOnly: false
+            register-runner:
+              - path: /var/lib/gitea
+                readOnly: false
