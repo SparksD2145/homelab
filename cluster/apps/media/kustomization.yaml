@@ -8,5 +8,5 @@ resources:
   - metube
   - navidrome
   - paperless-ngx
-  - qbittorrent
+  # - qbittorrent
   # - sftp-access
