@@ -20,5 +20,9 @@
                 }
             }
         }
-    }
+    },
+    "plugin": [
+        "opencode-snip@latest",
+        "opencode-ntfy.sh"
+    ]
 }

@@ -58,7 +58,13 @@
       enable = true;
       force = true;
       target = ".config/opencode/opencode.json";
-      source = ./dotfiles/opencode.json;
+      source = ./dotfiles/opencode/opencode.json;
+    };
+    home.file.".config/opencode/notification-ntfy.json" = {
+      enable = true;
+      force = true;
+      target = ".config/opencode/notification-ntfy.json";
+      source = ./dotfiles/opencode/opencode.json;
     };
   };
 }

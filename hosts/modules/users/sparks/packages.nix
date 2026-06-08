@@ -64,7 +64,6 @@ with pkgs;
 
   # development
   nodejs_24
-  bun
   prettier
   python3
   uv

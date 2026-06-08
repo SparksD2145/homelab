@@ -8,6 +8,8 @@ with pkgs;
 
   # development
   opencode
+  snip
+  bun
 
   # fun stuff
   obs-studio
