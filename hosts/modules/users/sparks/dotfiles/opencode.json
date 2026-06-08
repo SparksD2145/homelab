@@ -9,7 +9,7 @@
                 "baseURL": "https://ollama.sparks.codes/v1"
             },
             "models": {
-                "gemma4:e4b": {
+                "gemma4:26b-a4b-it-qat": {
                     "tools": true
                 },
                 "qwen3.5:9b": {
