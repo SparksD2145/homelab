@@ -8,6 +8,7 @@ with pkgs;
 
   # development
   opencode
+  claude-code
   snip
   bun
 
