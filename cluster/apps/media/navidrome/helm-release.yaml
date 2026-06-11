@@ -51,11 +51,7 @@ spec:
         enabled: true
         className: traefik
         annotations:
-          hajimari.io/enable: "true"
-          hajimari.io/appName: "Navidrome"
-          hajimari.io/info: "Music library"
-          hajimari.io/icon: "play-network"
-          hajimari.io/targetBlank: "true"
+          hajimari.io/enable: "false"
         hosts:
           - host: *host
             paths:
