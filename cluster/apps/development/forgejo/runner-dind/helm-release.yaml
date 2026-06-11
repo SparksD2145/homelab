@@ -87,9 +87,9 @@ spec:
               runAsUser: 0
               runAsGroup: 0
             image:
-              repository: code.forgejo.org/oci/docker
+              repository: docker
               tag: dind
-            command: ["dockerd", "-H", "tcp://0.0.0.0:2376", "--tls=false"]
+            command: ["dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false"]
             env: []
               # DOCKER_TLS_CERTDIR: /certs
 
@@ -98,7 +98,7 @@ spec:
               repository: data.forgejo.org/forgejo/runner
               tag: 12.10.2
             env:
-              DOCKER_HOST: tcp://0.0.0.0:2376
+              DOCKER_HOST: tcp://0.0.0.0:2375
               # DOCKER_CERT_PATH: /certs/client
               # DOCKER_TLS_VERIFY: "1"
             command:
@@ -106,7 +106,7 @@ spec:
             args:
               - -c
               - >-
-                sleep 15;
+                sleep 25;
                 forgejo-runner daemon --config /var/lib/actions/config.yaml ;
 
     service:
