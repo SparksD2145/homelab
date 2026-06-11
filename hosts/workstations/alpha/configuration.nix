@@ -42,6 +42,7 @@
     packages = [
       "app.freelens.Freelens"
       "com.github.wwmm.easyeffects"
+      "io.github.wiiznokes.fan-control"
     ];
   };
 
