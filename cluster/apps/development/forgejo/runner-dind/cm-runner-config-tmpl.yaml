@@ -208,7 +208,7 @@ data:
       # If it's a url, the specified docker host will be mounted in the job container
       # Example urls: unix:///run/docker.socket or ssh://user@host
       # The specified socket is mounted within the job container at /var/run/docker.sock
-      docker_host: "-"
+      docker_host: "automount"
       # Pull docker image(s) even if already present
       force_pull: false
       # Rebuild local docker image(s) even if already present
