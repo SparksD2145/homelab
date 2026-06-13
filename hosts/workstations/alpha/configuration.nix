@@ -34,7 +34,6 @@
 
   environment.systemPackages = with pkgs; [
     v4l-utils
-    tailscale
   ];
 
   # Enable flatpak
@@ -45,6 +44,9 @@
       "com.github.wwmm.easyeffects"
     ];
   };
+
+  # Enable tailscale
+  services.tailscale.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
