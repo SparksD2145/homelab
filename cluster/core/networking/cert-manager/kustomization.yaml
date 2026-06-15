@@ -4,3 +4,4 @@ resources:
   - chart
   - issuers
   - certs
+  - cloudflare-certmanager.sops.yaml
