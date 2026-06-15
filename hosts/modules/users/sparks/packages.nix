@@ -63,14 +63,13 @@ with pkgs;
   ntfy-sh
 
   # development
-  nodejs_24
+  nodejs
   prettier
   python3
   uv
   go
   go-task
   gh
-  glab
   pre-commit
 
   # system call monitoring
