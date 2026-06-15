@@ -16,10 +16,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable Docker Containers
   virtualisation.docker = {
     enable = true;
   };
 
+  # Enable libvirtd + QEMU
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -32,6 +34,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Add system packages
   environment.systemPackages = with pkgs; [
     v4l-utils
   ];
