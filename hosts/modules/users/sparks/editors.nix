@@ -6,6 +6,7 @@
     programs.vim = {
       enable = true;
       defaultEditor = true;
+
       plugins = with pkgs; [
         vimPlugins.nerdtree
         vimPlugins.vim-airline
@@ -19,6 +20,7 @@
         vimPlugins.ansible-vim
         vimPlugins.vim-polyglot
       ];
+
       extraConfig = ''
 
         set nocompatible              " be iMproved, required
