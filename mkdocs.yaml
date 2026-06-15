@@ -3,11 +3,11 @@
 site_name: SparksD2145 | Home Cluster
 site_description: My home Kubernetes (k3s) cluster managed by GitOps (Flux2)
 site_author: Thomas Ibarra
-site_url: https://SparksD2145.github.io/flux-infra/
+site_url: https://SparksD2145.github.io/homelab
 
 # Repository
-repo_name: SparksD2145/flux-infra
-repo_url: https://github.com/SparksD2145/flux-infra
+repo_name: SparksD2145/homelab
+repo_url: https://github.com/SparksD2145/homelab
 edit_uri: "edit/main/docs/"
 
 theme:
