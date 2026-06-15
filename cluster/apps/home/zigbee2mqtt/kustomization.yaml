@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - helm-release.yaml
   - pvc.yaml
-  - zigbee2mqtt-secret
+  - zigbee-secret.sops.yaml
