@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home-manager.users.sparks = {
+
+    # Vim editor config
     programs.vim = {
       enable = true;
       defaultEditor = true;
@@ -37,6 +39,7 @@
       '';
     };
 
+    # VSCodium, an alternative to vscode
     programs.vscodium = {
       enable = true;
       profiles.default.extensions = with pkgs.vscode-extensions; [
@@ -50,10 +53,11 @@
         eamodio.gitlens
         christian-kohler.path-intellisense
         rust-lang.rust-analyzer
-        continue.continue
+        saoudrizwan.claude-dev
       ];
     };
 
+    # OpenCode config
     home.file.".config/opencode/opencode.json" = {
       enable = true;
       force = true;
