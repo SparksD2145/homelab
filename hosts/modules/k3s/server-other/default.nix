@@ -18,6 +18,12 @@
         ];
       };
 
+      # Add rook-ceph needed kernel modules
+      boot.kernelModules = [
+        "ceph"
+        "rbd"
+      ];
+
       # Disable the firewall to allow K3s to manage it.
       networking.firewall.enable = false;
 

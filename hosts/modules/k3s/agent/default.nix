@@ -14,6 +14,12 @@
       # Disable the firewall, as K3s will manage it.
       networking.firewall.enable = false;
 
+      # Add rook-ceph needed kernel modules
+      boot.kernelModules = [
+        "ceph"
+        "rbd"
+      ];
+
       # Workaround for rook-ceph on nixos
       systemd.services.containerd.serviceConfig = {
         LimitNOFILE = lib.mkForce null;
