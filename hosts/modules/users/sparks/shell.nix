@@ -46,7 +46,7 @@
         code = "codium";
         update = "sudo nixos-rebuild switch --flake 'github:SparksD2145/homelab'";
         fluxupdate = "git add .; git commit --amend --no-edit; git push -f; git push gitlab -f; flux reconcile kustomization flux-system --with-source;";
-
+        ollama-claude = "ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL='https://ollama.sparks.codes' claude --model 'gemma4:26b-a4b-it-qat'"
       };
       history.size = 10000;
 
