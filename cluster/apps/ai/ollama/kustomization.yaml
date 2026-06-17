@@ -6,3 +6,4 @@ resources:
   - pvc-web.yaml
   - helm-release.yaml
   - hr-open-webui.yaml
+  - tailscale-ingress.yaml

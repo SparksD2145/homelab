@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tailscale-ollama-openwebui
+  namespace: ai
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - ollama
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ollama-webui
+                port:
+                  number: 8080
