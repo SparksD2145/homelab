@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: ghcr.io/bluemap-minecraft/bluemap
-              tag: v5.20
+              tag: v5.22
             args:
               - -r
               - -u
