@@ -7,4 +7,5 @@ resources:
   - cloudflare-ingress
   # - external-dns
   - metallb
+  - tailscale
   - traefik

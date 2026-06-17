@@ -68,6 +68,7 @@ resources:
   - sonarqube-charts.yaml
   - stakater-charts.yaml
   - strrl-charts.yaml
+  - tailscale-charts.yaml
   - traefik-charts.yaml
   - vernemq-charts.yaml
   - victoriametrics-charts.yaml
