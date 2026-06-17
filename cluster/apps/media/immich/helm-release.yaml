@@ -175,9 +175,7 @@ spec:
 
       library:
         type: persistentVolumeClaim
-        accessMode: ReadWriteMany
-        size: 800Gi
-        storageClass: ceph-filesystem
+        existingClaim: local-immich-pvc
         globalMounts:
           - path: *mediaLocation
 
