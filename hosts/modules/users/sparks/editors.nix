@@ -44,6 +44,7 @@
     # VSCodium, an alternative to vscode
     programs.vscodium = {
       enable = true;
+      package = pkgs.vscodium.fhs;
       profiles.default.extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
         redhat.vscode-yaml
