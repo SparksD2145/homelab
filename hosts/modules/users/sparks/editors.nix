@@ -55,7 +55,7 @@
         eamodio.gitlens
         christian-kohler.path-intellisense
         rust-lang.rust-analyzer
-        saoudrizwan.claude-dev
+        continue.continue
       ];
     };
 
