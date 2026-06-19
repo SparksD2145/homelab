@@ -12,6 +12,9 @@
                 "gemma4:26b-a4b-it-qat": {
                     "tools": true
                 },
+                "deepseek-coder-v2:16b": {
+                    "tools": true
+                },
                 "gemma4:e4b": {
                     "tools": true
                 },
