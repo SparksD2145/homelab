@@ -5,7 +5,7 @@ metadata:
   name: tailscale-ollama-openwebui
   namespace: ai
   annotations:
-    tailscale.com/proxy-group: ollama-proxy
+    tailscale.com/proxy-group: ollama-webui-proxy
 spec:
   ingressClassName: tailscale
   tls:
@@ -21,11 +21,12 @@ spec:
                 name: ollama-webui
                 port:
                   number: 8080
+
 ---
 apiVersion: tailscale.com/v1alpha1
 kind: ProxyGroup
 metadata:
-  name: ollama-proxy
+  name: ollama-webui-proxy
   namespace: ai
 spec:
   type: ingress
@@ -38,7 +39,7 @@ metadata:
   name: tailscale-ollama-api
   namespace: ai
   annotations:
-    tailscale.com/proxy-group: ollama-proxy
+    tailscale.com/proxy-group: ollama-api-proxy
 spec:
   ingressClassName: tailscale
   tls:
@@ -54,3 +55,13 @@ spec:
                 name: ollama
                 port:
                   number: 11434
+
+---
+apiVersion: tailscale.com/v1alpha1
+kind: ProxyGroup
+metadata:
+  name: ollama-api-proxy
+  namespace: ai
+spec:
+  type: ingress
+  replicas: 1
