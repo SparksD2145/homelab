@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Define labels to apply to hosts
+# kubectl label node <node-name> <label>=<value>
+
 # rpi settings
 # kubectl taint node rpi4-poe-1 low-memory=true:NoSchedule
 # kubectl taint node rpi4-poe-2 low-memory=true:NoSchedule
