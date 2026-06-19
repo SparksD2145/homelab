@@ -10,7 +10,7 @@ spec:
   ingressClassName: tailscale
   tls:
     - hosts:
-        - ollama
+        - ollama-webui
   rules:
     - http:
         paths:
@@ -30,3 +30,27 @@ metadata:
 spec:
   type: ingress
   replicas: 1
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tailscale-ollama-api
+  namespace: ai
+  annotations:
+    tailscale.com/proxy-group: ollama-proxy
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - ollama-api
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ollama
+                port:
+                  number: 8080
