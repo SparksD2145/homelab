@@ -67,5 +67,13 @@
       target = ".config/opencode/opencode.json";
       source = ./dotfiles/opencode/opencode.json;
     };
+
+    # Continue config
+    home.file.".continue/config.yaml" = {
+      enable = true;
+      force = true;
+      target = ".continue/config.yaml";
+      source = ./dotfiles/continue/config.yaml;
+    };
   };
 }

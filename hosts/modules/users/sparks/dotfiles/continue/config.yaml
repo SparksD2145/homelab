@@ -1,0 +1,32 @@
+name: Local Config
+version: 1.0.0
+schema: v1
+models:
+  - name: "gemma4:26b-a4b-it-qat"
+    provider: ollama
+    apiBase: https://ollama.sparks.codes
+    model: gemma4:26b-a4b-it-qat
+    roles:
+      - chat
+      - edit
+      - apply
+      - autocomplete
+      - summarize
+    capabilities:
+      - tool_use
+      - image_input
+  - name: "deepseek-coder-v2:16b"
+    provider: ollama
+    apiBase: https://ollama.sparks.codes
+    model: deepseek-coder-v2:16b
+    roles:
+      - chat
+      - edit
+      - apply
+      - autocomplete
+  - name: Nomic Embed
+    provider: ollama
+    apiBase: https://ollama.sparks.codes
+    model: nomic-embed-text:latest
+    roles:
+      - embed
