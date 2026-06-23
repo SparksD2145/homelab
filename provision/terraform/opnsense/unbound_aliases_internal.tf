@@ -6,6 +6,14 @@
 #   hostname    = "auth"
 #   domain      = "sparks.codes"
 # }
+resource "opnsense_unbound_host_alias" "svc-ai-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "LiteLLM Proxy"
+  hostname    = "ai"
+  domain      = "sparks.codes"
+}
 
 resource "opnsense_unbound_host_alias" "svc-alertmanager-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
