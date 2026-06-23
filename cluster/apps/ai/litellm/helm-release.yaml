@@ -128,33 +128,33 @@ spec:
         - model_name: gemma4:26b-a4b-it-qat
           litellm_params:
             model: ollama/gemma4:26b-a4b-it-qat
-            api_base: https://ollama.sparks.codes
+            api_base: https://ollama.sparks.codes/v1
           model_info:
             supports_function_calling: true
 
         - model_name: deepseek-coder-v2:16b
           litellm_params:
             model: ollama/deepseek-coder-v2:16b
-            api_base: https://ollama.sparks.codes
+            api_base: https://ollama.sparks.codes/v1
 
         - model_name: gemma4:e4b
           litellm_params:
             model: ollama/gemma4:e4b
-            api_base: https://ollama.sparks.codes
+            api_base: https://ollama.sparks.codes/v1
           model_info:
             supports_function_calling: true
 
         - model_name: qwen3.5:9b
           litellm_params:
             model: ollama/qwen3.5:9b
-            api_base: https://ollama.sparks.codes
+            api_base: https://ollama.sparks.codes/v1
           model_info:
             supports_function_calling: true
 
         - model_name: nomic-embed-text:latest
           litellm_params:
             model: ollama/nomic-embed-text:latest
-            api_base: https://ollama.sparks.codes
+            api_base: https://ollama.sparks.codes/v1
 
       general_settings:
         master_key: os.environ/PROXY_MASTER_KEY
