@@ -31,6 +31,7 @@ spec:
               TZ: "America/Chicago"
               CUDA_ERROR_LEVEL: "50"
               NVIDIA_VISIBLE_DEVICES: "all"
+              LOCALAI_API_KEY: ${AI_LOCALAI_API_KEY}
             resources:
               requests:
                 nvidia.com/gpu: 2
