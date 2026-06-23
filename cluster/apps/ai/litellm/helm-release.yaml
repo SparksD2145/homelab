@@ -129,9 +129,8 @@ spec:
           litellm_params:
             model: ollama/gemma4:26b-a4b-it-qat
             api_base: https://ollama.sparks.codes
-            allowed_openai_params:
-              - "tools"
-              - "tool_choice"
+          model_info:
+            supports_function_calling: true
 
         - model_name: deepseek-coder-v2:16b
           litellm_params:
@@ -142,17 +141,15 @@ spec:
           litellm_params:
             model: ollama/gemma4:e4b
             api_base: https://ollama.sparks.codes
-            allowed_openai_params:
-              - "tools"
-              - "tool_choice"
+          model_info:
+            supports_function_calling: true
 
         - model_name: qwen3.5:9b
           litellm_params:
             model: ollama/qwen3.5:9b
             api_base: https://ollama.sparks.codes
-            allowed_openai_params:
-              - "tools"
-              - "tool_choice"
+          model_info:
+            supports_function_calling: true
 
         - model_name: nomic-embed-text:latest
           litellm_params:
@@ -161,10 +158,6 @@ spec:
 
       general_settings:
         master_key: os.environ/PROXY_MASTER_KEY
-
-      litellm_settings:
-        include_cost_in_streaming_usage: true
-        drop_params: true
 
     resources: {}
       # We usually recommend not to specify default resources and to leave this as a conscious
