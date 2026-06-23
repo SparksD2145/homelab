@@ -47,9 +47,7 @@
         update = "sudo nixos-rebuild switch --flake 'github:SparksD2145/homelab'";
         fluxupdate = "git add .; git commit --amend --no-edit; git push -f; git push gitlab -f; flux reconcile kustomization flux-system --with-source;";
 
-        ollama-claude = "ANTHROPIC_AUTH_TOKEN=$(jq -r '.ollama.key' ${
-          config.sops.secrets."users/sparks/opencode/auth".path
-        }) ANTHROPIC_BASE_URL='https://ai.sparks.codes' claude --model 'gemma4:26b-a4b-it-qat'";
+        ollama-claude = "ANTHROPIC_BASE_URL='https://ai.sparks.codes/anthropic' claude --model 'gemma4:26b-a4b-it-qat'";
       };
       history.size = 10000;
 
@@ -68,7 +66,10 @@
       initContent = ''
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin";
         export PATH="$PATH:$HOME/.krew/bin"
-        alias vlang=`whereis v -b | awk '{ print $2 }'`
+
+        export ANTHROPIC_AUTH_TOKEN="$(jq -r '.ollama.key' ${
+          config.sops.secrets."users/sparks/opencode/auth".path
+        })"
       '';
     };
   };
