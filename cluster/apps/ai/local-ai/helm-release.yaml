@@ -55,7 +55,7 @@ spec:
         className: traefik
         annotations:
           nginx.ingress.kubernetes.io/proxy-read-timeout: "240"
-          hajimari.io/enable: "false"
+          hajimari.io/enable: "enable"
           hajimari.io/icon: cloud-search
           hajimari.io/info: "Local AI Runner"
           hajimari.io/targetBlank: "true"
