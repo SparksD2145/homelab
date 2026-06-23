@@ -20,6 +20,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "frigate.sparks.codes",
     "forgejo.sparks.codes",
     "home.sparks.codes",
+    "local-ai.sparks.codes",
     "media.sparks.codes",
     "metube.sparks.codes",
     "monitoring.sparks.codes",
