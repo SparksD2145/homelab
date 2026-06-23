@@ -1,9 +1,10 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "autoupdate": false,
-    "model": "anthropic/gemma4:26b-a4b-it-qat",
+    "model": "ollama/gemma4:26b-a4b-it-qat",
     "provider": {
-        "anthropic": {
+        "ollama": {
+            "npm": "@ai-sdk/openai-compatible",
             "options": {
                 "baseURL": "https://ai.sparks.codes/v1"
             },
