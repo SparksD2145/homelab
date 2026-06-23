@@ -6,3 +6,4 @@ resources:
   - db-cluster.yaml
   - helm-release.yaml
   - litellm-master-secret.sops.yaml
+  - tailscale-ingress.yaml
