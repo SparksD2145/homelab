@@ -125,29 +125,29 @@ spec:
     #  Reference: https://docs.litellm.ai/docs/proxy/configs
     proxy_config:
       model_list:
-        - model_name: gemma4:26b-a4b-it-qat
+        - model_name: ollama/gemma4:26b-a4b-it-qat
           litellm_params:
-            model: ollama/gemma4:26b-a4b-it-qat
+            model: gemma4:26b-a4b-it-qat
             api_base: https://local-ai.sparks.codes/v1
 
-        - model_name: deepseek-coder-v2:16b
+        - model_name: ollama/deepseek-coder-v2:16b
           litellm_params:
-            model: ollama/deepseek-coder-v2:16b
+            model: deepseek-coder-v2:16b
             api_base: https://local-ai.sparks.codes/v1
 
-        - model_name: gemma4:e4b
+        - model_name: ollama/gemma4:e4b
           litellm_params:
-            model: ollama/gemma4:e4b
+            model: gemma4:e4b
             api_base: https://local-ai.sparks.codes/v1
 
-        - model_name: qwen3.5:9b
+        - model_name: ollama/qwen3.5:9b
           litellm_params:
-            model: ollama/qwen3.5:9b
+            model: qwen3.5:9b
             api_base: https://local-ai.sparks.codes/v1
 
-        - model_name: nomic-embed-text:latest
+        - model_name: ollama/nomic-embed-text:latest
           litellm_params:
-            model: ollama/nomic-embed-text:latest
+            model: nomic-embed-text:latest
             api_base: https://local-ai.sparks.codes/v1
 
       general_settings:
