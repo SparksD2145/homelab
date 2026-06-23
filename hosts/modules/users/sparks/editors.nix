@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home-manager.users.sparks = {
 
@@ -67,13 +67,27 @@
       target = ".config/opencode/opencode.json";
       source = ./dotfiles/opencode/opencode.json;
     };
+  };
 
-    # Continue config
-    home.file.".continue/config.yaml" = {
-      enable = true;
-      force = true;
-      target = ".continue/config.yaml";
-      source = ./dotfiles/continue/config.yaml;
-    };
+  # Continue config
+  sops.secrets."users/sparks/continue/config" = {
+    mode = "0440";
+    owner = config.users.users.sparks.name;
+    group = config.users.users.sparks.group;
+    path = "/home/sparks/.continue/config.yaml";
+    sopsFile = ./dotfiles/continue/config.sops.yaml;
+    format = "yaml";
+    key = "";
+  };
+
+  # OpenCode Authentication config
+  sops.secrets."users/sparks/opencode/auth" = {
+    mode = "0440";
+    owner = config.users.users.sparks.name;
+    group = config.users.users.sparks.group;
+    path = "/home/sparks/.local/share/opencode/auth.json";
+    sopsFile = ./dotfiles/opencode/auth.sops.json;
+    format = "json";
+    key = "";
   };
 }

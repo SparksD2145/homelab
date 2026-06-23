@@ -6,7 +6,7 @@
         "ollama": {
             "npm": "@ai-sdk/openai-compatible",
             "options": {
-                "baseURL": "https://ollama.sparks.codes/v1"
+                "baseURL": "https://ai.sparks.codes/v1"
             },
             "models": {
                 "gemma4:26b-a4b-it-qat": {

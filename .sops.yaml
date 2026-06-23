@@ -42,7 +42,7 @@ creation_rules:
           - *flux_key
 
   ## NixOS
-  - path_regex: nixos/.*\.sops\.(yaml|json|env|ini)$
+  - path_regex: hosts/.*\.sops\.(yaml|json|env|ini)$
     key_groups:
       - age:
           - *admin_sparks
