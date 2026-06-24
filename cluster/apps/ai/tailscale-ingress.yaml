@@ -42,9 +42,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: litellm
+                name: open-webui
                 port:
-                  number: 4000
+                  number: 8080
 
 ---
 apiVersion: tailscale.com/v1alpha1
