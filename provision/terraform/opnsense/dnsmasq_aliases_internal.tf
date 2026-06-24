@@ -8,6 +8,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
   alias_records = [
     # Internal Services
     "ai.sparks.codes",
+    "ai-webui.sparks.codes",
     "alertmanager.sparks.codes",
     "bambu-studio.sparks.codes",
     "books-backend.sparks.codes",
@@ -27,8 +28,6 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "navidrome.sparks.codes",
     "netboot.sparks.codes",
     "notify.sparks.codes",
-    "ollama.sparks.codes",
-    "ollama-webui.sparks.codes",
     "paperless.sparks.codes",
     "photos.sparks.codes",
     "pxe.sparks.codes",

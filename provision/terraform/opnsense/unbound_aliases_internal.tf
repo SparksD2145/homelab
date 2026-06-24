@@ -24,6 +24,15 @@ resource "opnsense_unbound_host_alias" "svc-local-ai-sparks-codes" {
   domain      = "sparks.codes"
 }
 
+resource "opnsense_unbound_host_alias" "svc-ai-webui-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "open-webui"
+  hostname    = "ai-webui"
+  domain      = "sparks.codes"
+}
+
 resource "opnsense_unbound_host_alias" "svc-alertmanager-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
@@ -318,24 +327,6 @@ resource "opnsense_unbound_host_alias" "svc-router" {
   enabled     = true
   description = "Router proxy service"
   hostname    = "router"
-  domain      = "sparks.codes"
-}
-
-resource "opnsense_unbound_host_alias" "svc-ollama" {
-  override = opnsense_unbound_host_override.lb-internal-services.id
-
-  enabled     = true
-  description = "Ollama backend"
-  hostname    = "ollama"
-  domain      = "sparks.codes"
-}
-
-resource "opnsense_unbound_host_alias" "svc-ollama-webui" {
-  override = opnsense_unbound_host_override.lb-internal-services.id
-
-  enabled     = true
-  description = "Ollama frontend"
-  hostname    = "ollama-webui"
   domain      = "sparks.codes"
 }
 

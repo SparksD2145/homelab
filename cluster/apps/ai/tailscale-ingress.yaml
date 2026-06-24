@@ -10,7 +10,31 @@ spec:
   ingressClassName: tailscale
   tls:
     - hosts:
-        - ai-services
+        - ai
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: litellm
+                port:
+                  number: 4000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tailscale-open-webui
+  namespace: ai
+  annotations:
+    tailscale.com/proxy-group: litellm-proxy
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - ai-webui
   rules:
     - http:
         paths:

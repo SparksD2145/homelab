@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - litellm
   - local-ai
+  - tailscale-ingress.yaml
