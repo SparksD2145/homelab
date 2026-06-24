@@ -164,6 +164,14 @@ spec:
         drop_params: true
         modify_params: true
 
+      router_settings:
+        additional_drop_params:
+          [
+            "tools[].custom.input_examples",
+            "tools[].input_examples",
+            "output_config",
+          ]
+
     resources: {}
       # We usually recommend not to specify default resources and to leave this as a conscious
       # choice for the user. This also increases chances charts run on environments with little
