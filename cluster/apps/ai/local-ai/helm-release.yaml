@@ -40,9 +40,30 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: local-ai-pvc
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 5Gi
+        globalMounts:
+          - path: /configuration
+      models:
+        enabled: true
+        existingClaim: local-ai-models-pvc
         globalMounts:
           - path: /models
+      backends:
+        enabled: true
+        existingClaim: local-ai-backends-pvc
+        globalMounts:
+          - path: /backends
+      data:
+        enabled: true
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 15Gi
+        globalMounts:
+          - path: /data
     service:
       main:
         controller: main

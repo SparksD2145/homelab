@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-ai-pv
+  name: local-ai-models-pv
 spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 50Gi
+    storage: 100Gi
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /opt/local-ai.sparks.codes/
+    path: /opt/local-ai.sparks.codes/models/
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -24,13 +24,13 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: local-ai-pvc
+  name: local-ai-models-pvc
   namespace: ai
 spec:
-  volumeName: local-ai-pv
+  volumeName: local-ai-models-pv
   accessModes:
     - ReadWriteOnce
   storageClassName: ""
   resources:
     requests:
-      storage: 50Gi
+      storage: 100Gi
