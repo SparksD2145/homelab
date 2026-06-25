@@ -27,7 +27,7 @@ spec:
             env:
               TZ: "America/Chicago"
               ENV: dev
-              OPENAI_API_BASE_URL: "https://ai.sparks.codes/v1"
+              OPENAI_API_BASE_URL: "https://ai.sparks.codes"
               OPENAI_API_KEY: ${AI_OPEN_WEBUI_TOKEN}
     persistence:
       config:
