@@ -17,7 +17,7 @@ spec:
     image:
       # Use "ghcr.io/berriai/litellm-database" for optimized image with database
       repository: ghcr.io/berriai/litellm-database
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
       # Overrides the image tag whose default is the chart appVersion.
       # tag: "latest"
       tag: "main-latest"
