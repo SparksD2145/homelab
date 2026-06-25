@@ -15,10 +15,7 @@
                 "deepseek-coder-v2:16b": {
                     "tools": false
                 },
-                "gemma4:e4b": {
-                    "tools": true
-                },
-                "qwen3.5:9b": {
+                "lfm2.5:8b": {
                     "tools": true
                 }
             }
