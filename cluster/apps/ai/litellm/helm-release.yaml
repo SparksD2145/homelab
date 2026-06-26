@@ -130,28 +130,40 @@ spec:
             model: openai/gemma4:26b-a4b-it-qat
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
+          model_info:
             max_tokens: 8192
+            input_cost_per_token: 0
+            output_cost_per_token: 0
 
         - model_name: deepseek-coder-v2:16b
           litellm_params:
             model: openai/deepseek-coder-v2:16b
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
+          model_info:
             max_tokens: 8192
+            input_cost_per_token: 0
+            output_cost_per_token: 0
 
         - model_name: lfm2.5:8b
           litellm_params:
             model: openai/lfm2.5:8b
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
+          model_info:
             max_tokens: 8192
+            input_cost_per_token: 0
+            output_cost_per_token: 0
 
         - model_name: nomic-embed-text:latest
           litellm_params:
             model: openai/nomic-embed-text:latest
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
+          model_info:
             max_tokens: 8192
+            input_cost_per_token: 0
+            output_cost_per_token: 0
 
       general_settings:
         master_key: os.environ/PROXY_MASTER_KEY
