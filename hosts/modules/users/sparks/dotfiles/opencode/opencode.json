@@ -10,13 +10,25 @@
             },
             "models": {
                 "gemma4:26b-a4b-it-qat": {
-                    "tools": true
+                    "tools": true,
+                    "limit": {
+                        "context": 128000,
+                        "output": 65536
+                    }
                 },
                 "deepseek-coder-v2:16b": {
-                    "tools": false
+                    "tools": false,
+                    "limit": {
+                        "context": 128000,
+                        "output": 65536
+                    }
                 },
                 "lfm2.5:8b": {
-                    "tools": true
+                    "tools": true,
+                    "limit": {
+                        "context": 128000,
+                        "output": 65536
+                    }
                 }
             }
         }

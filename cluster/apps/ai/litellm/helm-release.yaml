@@ -131,7 +131,6 @@ spec:
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
           model_info:
-            max_tokens: 8192
             input_cost_per_token: 0
             output_cost_per_token: 0
 
@@ -141,7 +140,6 @@ spec:
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
           model_info:
-            max_tokens: 8192
             input_cost_per_token: 0
             output_cost_per_token: 0
 
@@ -151,7 +149,6 @@ spec:
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
           model_info:
-            max_tokens: 8192
             input_cost_per_token: 0
             output_cost_per_token: 0
 
@@ -161,7 +158,6 @@ spec:
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
           model_info:
-            max_tokens: 8192
             input_cost_per_token: 0
             output_cost_per_token: 0
 
