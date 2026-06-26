@@ -388,7 +388,8 @@ spec:
     logLevel: INFO
 
     # Additional environment variables to be added to the deployment as a map of key-value pairs
-    envVars: {}
+    envVars:
+      DEFAULT_MAX_TOKENS: 8192
 
     # USE_DDTRACE: "true"
     # Additional environment variables to be added to the deployment as a list of k8s env vars
