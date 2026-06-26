@@ -3,7 +3,7 @@
     "autoupdate": false,
     "model": "openai/gemma4:26b-a4b-it-qat",
     "provider": {
-        "openai": {
+        "localai": {
             "npm": "@ai-sdk/openai-compatible",
             "options": {
                 "baseURL": "https://ai.sparks.codes/v1"
