@@ -64,6 +64,7 @@ with pkgs;
 
   # development
   nodejs
+  pnpm
   prettier
   python3
   uv
