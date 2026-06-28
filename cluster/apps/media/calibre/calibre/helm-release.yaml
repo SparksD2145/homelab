@@ -30,6 +30,13 @@ spec:
               PUID: "0"
               PGID: "0"
               UMASK_SET: "022"
+            resources:
+              requests:
+                cpu: 10m
+                memory: 128Mi
+              limits:
+                cpu: 50m
+                memory: 256Mi
     service:
       main:
         controller: main
