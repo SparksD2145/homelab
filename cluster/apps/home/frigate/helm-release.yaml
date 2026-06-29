@@ -40,7 +40,6 @@ spec:
             env:
               TZ: America/Chicago
               OPENAI_BASE_URL: "https://ai.sparks.codes/v1"
-              FRIGATE_OPENAI_API_KEY: ${HOME_FRIGATE_OPENAI_API_KEY}
             envFrom:
               - secretRef:
                   name: frigate-secret
