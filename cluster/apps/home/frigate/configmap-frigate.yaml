@@ -106,12 +106,14 @@ data:
       reindex: false
 
     genai:
-      provider: ollama
+      provider: openai
       # Required if provider is ollama. May also be used for an OpenAI API compatible backend with the openai provider.
-      base_url: https://ollama.sparks.codes
+      base_url: https://ai.sparks.codes/v1
       # Required if gemini or openai
-      # api_key: "frigate"
-      model: "gemma4:e4b"
+      api_key: "{FRIGATE_OPENAI_API_KEY}"
+      model: "gemma4:26b-a4b-it-qat"
+      provider_options:
+        context_size: 8192
       # Optional: The default prompt for generating descriptions. Can use replacement
       # variables like "label", "sub_label", "camera" to make more dynamic. (default: shown below)
       # prompt: "Describe the {label} in the sequence of images with as much detail as possible. Do not describe the background."

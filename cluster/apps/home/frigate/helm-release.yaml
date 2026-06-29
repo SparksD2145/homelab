@@ -39,6 +39,8 @@ spec:
               tag: 0.17.2@sha256:d4351369984d4a9e2a49ac59736f6490856a7ea11f7790040746d21496967010
             env:
               TZ: America/Chicago
+              OPENAI_BASE_URL: "https://ai.sparks.codes/v1"
+              FRIGATE_OPENAI_API_KEY: ${HOME_FRIGATE_OPENAI_API_KEY}
             envFrom:
               - secretRef:
                   name: frigate-secret
