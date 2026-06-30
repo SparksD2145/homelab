@@ -163,12 +163,19 @@ spec:
 
       general_settings:
         master_key: os.environ/PROXY_MASTER_KEY
+        user_api_key_cache_ttl: 300
         store_model_in_db: true
         store_prompts_in_spend_logs: true
 
       litellm_settings:
         drop_params: true
         modify_params: true
+        cache: true
+        enable_redis_auth_cache: true
+        cache_params:
+          type: redis
+          host: litellm-valkey.ai.svc.cluster.local
+          port: 6379
 
       router_settings:
         additional_drop_params:
