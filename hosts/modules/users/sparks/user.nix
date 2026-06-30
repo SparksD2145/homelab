@@ -11,6 +11,7 @@
     ./editors.nix
     ./ntfy.nix
     ./rclone.nix
+    ./dotfiles/opencode/opencode.nix
   ];
 
   sops.secrets."users/sparks/passwd" = {
