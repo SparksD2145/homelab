@@ -179,6 +179,7 @@ spec:
       litellm_settings:
         drop_params: true
         modify_params: true
+        check_provider_endpoint: true
         cache: true
         enable_redis_auth_cache: true
         cache_params:
