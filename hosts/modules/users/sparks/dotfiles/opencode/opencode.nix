@@ -10,6 +10,16 @@
     };
   };
 
+  home-manager.users.sparks = {
+    # OpenCode config
+    home.file.".config/opencode/oh-my-openagent.jsonc" = {
+      enable = true;
+      force = true;
+      target = ".config/opencode/oh-my-openagent.jsonc";
+      source = ./oh-my-openagent.jsonc;
+    };
+  };
+
   # OpenCode Authentication config
   sops.secrets."users/sparks/opencode/auth" = {
     mode = "0440";
