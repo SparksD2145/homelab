@@ -132,8 +132,8 @@ spec:
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
           model_info:
-            input_cost_per_token: 0
-            output_cost_per_token: 0
+            input_cost_per_token: 0.00000010
+            output_cost_per_token: 0.00000035
 
         - model_name: deepseek-coder-v2:16b
           litellm_params:
@@ -141,8 +141,8 @@ spec:
             api_base: https://local-ai.sparks.codes/v1
             api_key: ${AI_LOCALAI_API_KEY}
           model_info:
-            input_cost_per_token: 0
-            output_cost_per_token: 0
+            input_cost_per_token: 0.000000405
+            output_cost_per_token: 0.00000080
 
         - model_name: lfm2.5:8b
           litellm_params:
