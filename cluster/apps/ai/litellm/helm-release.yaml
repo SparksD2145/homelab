@@ -144,6 +144,15 @@ spec:
             input_cost_per_token: 0.000000405
             output_cost_per_token: 0.00000080
 
+        - model_name: ornith-1.0:9b
+          litellm_params:
+            model: openai/ornith-1.0-9b
+            api_base: https://local-ai.sparks.codes/v1
+            api_key: ${AI_LOCALAI_API_KEY}
+          model_info:
+            input_cost_per_token: 0
+            output_cost_per_token: 0
+
         - model_name: lfm2.5:8b
           litellm_params:
             model: openai/lfm2.5:8b
