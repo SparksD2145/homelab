@@ -6,4 +6,4 @@ resources:
   - db-cluster.yaml
   - helm-release.yaml
   - litellm-master-secret.sops.yaml
-  - valkey.yaml
+  # - valkey.yaml
