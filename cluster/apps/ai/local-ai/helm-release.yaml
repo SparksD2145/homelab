@@ -34,10 +34,10 @@ spec:
               LOCALAI_API_KEY: ${AI_LOCALAI_API_KEY}
             resources:
               requests:
-                memory: 12Gi
+                memory: 16Gi
                 nvidia.com/gpu: 2
               limits:
-                memory: 24Gi
+                memory: 32Gi
                 nvidia.com/gpu: 2
     persistence:
       config:
