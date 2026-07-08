@@ -23,6 +23,13 @@
                         "output": 65536
                     }
                 },
+                "local/gpt-oss-20b": {
+                    "tools": true,
+                    "limit": {
+                        "context": 128000,
+                        "output": 65536
+                    }
+                },
                 "local/lfm2.5:8b": {
                     "tools": true,
                     "limit": {
