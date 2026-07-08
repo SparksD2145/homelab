@@ -15,6 +15,15 @@ resource "opnsense_unbound_host_alias" "svc-ai-sparks-codes" {
   domain      = "sparks.codes"
 }
 
+resource "opnsense_unbound_host_alias" "svc-ai-router-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "9router"
+  hostname    = "ai-router"
+  domain      = "sparks.codes"
+}
+
 resource "opnsense_unbound_host_alias" "svc-local-ai-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
