@@ -15,6 +15,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable Docker Containers
+  virtualisation.docker = {
+    enable = true;
+  };
+
   # Enable flatpak
   services.flatpak = {
     enable = true;
