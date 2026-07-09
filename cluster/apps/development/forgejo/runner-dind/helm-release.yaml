@@ -57,7 +57,7 @@ spec:
           register-runner:
             image:
               repository: codeberg.org/forgejo/forgejo
-              tag: 15.0.3-rootless
+              tag: 15.0.4-rootless
             env:
               TZ: "America/Chicago"
               USER_UID: 1000
