@@ -5,56 +5,56 @@
   "agents": {
     // Main orchestrator: handles delegation and drives tasks to completion
     "sisyphus": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Deep autonomous worker: end-to-end implementation
     "hephaestus": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Strategic planner: interview mode before execution
     "prometheus": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Architecture consultant: complex design and debugging
     "oracle": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     "artistry": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     "deep": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     "quick": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Documentation and code search
     "librarian": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Fast codebase exploration
     "explore": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Visual tasks: UI/UX, images, diagrams
     "multimodal-looker": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Plan consultant: reviews and improves plans
     "metis": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Critic and reviewer
     "momus": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Continuation and long-running task handler
     "atlas": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Lightweight task executor for simple jobs
     "sisyphus-junior": {
-      "model": "localai/local/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
   },
 }
