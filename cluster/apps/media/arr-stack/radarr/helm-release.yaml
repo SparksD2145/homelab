@@ -33,7 +33,7 @@ spec:
           app:
             image:
               repository: lscr.io/linuxserver/radarr
-              tag: 6.2.1-develop
+              tag: 6.3.0-develop
             env:
               TZ: America/Chicago
               PUID: 1000
