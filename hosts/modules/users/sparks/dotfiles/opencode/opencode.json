@@ -16,6 +16,13 @@
                         "output": 65536
                     }
                 },
+                "gemma-4-12b-agentic": {
+                    "tools": true,
+                    "limit": {
+                        "context": 256000,
+                        "output": 65536
+                    }
+                },
                 "deepseek-coder-v2:16b": {
                     "tools": false,
                     "limit": {
