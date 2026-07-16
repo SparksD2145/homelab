@@ -46,9 +46,15 @@ spec:
             protocol: TCP
 
     persistence:
-      input:
-        existingClaim: immich
+      immich:
+        existingClaim: local-immich-pvc
         advancedMounts:
           main:
             main:
-              - path: /home/sftpuser/storage
+              - path: /home/sftpuser/storage/immich
+      paperless:
+        existingClaim: paperless-ngx-data
+        advancedMounts:
+          main:
+            main:
+              - path: /home/sftpuser/storage/paperless
