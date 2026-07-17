@@ -46,7 +46,7 @@
         code = "codium";
         update = "sudo nixos-rebuild switch --flake 'github:SparksD2145/homelab'";
         fluxupdate = "git add .; git commit --amend --no-edit; git push -f; git push gitlab -f; flux reconcile kustomization flux-system --with-source;";
-        blaude = "ANTHROPIC_BASE_URL='https://ai.sparks.codes' claude --model 'deepseek-coder-v2:16b'";
+        blaude = "ANTHROPIC_BASE_URL='https://local-ai.sparks.codes' claude --model 'gemma4:26b-a4b-it-qat'";
       };
       history.size = 10000;
 
@@ -67,7 +67,7 @@
         export PATH="$PATH:$HOME/.krew/bin"
 
         # Export Anthropic Token
-        export ANTHROPIC_AUTH_TOKEN="$(jq -r '.ollama.key' ${
+        export ANTHROPIC_AUTH_TOKEN="$(jq -r '.localai.key' ${
           config.sops.secrets."users/sparks/opencode/auth".path
         })"
       '';

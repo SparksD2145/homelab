@@ -1,57 +1,30 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "autoupdate": false,
-    "model": "sparks/localai/gemma4:26b-a4b-it-qat",
+    "model": "localai/gemma4:26b-a4b-it-qat",
     "provider": {
-        "sparks": {
+        "localai": {
             "npm": "@ai-sdk/openai-compatible",
             "options": {
-                "baseURL": "https://ai.sparks.codes/v1"
+                "baseURL": "https://local-ai.sparks.codes/v1"
             },
             "models": {
-                "localai/gemma4:26b-a4b-it-qat": {
+                "gemma4:26b-a4b-it-qat": {
                     "limit": {
                         "context": 128000,
                         "output": 65536
-                    },
-                    "modalities": {
-                        "input": [
-                            "text",
-                            "image"
-                        ],
-                        "output": [
-                            "text"
-                        ]
                     }
                 },
-                "localai/deepseek-coder-v2:16b": {
+                "deepseek-coder-v2:16b": {
                     "limit": {
                         "context": 128000,
                         "output": 65536
-                    },
-                    "modalities": {
-                        "input": [
-                            "text",
-                            "image"
-                        ],
-                        "output": [
-                            "text"
-                        ]
                     }
                 },
-                "localai/lfm2.5:8b": {
+                "lfm2.5:8b": {
                     "limit": {
                         "context": 128000,
                         "output": 65536
-                    },
-                    "modalities": {
-                        "input": [
-                            "text",
-                            "image"
-                        ],
-                        "output": [
-                            "text"
-                        ]
                     }
                 }
             }
