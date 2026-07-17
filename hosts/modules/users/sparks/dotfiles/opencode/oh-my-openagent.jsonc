@@ -5,56 +5,56 @@
   "agents": {
     // Main orchestrator: handles delegation and drives tasks to completion
     "sisyphus": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Deep autonomous worker: end-to-end implementation
     "hephaestus": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Strategic planner: interview mode before execution
     "prometheus": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Architecture consultant: complex design and debugging
     "oracle": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     "artistry": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     "deep": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     "quick": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Documentation and code search
     "librarian": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Fast codebase exploration
     "explore": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Visual tasks: UI/UX, images, diagrams
     "multimodal-looker": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Plan consultant: reviews and improves plans
     "metis": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Critic and reviewer
     "momus": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Continuation and long-running task handler
     "atlas": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
     // Lightweight task executor for simple jobs
     "sisyphus-junior": {
-      "model": "sparks/localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/gemma4:26b-a4b-it-qat"
     },
   },
 }
