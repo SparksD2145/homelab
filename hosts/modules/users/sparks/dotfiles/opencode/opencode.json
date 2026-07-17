@@ -1,40 +1,57 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "autoupdate": false,
-    "model": "localai/localai/gemma4:26b-a4b-it-qat",
+    "model": "sparks/localai/gemma4:26b-a4b-it-qat",
     "provider": {
-        "localai": {
+        "sparks": {
             "npm": "@ai-sdk/openai-compatible",
             "options": {
                 "baseURL": "https://ai.sparks.codes/v1"
             },
             "models": {
                 "localai/gemma4:26b-a4b-it-qat": {
-                    "tools": true,
                     "limit": {
                         "context": 128000,
                         "output": 65536
-                    }
-                },
-                "localai/gemma-4-12b-agentic": {
-                    "tools": true,
-                    "limit": {
-                        "context": 256000,
-                        "output": 65536
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image"
+                        ],
+                        "output": [
+                            "text"
+                        ]
                     }
                 },
                 "localai/deepseek-coder-v2:16b": {
-                    "tools": false,
                     "limit": {
                         "context": 128000,
                         "output": 65536
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image"
+                        ],
+                        "output": [
+                            "text"
+                        ]
                     }
                 },
                 "localai/lfm2.5:8b": {
-                    "tools": true,
                     "limit": {
                         "context": 128000,
                         "output": 65536
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image"
+                        ],
+                        "output": [
+                            "text"
+                        ]
                     }
                 }
             }
