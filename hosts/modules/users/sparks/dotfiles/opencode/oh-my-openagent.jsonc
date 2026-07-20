@@ -5,56 +5,56 @@
   "agents": {
     // Main orchestrator: handles delegation and drives tasks to completion
     "sisyphus": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Deep autonomous worker: end-to-end implementation
     "hephaestus": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Strategic planner: interview mode before execution
     "prometheus": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Architecture consultant: complex design and debugging
     "oracle": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     "artistry": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     "deep": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     "quick": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Documentation and code search
     "librarian": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Fast codebase exploration
     "explore": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Visual tasks: UI/UX, images, diagrams
     "multimodal-looker": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Plan consultant: reviews and improves plans
     "metis": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Critic and reviewer
     "momus": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Continuation and long-running task handler
     "atlas": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
+      "model": "localai/ternary-bonsai-27b"
     },
     // Lightweight task executor for simple jobs
     "sisyphus-junior": {
-      "model": "localai/gemma4:26b-a4b-it-qat"
-    },
-  },
+      "model": "localai/ternary-bonsai-27b"
+    }
+  }
 }
