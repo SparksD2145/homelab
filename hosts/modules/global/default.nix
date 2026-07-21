@@ -24,6 +24,7 @@
         ethtool
         pciutils # lspci
         usbutils # lsusb
+        acl
       ];
 
       # Allow unfree packages
