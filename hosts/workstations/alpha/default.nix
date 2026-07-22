@@ -13,6 +13,7 @@
       self.nixosModules.home-manager
       self.nixosModules.sops
       self.nixosModules.comin
+      self.nixosModules.hermes-agent
 
       # Shared Host Modules
       self.nixosModules.hosts-global
