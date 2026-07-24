@@ -25,9 +25,6 @@
     # comin, used for managing gitops configurations
     comin.url = "github:nlewo/comin";
     comin.inputs.nixpkgs.follows = "nixpkgs";
-
-    # hermes agent
-    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs =
