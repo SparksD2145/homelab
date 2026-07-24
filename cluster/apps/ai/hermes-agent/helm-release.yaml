@@ -1,0 +1,74 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: hermes-agent
+  namespace: ai
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: nousresearch/hermes-agent
+              tag: v2026.7.20
+            args:
+              - gateway
+              - run
+            env:
+              TZ: "America/Chicago"
+              HERMES_DASHBOARD: 1
+              HERMES_DASHBOARD_PORT: 8080
+            envFrom:
+              - secretRef:
+                  name: hermes-secret
+    persistence:
+      data:
+        enabled: true
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 10Gi
+        globalMounts:
+          - path: /opt/data
+    service:
+      main:
+        controller: main
+        type: ClusterIP
+        ports:
+          http:
+            port: 8080
+          gateway:
+            port: 8642
+    ingress:
+      main:
+        enabled: true
+        className: traefik
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: cloud-search
+          hajimari.io/info: "Hermes Dashboard"
+          hajimari.io/targetBlank: "true"
+        hosts:
+          - host: &host "hermes.sparks.codes"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - secretName: acme-crt-secret-sparks-codes
+            hosts:
+              - *host

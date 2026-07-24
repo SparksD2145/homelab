@@ -69,6 +69,16 @@ resource "opnsense_unbound_host_alias" "svc-books-backend-sparks-codes" {
   domain      = "sparks.codes"
 }
 
+resource "opnsense_unbound_host_alias" "svc-hermes-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "Hermes Dashboard"
+  hostname    = "hermes"
+  domain      = "sparks.codes"
+}
+
+
 resource "opnsense_unbound_host_alias" "svc-home-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 

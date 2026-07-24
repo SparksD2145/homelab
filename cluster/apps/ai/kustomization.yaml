@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - 9router
   - local-ai
+  - hermes-agent
   # - open-webui
   # - tailscale-ingress.yaml
