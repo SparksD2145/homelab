@@ -44,16 +44,6 @@
     ];
   };
 
-  fileSystems."/mnt/nvme" = {
-    device = "/dev/disk/by-id/nvme-PC401_NVMe_SK_hynix_512GB_ES82N088110102B1H";
-    fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-      "acl"
-    ];
-  };
-
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
