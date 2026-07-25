@@ -8,4 +8,5 @@ resources:
   - netboot.xyz
   - ntfy
   - openspeedtest
+  - searxng
   - shlink
