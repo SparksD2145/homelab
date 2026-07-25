@@ -340,6 +340,15 @@ resource "opnsense_unbound_host_alias" "svc-router" {
   domain      = "sparks.codes"
 }
 
+resource "opnsense_unbound_host_alias" "svc-search" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "Web search"
+  hostname    = "search"
+  domain      = "sparks.codes"
+}
+
 resource "opnsense_unbound_host_alias" "svc-speed-test" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 

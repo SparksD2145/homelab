@@ -34,6 +34,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "pxe.sparks.codes",
     "rook.sparks.codes",
     "router.sparks.codes",
+    "search.sparks.codes",
     "speed-test.sparks.codes",
     "torrents.sparks.codes",
     "unifi-dashboard.sparks.codes",
