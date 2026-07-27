@@ -11,6 +11,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "ai-webui.sparks.codes",
     "alertmanager.sparks.codes",
     "bambu-studio.sparks.codes",
+    "bambuddy.sparks.codes",
     "books-backend.sparks.codes",
     "books.sparks.codes",
     "codeserver-esphome.sparks.codes",

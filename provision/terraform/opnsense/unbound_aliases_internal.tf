@@ -6,6 +6,7 @@
 #   hostname    = "auth"
 #   domain      = "sparks.codes"
 # }
+
 resource "opnsense_unbound_host_alias" "svc-ai-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
@@ -48,6 +49,15 @@ resource "opnsense_unbound_host_alias" "svc-bambu-studio-sparks-codes" {
   enabled     = true
   description = "Bambu Studio 3d printer control"
   hostname    = "bambu-studio"
+  domain      = "sparks.codes"
+}
+
+resource "opnsense_unbound_host_alias" "svc-bambuddy-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "Bambuddy 3d printer control"
+  hostname    = "bambuddy"
   domain      = "sparks.codes"
 }
 
