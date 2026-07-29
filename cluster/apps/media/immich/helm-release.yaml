@@ -34,11 +34,7 @@ spec:
               DB_HOSTNAME: "immich-postgres-cluster-rw.media.svc.cluster.local"
               DB_PORT: 5432
               # DB_SSL_MODE: "require"
-              DB_DATABASE_NAME:
-                valueFrom:
-                  secretKeyRef:
-                    name: immich-postgres-cluster-superuser
-                    key: dbname
+              DB_DATABASE_NAME: "app"
               DB_USERNAME:
                 valueFrom:
                   secretKeyRef:
