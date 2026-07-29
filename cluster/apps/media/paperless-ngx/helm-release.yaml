@@ -33,17 +33,17 @@ spec:
               PAPERLESS_DBNAME:
                 valueFrom:
                   secretKeyRef:
-                    name: paperless-ngx-postgresql-cluster-app
+                    name: paperless-ngx-postgresql-cluster-superuser
                     key: dbname
               PAPERLESS_DBUSER:
                 valueFrom:
                   secretKeyRef:
-                    name: paperless-ngx-postgresql-cluster-app
+                    name: paperless-ngx-postgresql-cluster-superuser
                     key: username
               PAPERLESS_DBPASS:
                 valueFrom:
                   secretKeyRef:
-                    name: paperless-ngx-postgresql-cluster-app
+                    name: paperless-ngx-postgresql-cluster-superuser
                     key: password
               PAPERLESS_REDIS: "redis://paperless-ngx-redis.media.svc.cluster.local:6379"
               PAPERLESS_CONSUMPTION_DIR: /paperless/consume

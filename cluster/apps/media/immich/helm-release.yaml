@@ -37,17 +37,17 @@ spec:
               DB_DATABASE_NAME:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-postgres-cluster-app
+                    name: immich-postgres-cluster-superuser
                     key: dbname
               DB_USERNAME:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-postgres-cluster-app
+                    name: immich-postgres-cluster-superuser
                     key: username
               DB_PASSWORD:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-postgres-cluster-app
+                    name: immich-postgres-cluster-superuser
                     key: password
             envFrom:
               - configMapRef:
