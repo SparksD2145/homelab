@@ -237,10 +237,9 @@ spec:
 
         # -- Lists of shared preload libraries to add to the default ones
         shared_preload_libraries:
-          - set_user
           - pg_stat_statements
           - pg_stat_kcache
-          # - pgaudit
+          - pgaudit
 
         # -- PostgreSQL LDAP configuration (see https://cloudnative-pg.io/documentation/current/postgresql_conf/#ldap-configuration)
         ldap: {}
