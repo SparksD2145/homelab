@@ -30,11 +30,7 @@ spec:
               PAPERLESS_DBHOST: "paperless-ngx-postgresql-cluster-rw.media.svc.cluster.local"
               PAPERLESS_DBPORT: "5432"
               # PAPERLESS_DBSSLMODE: "prefer"
-              PAPERLESS_DBNAME:
-                valueFrom:
-                  secretKeyRef:
-                    name: paperless-ngx-postgresql-cluster-superuser
-                    key: dbname
+              PAPERLESS_DBNAME: "app"
               PAPERLESS_DBUSER:
                 valueFrom:
                   secretKeyRef:
