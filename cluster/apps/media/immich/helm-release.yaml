@@ -30,7 +30,7 @@ spec:
               tag: v3.0.3@sha256:c716dc20f957aafd89fa9d284a2ec63e25c9e2d8d8e87c6197d540a3dce237db
             env:
               TZ: America/Chicago
-              IMMICH_MEDIA_LOCATION: &mediaLocation /usr/src/app/upload
+              UPLOAD_LOCATION: /usr/src/app/uploads
               DB_HOSTNAME: "immich-postgres-cluster-rw.media.svc.cluster.local"
               DB_PORT: 5432
               # DB_SSL_MODE: "require"
@@ -74,7 +74,6 @@ spec:
                   name: immich-configmap
             env:
               MPLCONFIGDIR: "/cache/matplotlib"
-              IMMICH_MEDIA_LOCATION: *mediaLocation
             # resources:
             #   requests:
             #     cpu: 100m
@@ -177,7 +176,7 @@ spec:
         type: persistentVolumeClaim
         existingClaim: local-immich-pvc
         globalMounts:
-          - path: *mediaLocation
+          - path: /usr/src/app/
 
       cache:
         type: persistentVolumeClaim
