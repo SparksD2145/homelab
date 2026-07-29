@@ -176,7 +176,7 @@ spec:
         type: persistentVolumeClaim
         existingClaim: local-immich-pvc
         globalMounts:
-          - path: /usr/src/app/
+          - path: /data
 
       cache:
         type: persistentVolumeClaim
