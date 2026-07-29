@@ -31,19 +31,23 @@ spec:
             env:
               TZ: America/Chicago
               IMMICH_MEDIA_LOCATION: &mediaLocation /usr/src/app/upload
-              DB_HOSTNAME: "immich-postgres.media.svc.cluster.local"
+              DB_HOSTNAME: "immich-postgres-cluster-rw.media.svc.cluster.local"
               DB_PORT: 5432
-              DB_SSL_MODE: "require"
-              DB_DATABASE_NAME: "immich"
+              # DB_SSL_MODE: "require"
+              DB_DATABASE_NAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-postgres-cluster-app
+                    key: dbname
               DB_USERNAME:
                 valueFrom:
                   secretKeyRef:
-                    name: postgres.immich-postgres.credentials.postgresql.acid.zalan.do
+                    name: immich-postgres-cluster-app
                     key: username
               DB_PASSWORD:
                 valueFrom:
                   secretKeyRef:
-                    name: postgres.immich-postgres.credentials.postgresql.acid.zalan.do
+                    name: immich-postgres-cluster-app
                     key: password
             envFrom:
               - configMapRef:
@@ -55,7 +59,7 @@ spec:
                 memory: 256Mi
               limits:
                 cpu: 300m
-                memory: 4Gi
+                memory: 2Gi
 
       machine-learning:
         strategy: RollingUpdate

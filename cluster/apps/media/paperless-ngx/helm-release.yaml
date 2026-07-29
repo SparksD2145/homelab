@@ -27,19 +27,23 @@ spec:
               PAPERLESS_TIME_ZONE: "America/Chicago"
               PAPERLESS_URL: "https://paperless.sparks.codes"
               USERMAP_UID: 1000
-              PAPERLESS_DBNAME: paperless
-              PAPERLESS_DBHOST: "paperless-ngx-postgresql.media.svc.cluster.local"
+              PAPERLESS_DBHOST: "paperless-ngx-postgresql-cluster-rw.media.svc.cluster.local"
               PAPERLESS_DBPORT: "5432"
-              PAPERLESS_DBSSLMODE: "prefer"
+              # PAPERLESS_DBSSLMODE: "prefer"
+              PAPERLESS_DBNAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: paperless-ngx-postgres-cluster-app
+                    key: dbname
               PAPERLESS_DBUSER:
                 valueFrom:
                   secretKeyRef:
-                    name: paperless.paperless-ngx-postgresql.credentials.postgresql.acid.zalan.do
+                    name: paperless-ngx-postgres-cluster-app
                     key: username
               PAPERLESS_DBPASS:
                 valueFrom:
                   secretKeyRef:
-                    name: paperless.paperless-ngx-postgresql.credentials.postgresql.acid.zalan.do
+                    name: paperless-ngx-postgres-cluster-app
                     key: password
               PAPERLESS_REDIS: "redis://paperless-ngx-redis.media.svc.cluster.local:6379"
               PAPERLESS_CONSUMPTION_DIR: /paperless/consume
