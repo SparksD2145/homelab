@@ -30,7 +30,6 @@ spec:
               tag: v3.1.0
             env:
               TZ: America/Chicago
-              UPLOAD_LOCATION: /usr/src/app/uploads
               DB_HOSTNAME: "immich-postgres-cluster-rw.media.svc.cluster.local"
               DB_PORT: 5432
               # DB_SSL_MODE: "require"
