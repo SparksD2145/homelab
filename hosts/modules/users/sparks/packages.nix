@@ -72,6 +72,7 @@ with pkgs;
   go-task
   gh
   pre-commit
+  devenv
 
   # system call monitoring
   strace # system call monitoring
