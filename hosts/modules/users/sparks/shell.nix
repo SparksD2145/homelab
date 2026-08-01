@@ -23,6 +23,7 @@
       enableCompletion = true;
       bashrcExtra = ''
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+        eval "$(devenv hook bash)"
       '';
 
       # set some aliases, feel free to add more or remove some
@@ -64,6 +65,7 @@
       initContent = ''
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin";
         export PATH="$PATH:$HOME/.krew/bin"
+        eval "$(devenv hook zsh)"
       '';
     };
   };
