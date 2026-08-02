@@ -54,7 +54,7 @@ spec:
                 memory: 256Mi
               limits:
                 cpu: 300m
-                memory: 4Gi
+                memory: 3Gi
 
       machine-learning:
         strategy: RollingUpdate
