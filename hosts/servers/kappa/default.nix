@@ -6,10 +6,6 @@
     modules = [
       ./configuration.nix
 
-      # Disk management
-      inputs.disko.nixosModules.disko
-      ./disks.nix
-
       # Shared Host Modules
       self.nixosModules.hosts-global
       self.nixosModules.hosts-power-management

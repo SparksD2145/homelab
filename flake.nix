@@ -25,10 +25,6 @@
     # comin, used for managing gitops configurations
     comin.url = "github:nlewo/comin";
     comin.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Disko, used for managing disk layouts on hosts
-    disko.url = "github:nix-community/disko/latest";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
