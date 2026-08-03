@@ -25,7 +25,7 @@ spec:
           main:
             image:
               repository: jellyfin/jellyfin
-              tag: latest
+              tag: 10.11.11
             env:
               TZ: "America/Chicago"
               NVIDIA_VISIBLE_DEVICES: "all"
