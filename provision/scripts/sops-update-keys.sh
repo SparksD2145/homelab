@@ -1,1 +1,1 @@
-find ./hosts/ -name '*sops*.yaml' -exec sops updatekeys {} \;
+find ./hosts/ -name '*sops*' -exec sops updatekeys {} \;
