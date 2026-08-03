@@ -8,13 +8,12 @@
   ];
 
   # Use the GRUB 2 boot loader.
-  # boot.loader.grub.enable = true;
+  boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.devices = "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_mSATA_250GB_S33GNX0JA14228V"; # or "nodev" for efi only
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_mSATA_250GB_S33GNX0JA14228V"; # or "nodev" for efi only
 
   networking.hostName = "kappa"; # Define your hostname.
 
