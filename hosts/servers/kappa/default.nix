@@ -1,18 +1,14 @@
 { inputs, self, ... }:
 {
-  flake.nixosConfigurations.whiskey = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.kappa = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
 
     modules = [
       ./configuration.nix
+
       # Shared Host Modules
       self.nixosModules.hosts-global
       self.nixosModules.hosts-power-management
-
-      # K3s
-      self.nixosModules.k3s-agent
-      self.nixosModules.k3s-gpu-intel
-      self.nixosModules.k3s-coral
     ];
   };
 }

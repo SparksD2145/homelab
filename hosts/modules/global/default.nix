@@ -1,11 +1,17 @@
 {
+  self,
   ...
 }:
 {
   flake.nixosModules.hosts-global =
     { pkgs, ... }:
     {
+      # Import global modules
       imports = [
+        self.nixosModules.sops
+        self.nixosModules.comin
+        self.nixosModules.hosts-users
+        self.nixosModules.home-manager
         ./i18n.nix
         ./nixos.nix
       ];

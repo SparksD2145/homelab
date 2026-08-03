@@ -15,7 +15,7 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_500GB_S3Z1NB0K182540Z"; # or "nodev" for efi only
 
-  networking.hostName = "lambda"; # Define your hostname.
+  networking.hostName = "kappa"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
