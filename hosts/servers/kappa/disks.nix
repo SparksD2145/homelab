@@ -2,7 +2,7 @@
   # checkout the example folder for how to configure different disko layouts
   disko.devices = {
     disk = {
-      vdb = {
+      main = {
         device = "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_mSATA_250GB_S33GNX0JA14228V";
         type = "disk";
 
