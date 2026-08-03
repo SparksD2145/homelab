@@ -11,30 +11,15 @@
   ];
 
   boot.initrd.availableKernelModules = [
+    "xhci_pci"
     "ehci_pci"
-    "ahci"
-    "megaraid_sas"
+    "ata_piix"
     "usbhid"
-    "usb_storage"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "rbd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXROOT";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXBOOT";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
 
   swapDevices = [ ];
 
