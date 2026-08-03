@@ -10,9 +10,9 @@ keys:
   - &server_tango age1e937w3zautvc5yev0zlwnlut35jdrfruz87ml68zd98s0tcghetq5v5u9n
   - &server_xray age18xs4rmgwdtpd0f7v89e4qgzu7r9ff0cg9g7duxxnm7gutlculdks52mqvx
   - &server_omega age1mz8x2r8xwhhljmnflvwvk68rge40zvjrtsdm29as4rahl3v7a4cq85m2jw
-  - &server_vm_gpu_1 age1af4f25wyqnxeq2wg05nusmry400slm4w53w7hh6xdw28axhjuczsuhp5xf
   - &server_lambda age106nfdadmxeg92rylfa5pxzhsv85whqgqkanjuwmpt8zydz880p0qnv2wym
   - &server_beta age1gxvmq7jj9f28pe6td68c2glmzxa9ja8g3pygd4xdm0zgnvdjlvgsgdawth
+  - &server_kappa age1l9ujwxvu0ed9ed7aq6yqdqdj9wlky8vvfeqk4y2uu76fedkmq5dqhddh97
 
 creation_rules:
   ## FLUX
@@ -54,6 +54,6 @@ creation_rules:
           - *server_tango
           - *server_xray
           - *server_omega
-          - *server_vm_gpu_1
           - *server_lambda
           - *server_beta
+          - *server_kappa
