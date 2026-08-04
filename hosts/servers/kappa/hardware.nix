@@ -18,7 +18,11 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [
+    "sd_mod"
+    "sg"
+    "iscsi_tcp"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
