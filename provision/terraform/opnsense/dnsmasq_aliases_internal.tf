@@ -10,6 +10,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "ai.sparks.codes",
     "ai-webui.sparks.codes",
     "alertmanager.sparks.codes",
+    "auth.sparks.codes",
     "bambu-studio.sparks.codes",
     "bambuddy.sparks.codes",
     "books-backend.sparks.codes",
@@ -42,16 +43,16 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "zigbee2mqtt.sparks.codes",
     "zwavejs2mqt.sparks.codest",
 
-    # Minecraft Maps
-    "superdigdug-flux-map.sparks.codes",
-    "superdigdug-newlands-map.sparks.codes",
-    "superdigdug-overworld-map.sparks.codes",
-    "superdigdug-rectify-map.sparks.codes",
-    "superdigdug-sparks-map.sparks.codes",
-    "superdigdug-wilderness-map.sparks.codes",
-    "cwh11-archive-map.sparks.codes",
-    "cwh11-broville-map.sparks.codes",
-    "cwh11-original-map.sparks.codes",
-    "cwh11-rex-map.sparks.codes",
+    # # Minecraft Maps
+    # "superdigdug-flux-map.sparks.codes",
+    # "superdigdug-newlands-map.sparks.codes",
+    # "superdigdug-overworld-map.sparks.codes",
+    # "superdigdug-rectify-map.sparks.codes",
+    # "superdigdug-sparks-map.sparks.codes",
+    # "superdigdug-wilderness-map.sparks.codes",
+    # "cwh11-archive-map.sparks.codes",
+    # "cwh11-broville-map.sparks.codes",
+    # "cwh11-original-map.sparks.codes",
+    # "cwh11-rex-map.sparks.codes",
   ]
 }
