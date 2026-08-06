@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: dockurr/samba
-              tag: "4.23.8"
+              tag: "4.23.10"
             env:
               TZ: "America/Chicago"
             probes:
