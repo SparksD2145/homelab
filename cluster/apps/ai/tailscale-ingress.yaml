@@ -2,10 +2,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: tailscale-litellm
+  name: tailscale-local-ai
   namespace: ai
   annotations:
-    tailscale.com/proxy-group: litellm-proxy
+    tailscale.com/proxy-group: local-ai-services
 spec:
   ingressClassName: tailscale
   tls:
@@ -18,39 +18,15 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: litellm
+                name: local-ai
                 port:
                   number: 4000
-
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: tailscale-open-webui
-  namespace: ai
-  annotations:
-    tailscale.com/proxy-group: litellm-proxy
-spec:
-  ingressClassName: tailscale
-  tls:
-    - hosts:
-        - ai-webui
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: open-webui
-                port:
-                  number: 8080
 
 ---
 apiVersion: tailscale.com/v1alpha1
 kind: ProxyGroup
 metadata:
-  name: litellm-proxy
+  name: local-ai-services
   namespace: ai
 spec:
   type: ingress

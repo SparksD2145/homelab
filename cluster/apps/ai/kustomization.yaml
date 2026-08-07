@@ -6,4 +6,4 @@ resources:
   - local-ai
   - hermes-agent
   # - open-webui
-  # - tailscale-ingress.yaml
+  - tailscale-ingress.yaml
