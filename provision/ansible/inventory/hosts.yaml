@@ -49,6 +49,7 @@ all:
         whiskey.sparks.codes:
         xray.sparks.codes:
         lambda.sparks.codes:
+        kappa.sparks.codes:
 
     nixos_workstations:
       hosts:
