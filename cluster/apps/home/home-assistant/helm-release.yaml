@@ -42,29 +42,6 @@ spec:
               limits:
                 cpu: 150m
                 memory: 2Gi
-      code:
-        containers:
-          code:
-            image:
-              repository: ghcr.io/coder/code-server
-              tag: 4.131.0
-            args:
-              - --auth
-              - "none"
-              - --user-data-dir
-              - "/config/.vscode"
-              - --extensions-dir
-              - "/config/.vscode"
-              - --port
-              - "8081"
-              - "/config"
-            resources:
-              requests:
-                cpu: 50m
-                memory: 128Mi
-              limits:
-                cpu: 100m
-                memory: 512Mi
     persistence:
       config:
         enabled: true
@@ -82,12 +59,6 @@ spec:
         ports:
           http:
             port: 8123
-      code:
-        type: ClusterIP
-        controller: code
-        ports:
-          http:
-            port: 8081
     ingress:
       main:
         enabled: true
@@ -128,22 +99,3 @@ spec:
           - hosts:
               - home.sparks.codes
             secretName: acme-crt-secret-sparks-codes
-      code:
-        enabled: true
-        className: traefik
-        annotations:
-          nginx.ingress.kubernetes.io/auth-type: basic
-          nginx.ingress.kubernetes.io/auth-secret: codeserver-auth-secret
-          nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
-        hosts:
-          - host: &host "codeserver-home.sparks.codes"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: code
-                  port: http
-        tls:
-          - secretName: acme-crt-secret-sparks-codes
-            hosts:
-              - *host
