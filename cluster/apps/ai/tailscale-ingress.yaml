@@ -20,7 +20,7 @@ spec:
               service:
                 name: local-ai
                 port:
-                  number: 4000
+                  number: 8080
 
 ---
 apiVersion: tailscale.com/v1alpha1
