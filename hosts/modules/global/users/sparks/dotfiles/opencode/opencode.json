@@ -15,6 +15,12 @@
                         "output": 65536
                     }
                 },
+                "gemma-4-12b-agentic-fable5-composer2.5-v2-3.5x-tau2": {
+                    "limit": {
+                        "context": 100000,
+                        "output": 65536
+                    }
+                },
                 "deepseek-coder-v2:16b": {
                     "limit": {
                         "context": 128000,
@@ -27,12 +33,6 @@
                         "output": 65536
                     }
                 },
-                "lfm2.5:8b": {
-                    "limit": {
-                        "context": 128000,
-                        "output": 65536
-                    }
-                }
             }
         }
     },
