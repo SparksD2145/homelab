@@ -224,6 +224,15 @@ resource "opnsense_unbound_host_alias" "svc-netboot-sparks-codes" {
   domain      = "sparks.codes"
 }
 
+resource "opnsense_unbound_host_alias" "svc-obsidian-sparks-codes" {
+  override = opnsense_unbound_host_override.lb-internal-services.id
+
+  enabled     = true
+  description = "Obsidian Notetaking Application"
+  hostname    = "obsidian"
+  domain      = "sparks.codes"
+}
+
 resource "opnsense_unbound_host_alias" "svc-paperless-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
