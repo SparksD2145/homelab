@@ -25,8 +25,8 @@ spec:
               tag: 1.13.6
             env:
               TZ: "America/Chicago"
-              PUID: 1000
-              PGID: 100
+              PUID: 10000
+              PGID: 10000
     persistence:
       config:
         enabled: true
