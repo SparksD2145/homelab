@@ -28,7 +28,7 @@ spec:
           main:
             image:
               repository: noooste/garage-ui
-              tag: v2.3.0
+              tag: v0.12.0
             env:
               TZ: "America/Chicago"
               GARAGE_UI_GARAGE_ENDPOINT: http://volsync-garage.volsync-system.svc.cluster.local:3900
