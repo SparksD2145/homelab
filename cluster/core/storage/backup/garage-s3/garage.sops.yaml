@@ -5,6 +5,7 @@ stringData:
     GARAGE_DEFAULT_BUCKET: ENC[AES256_GCM,data:LaFla1gvXXE2WQW4Tv4=,iv:Xef41lezKUyQFq1fdStIhVQeHFjKSAuLUwhx9We79EE=,tag:d1+f/leKCPMQUGwOiz6a4Q==,type:str]
     GARAGE_RPC_SECRET: ENC[AES256_GCM,data:wS0eOKHhoHZRyIrg2Rdvh1WV17BOfyoYyBl6SV0rBF6D25D6EIo3R4e1ftRgytImKuLSFJO0wO+ns7NM28pShQ==,iv:YJnF+l4qaCLmVPnx6/HM0VNAWA7yoUM0pQDKTygRKWQ=,tag:eJTf89dRJKuoumY1kzyzmg==,type:str]
     GARAGE_ADMIN_TOKEN: ENC[AES256_GCM,data:Sz2GFm8DZwmVokbLGP7E+eCI1a/fyPKTBp5LEDQOjCmEpC5RoDHBZNcHsH4=,iv:sVRSUi09XwIBV9T7J3JXbmF1/fhpeuuIusPHs3dVhKY=,tag:XGUtlMmOUo0NQW5fIxCpRw==,type:str]
+    GARAGE_UI_GARAGE_ADMIN_TOKEN: ENC[AES256_GCM,data:iix36yrP1NPG0nmJe/ZvGeuKSKeFqqPDtHM6nPujOJjcGem5YvddFtZjecU=,iv:gqjyjLhLhVozcUJNOLQxKR/v2NARbxN/9KEiYzT0DRE=,tag:9EblR6NpGTevxqbV9QTk+Q==,type:str]
     GARAGE_METRICS_TOKEN: ENC[AES256_GCM,data:KGg+9b0LL00ytSWm4tie4kzm6wHg9Lw3M2VBZwZLpzlC17wjdHZqVHOdAEc=,iv:8vHAqhx0HVv0EPUABmCWElAjrE1Z8plhVAFAhWFCbkY=,tag:rhpqHfqfGCunwNDEeXR0dg==,type:str]
 kind: Secret
 metadata:
@@ -22,6 +23,6 @@ sops:
             -----END AGE ENCRYPTED FILE-----
           recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
     encrypted_regex: ^(data|stringData)$
-    lastmodified: "2026-08-12T03:05:58Z"
-    mac: ENC[AES256_GCM,data:cB4tQLxNRXvg/g4T93pSqzAAYs6yxfl26lobIudDlE8w+QHq4Gf5i1Uk6Frb4vyAKZkVmO4BP6qD7esxn+Kd85xvZy0uJe/EG/zFTYD12reJQ2Repqn19kq7DrBLnh1shMaSYKR/p8bF9pAmjZVxegpoEMwknX4AHkXastjnV3o=,iv:xWtBRHUIIkEX9AHemOmRMhFZlpTp4TnHEKdKsrRgbPY=,tag:eq1kCsP6jY8xqFmbpWGFww==,type:str]
+    lastmodified: "2026-08-12T19:11:31Z"
+    mac: ENC[AES256_GCM,data:NzibQGwu9tQTYrkBeCI74tegvh1Xvzjb8bSmkN5OUxA7aOhgH3ZoqNvqCzaTyq4225bX6pirw60AGGN1twwolk/Rh91V6teES6F2NyCDJuASZwBvv4QlAT0qEVg7OnzmjYnBe9pK5f/yZ+kixH7eci+7KxdfZXMn4bR5KCXbFoM=,iv:ShpktwHHY0BZxG3Vz6T9DZxGP/BbfuS8qq/gszy8xwY=,tag:kBzgPVYLsJgETivlfIfmWg==,type:str]
     version: 3.13.3

@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: volsync-garage-ui
+  namespace: volsync-system
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/library/common/values.schema.json
+    defaultPodOptions:
+      tolerations:
+        - key: machine-cold
+          operator: Exists
+          effect: NoSchedule
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: noooste/garage-ui
+              tag: v2.3.0
+            env:
+              TZ: "America/Chicago"
+              GARAGE_UI_GARAGE_ENDPOINT: http://volsync-garage.volsync-system.svc.cluster.local:3900
+              GARAGE_UI_GARAGE_ADMIN_ENDPOINT: http://volsync-garage.volsync-system.svc.cluster.local:3903
+            envFrom:
+              - secretRef:
+                  name: volsync-garage-secrets
+
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 8080
