@@ -36,3 +36,9 @@ spec:
 
     # The VSC to use if the copy method is Snapshot (default if omitted)
     # volumeSnapshotClassName: my-vsc-name
+
+    moverSecurityContext:
+      runAsUser: 10000
+      runAsGroup: 10000
+      fsGroup: 10000
+      supplementalGroups: []
