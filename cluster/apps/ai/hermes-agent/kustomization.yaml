@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - helm-release.yaml
   - secret.sops.yaml
+  - restic-backup.yaml
+  - restic-repo.sops.yaml

@@ -1,0 +1,27 @@
+apiVersion: v1
+stringData:
+    PVC_DIR_NAME: ENC[AES256_GCM,data:STgP0RVkkdIKxGrl,iv:FxzBVG3FGq9aKCKSkMK7tXfb6CZNujqxDltezFEJ6HY=,tag:Q5raYwKasLlr2cX3QJbJ7Q==,type:str]
+    PVC_NAMESPACE: ENC[AES256_GCM,data:V7c=,iv:zsj1Lr0Svxd8UENgb5W7ScbZML1z+4OUX0JdfonFDpc=,tag:Vij/sxYg/I1dDdp3f44vNw==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:I43HVxKkmjJVpXQXdqh9BymtxNqEX/+VE/szJpUo1b3L+6yoXVY7q7qE6PESqlCCccBSj7+XvW+bK4d5QHHG7hiQy0uyAarR5gfd74tfzEXP9c1vuPGNHaTD,iv:TdKrJ/VnuR6eFy1SYaatblvrtePC9Vrw0yvlEssmw/4=,tag:oYzMyPRcXBTzQsIxRuwFZA==,type:str]
+    RESTIC_PASSWORD: ENC[AES256_GCM,data:Jxv788pTTGajugnloTydQQ==,iv:mY+WiIDrg56QZgw8bUPY3otQKoSWmwuqeg7v2enFrzg=,tag:02rXf6ZRcxC1eT3TZBFSLw==,type:str]
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:Qzo7xcIWrP8ReIuIEfdmnA==,iv:wr72nhrx8OR7WQNukw6I5TnGN/BPQ2dh+QZSVi3GD44=,tag:LFylOUHhpf6kNfbQDmYQAg==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:s6ZPSTtlg/I92647UqXB/g==,iv:l6T0O+ZPGZibnGrGlDWohY6gq94MaqsQeeTmWSldLQc=,tag:hJTCmsXhFHp7qLhDeIFjGw==,type:str]
+kind: Secret
+metadata:
+    name: hermes-agent-rustic-repository
+    namespace: ai
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBWVU10am5ZcUpVTEhDakJh
+            NU5DOThmMkI2ZzFQczJXRlN5QndzWGxCMHpVCnQ0dWtWbkIrdzRDOTlhRFYrSjFC
+            VGF0ZU93by9UN2pFOWpZMm42MG1RQW8KLS0tIG12TXltTmVCU1oxRkRuc01vUVU3
+            R3NNdkRvTUtIanBCaVExTTV1cE5LaFUKuiEKE3gEvNa+8mwfskerp5DruWMeK/t9
+            cslXzeUg8h6bTw41J0byORbd9WH31VAxCxywoaebaw5TY5aekdy/YA==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-12T18:22:12Z"
+    mac: ENC[AES256_GCM,data:zyZjkTqDL2Dm6OXiSAjTu4/oiN9txVSdrOUuEV7JOYzt3pLeXJ/oO6kS5qZr6hc/2i8pvvSdAG1gDxT1oqiwtupzYmZwAe5frHIuURNdpy4BHhCg87PFZ98UHcEGcrzzorRNVI4yrsSay6flwN8JmdDlSGnPIgZRPf5K/4PVk0Y=,iv:0prLUVuFuiEpwqJV4+vmBO6dLIugw6Qou9InTgwIhfk=,tag:/dUStrYk7naO/atC57CBsw==,type:str]
+    version: 3.13.3
