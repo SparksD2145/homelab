@@ -25,7 +25,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-volsync-data-pvc
-  namespace: tools
+  namespace: volsync-system
 spec:
   volumeName: local-volsync-data-pv
   accessModes:
