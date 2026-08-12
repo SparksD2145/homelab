@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/obsidian
-              tag: 1.13.6
+              tag: 1.13.7
             env:
               TZ: "America/Chicago"
               PUID: 10000
