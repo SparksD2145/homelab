@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - authelia-charts.yaml
   - authentik-charts.yaml
+  - backube-charts.yaml
   - bjw-s-charts.yaml
   - blakeshome-charts.yaml
   - coredns-charts.yaml
