@@ -26,6 +26,10 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [10000]
         seccompProfile: { type: RuntimeDefault }
+      tolerations:
+        - key: machine-cold
+          operator: Exists
+          effect: NoSchedule
     controllers:
       main:
         initContainers:
