@@ -9,8 +9,8 @@ spec:
   sourcePVC: hermes-agent
 
   trigger:
-    # Take a backup every 30 minutes
-    schedule: "*/30 * * * *"
+    # Take a backup every 1 hour
+    schedule: "0 * * * *"
 
   restic:
     # Prune the repository (repack to free space) every 2 weeks
