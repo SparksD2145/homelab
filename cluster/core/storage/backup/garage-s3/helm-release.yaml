@@ -66,6 +66,14 @@ spec:
             port: 3900
           api:
             port: 3903
+      lb:
+        annotations:
+          metallb.io/loadBalancerIPs: 10.10.201.8
+        type: LoadBalancer
+        controller: main
+        ports:
+          s3:
+            port: 3900
     configMaps:
       config:
         enabled: true

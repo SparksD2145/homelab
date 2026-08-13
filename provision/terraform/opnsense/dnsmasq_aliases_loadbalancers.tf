@@ -30,6 +30,14 @@ resource "opnsense_dnsmasq_host" "lb-s2s-dns" {
   ip_addresses = ["10.10.201.6"]
 }
 
+resource "opnsense_dnsmasq_host" "lb-backups" {
+  description = "backups s3 storage"
+
+  hostname     = "backups"
+  domain       = "sparks.codes"
+  ip_addresses = ["10.10.201.8"]
+}
+
 
 resource "opnsense_dnsmasq_host" "lb-netboot-tftp" {
   description = "Netboot TFTP server"

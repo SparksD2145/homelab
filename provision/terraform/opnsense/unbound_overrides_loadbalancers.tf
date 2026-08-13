@@ -61,11 +61,11 @@ resource "opnsense_unbound_host_override" "lb-s2s-dns" {
   server   = "10.10.201.6"
 }
 
-resource "opnsense_unbound_host_override" "lb-influxdb" {
-  enabled     = false
-  description = "Influxdb loadbalancer"
+resource "opnsense_unbound_host_override" "lb-backups" {
+  enabled     = true
+  description = "S3-Backups"
 
-  hostname = "influxdb-actual"
+  hostname = "backups"
   domain   = "sparks.codes"
   server   = "10.10.201.8"
 }
