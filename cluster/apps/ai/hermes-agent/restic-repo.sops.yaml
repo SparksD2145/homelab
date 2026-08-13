@@ -2,7 +2,7 @@ apiVersion: v1
 stringData:
     PVC_DIR_NAME: ENC[AES256_GCM,data:fzNxrcg9jzHNO9Ee,iv:R2h2jgkKDqybz2ksAlQS2vE+HqThgy52f6zVpGYs0ls=,tag:Nu9YlR5Mn9f7nf6+F2lVHg==,type:str]
     PVC_NAMESPACE: ENC[AES256_GCM,data:7ws=,iv:k/ldyCYS+/gStpsHsgcJoNpvAi8ZfXNt7c2fo7RRZm0=,tag:1zQIYtItucJPtr2zY3iEDQ==,type:str]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:bbS4OLEITG4meclUarskg01iuLGyBJA3cNIYQtKCZ6txoQJOW2oNjxqLR/sMEJoxM2jTpQu5SA==,iv:yy6vZNpz9iYbBjOmzyVlatOTc0dWoKifBK5WeLVqyEc=,tag:b4876sa1ARCl+1kgxtfSqA==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:z4lkIX02GtppOvkyHQw4I1xUQ4VOFNHr50x89O3/RlJD1Z5bzKSU3xRaILtQoxblq6bIctt+AjidXwIOWWBT,iv:tK5FnVhgKdLEXzt2JKXu299zqFcicxhDllQ419Nhofg=,tag:vuczGUv6jU3XevfvUVmVAQ==,type:str]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:gFQ0CP5Rv8gzWsgBQzudLA==,iv:H74ZLdBsFsOrsdv4p3fSuISw5GX23A+d2QNWh7BDgF0=,tag:fAr18ORAPewnA+V4cZXZAQ==,type:str]
     AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:6fHzEsiF1DavX0bOtTeCoA==,iv:EM4ihkqkV2C0Lkco01rDqJceJApukNR1lSLM3qHBcp8=,tag:l6jGTdWE9xslSm1uaMVnIA==,type:str]
     AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:Gvm3kveiEay7j8+Cqrnn9g==,iv:oQIjjbRcafhG8RJZOogGW5vgwsSyenjxWWkJ2QaQAng=,tag:bYdbdC14juxdsMgLTjE29g==,type:str]
@@ -22,6 +22,6 @@ sops:
             -----END AGE ENCRYPTED FILE-----
           recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
     encrypted_regex: ^(data|stringData)$
-    lastmodified: "2026-08-13T19:14:29Z"
-    mac: ENC[AES256_GCM,data:aVhd8TpRkbR98s51GHOamMg93e3uogw+2L6qScELrW08xjpm5Mwp6EhO9jOBDF4oDSjK6tOtJsw5aK79467Fy24vft1MRqv9/Gj8WVP5DOEet5XUKcVYIXAjLxVhTuC0ynqdNgJ3TyyXY/JtEhHAT/F3U0/h+0e3Xhikf5cno2U=,iv:AvL9iFVLZ+zvj8aUaEXZ8YmtXBel5tBzuMDk80FHAnA=,tag:l5itPj74pW3qUi3hWlZGiw==,type:str]
+    lastmodified: "2026-08-13T19:18:03Z"
+    mac: ENC[AES256_GCM,data:NVMDag5iidsGzANh0mBexrr9s96TgFEL1/XVyIm1oLaAU/4GxnoChp8nmamBjkaRXpbtYGZgWRUQ2YdrsMTh5Ddvlc4HoOX1AP94YkWhWlnlvSqw1IpTGmFwi/sjEjaUJrjvv0RfhuV0k7aKOPKmDlIR80WnyeQeLWYnj1mgclw=,iv:nF/dM6yPhfkBozdKvsAwWyBf8CVG7m9ZYcJ8SR74doE=,tag:chixhIRsxLWhG4s0BGConQ==,type:str]
     version: 3.13.3
