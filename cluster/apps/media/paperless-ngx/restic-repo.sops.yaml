@@ -1,0 +1,27 @@
+apiVersion: v1
+stringData:
+    PVC_DIR_NAME: ENC[AES256_GCM,data:0sN/8XPI+V9noJ3YMs5nvwEB,iv:aA4RsTFokllXl5RllssX7P+R+OlFXVC41HG7W7A4i94=,tag:PNPVxspKwgVfN4R00/X/Ow==,type:str]
+    PVC_NAMESPACE: ENC[AES256_GCM,data:C/1YBIQ=,iv:I6RsmrIQzlLk+3T1mXRpo95w7S2FAtLQ+LKMqxJ7pCs=,tag:WLgMiNV5nBBCbi67ldyj6A==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:GfM71dedgrCMchYeW3Fsuy2vAtsIVKda7/Bgko5O6cvhrQJvx68bDy5UfjN/YUMZwrv9TZoH0uxdBCLEA3f5J03txKyt,iv:NQv2e1A7eum7vdhndfNEw/RhZBJn5Ly9PZLbwGR+0WA=,tag:R3fV7vMXsI7jFxyae6vT+w==,type:str]
+    RESTIC_PASSWORD: ENC[AES256_GCM,data:HhugjttKbgHGGjYzmeVCeA==,iv:yIAtzXn8FT8ir8fFYNnadNSAtbaotZrj4thP5xC2wcs=,tag:UCO9njB4ohA9s7NnIB3XYw==,type:str]
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:lwv8uR4mmLQ7pHDrnlDalg==,iv:84PQPljABUzUrbS+sW/J4rjyAzSqjOHnzXdh+OZdgLo=,tag:sUZYKy6s/kG2R6CJVqYBNg==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:tYygGjvZEu+x9E9Bn7riKA==,iv:5V0iCMnohFHRxfKOix/KJ9+V97h4zhcGZxDaF/kFRU4=,tag:6XAzrV5sIkTeiL0theQNmg==,type:str]
+kind: Secret
+metadata:
+    name: paperless-ngx-data-rustic-repository
+    namespace: media
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBvRW1LR2NianVyQVdiQWVU
+            WW0raWExYTBpMmdRTC82dzNzWUUxNXpJdXpjCkNOaCtQVHZ4TWl0SGdPaE9GMHBO
+            VU1vNUdtMXJmNzl6U1BPNFl0UjQxYjQKLS0tIGhXcTU1TVZvelF2S21lNHh1ZjhD
+            K1lyQXk4Rm9wRHNmSWtvZ1J1MUZFcTAK607R6dg58xAqQBPaJz1UBg7+M7IfK+q6
+            h+3zN6ltoBYj8XY7+75BEQOVuJNXiZWbWGdWZ29wMf7w/uZ9JYfG2w==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-13T19:24:42Z"
+    mac: ENC[AES256_GCM,data:EUEmijRjAA/uZuLWFQw3R3+RNUR9q2yVIsRl7mqCwVx0ByR9ui8Etcra2Ohutk5aSqdcI7fPw61l9hMo6MgiKVVxD/LaYbrbqiQU/7fHpxN5RD+vUMIjRUg+Oj/xGuWARMmn8KCxPS6+j7mDW8IGk1shaapOastCBAG8N5AERr0=,iv:o2YXqgFXQJw3cstxcRPkFaZwHiHwE1QCbHdkb6UoNPE=,tag:s/7vqoueBbiDWG/qA9SZrg==,type:str]
+    version: 3.13.3
