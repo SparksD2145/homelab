@@ -1,4 +1,4 @@
-restic_defaults=`sops decrypt 'cluster/core/storage/backup/volsync/restic-defaults.sops.yaml'`
+restic_defaults=`sops decrypt 'cluster/core/backup/volsync/restic-defaults.sops.yaml'`
 
 candidates=`find ./cluster/apps/ -name 'restic-*sops*'`
 for path in $candidates; do

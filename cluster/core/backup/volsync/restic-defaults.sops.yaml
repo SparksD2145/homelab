@@ -2,7 +2,7 @@ apiVersion: v1
 stringData:
     PVC_DIR_NAME: ENC[AES256_GCM,data:xpKPTQy/HBo=,iv:gvenKe8EQU3x0Jf47vd+1gwu1I1FvGJ09O4ftapVt1k=,tag:oxe4FDCstp+YiS5YuQdQ3Q==,type:str]
     PVC_NAMESPACE: ENC[AES256_GCM,data:iphMO0dr207sl0Eicg==,iv:XK5HH6C2fj6E+oyV3+YDWp6hyNmOgHnaVV2UJc8MERU=,tag:ghGBRHNxcREYZmrkg/y1wQ==,type:str]
-    RESTIC_REPOSITORY: ENC[AES256_GCM,data:dFH5osOmg9kfhpqpNF5bnSJ2N+Pu5X/EBv133RkJK83kMXS0mbFIn3XAvFw1iU/0I6jktifpAYODw44OJCFpiSimEI0rYBz5MlzlUTjOWfU6lVlm2lg=,iv:6RBaxGNfge/TBI7NFHvpZ4BG9IDpjl1kLUODL9EduZ4=,tag:8JtPU8nB5vAi4oU7Y4qhig==,type:str]
+    RESTIC_REPOSITORY: ENC[AES256_GCM,data:u99qiN/hCXRtN6O2V3AL1y1ullwtXYWQiZ48DfTzr2zmhoqtaxqqw5qFP0XvPrrjdQaLtapLOy9RhIs=,iv:EC5a20HMxacNH3gHj0hND3m6LIOaeIdFwwOyoGZrXpg=,tag:SGkR8t+l+yM5leD7Z+fM2g==,type:str]
     RESTIC_PASSWORD: ENC[AES256_GCM,data:ZPK507D4N2Q55QZP1hW/pw==,iv:MxaXftTrFf3ATrFZHO0FDiA65GNvovIyrOUEVj4ziwY=,tag:6AHXe1FoxjPVq/P4r+CRmw==,type:str]
     AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:5KG3PtyjSYDzXc5jgV9Ccg==,iv:slFc6HfmYh8mCOsAE42uFHBmstUrltu1cn+b26K5nh0=,tag:QyKdNuQiWy+vxdIqHYHpaw==,type:str]
     AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:8kWm3xRGZ1j0gIbKF0nsyg==,iv:odTmV8W1XCRVx5C+XKlhBnvqCbnDQXTS72Ut9uE2MEo=,tag:Dy38QUymcJYrcD8BjI07Tw==,type:str]
@@ -22,6 +22,6 @@ sops:
             -----END AGE ENCRYPTED FILE-----
           recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
     encrypted_regex: ^(data|stringData)$
-    lastmodified: "2026-08-12T18:21:10Z"
-    mac: ENC[AES256_GCM,data:1izLxFquTSxI+yQ3bxADKuh4gRUWXduvJ0UXCqYqWZBcC6w1MetOjW6mSopbF7qrixWiwchXIdGB9/aO61Y9MLZqR7mp741POpPstQlF7iUilOnKfTo/7GdBLLoCwbKzkcLr/dEQMtFfSZn95K+ZXVGS4wufiaIgs2yz0vbUD6c=,iv:2waBefNDnFwJSi++54HFhrgLosrdQ3cz8zIXYIsSXZA=,tag:VXTUwkx/AdXNQUYCmIC+eg==,type:str]
+    lastmodified: "2026-08-13T19:11:03Z"
+    mac: ENC[AES256_GCM,data:v34wbZPSyUY8FqdUO7GiG0JySn99KRE6G9pENBU89YMwTwXrzLejtwRCBmViPqrN5D27Pk6+telmmH/UuquMFy50W99I14L1CWsptJXcTYxx6YlfN+SzKcGN4M81qk13YXHyP3g4HEb/wferDTaZLqxz14L5w576OdVo0XbOb3A=,iv:NKZur86AtBqvJSlXekcWnFh52thyOOpFephxwU6tg8g=,tag:oduI0LkEBuQRzeMqdy4vNg==,type:str]
     version: 3.13.3
