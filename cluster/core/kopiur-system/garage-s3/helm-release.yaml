@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: volsync-garage
-  namespace: volsync-system
+  name: kopiur-garage
+  namespace: kopiur-system
 spec:
   interval: 15m
   chart:

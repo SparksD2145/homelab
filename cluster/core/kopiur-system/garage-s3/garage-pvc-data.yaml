@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-volsync-meta-pv
+  name: local-kopiur-data-pv
 spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 20Gi
+    storage: 10Ti
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/local/backups.sparks.codes/meta
+    path: /mnt/local/backups.sparks.codes/data
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -24,13 +24,13 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: local-volsync-meta-pvc
-  namespace: volsync-system
+  name: local-kopiur-data-pvc
+  namespace: kopiur-system
 spec:
-  volumeName: local-volsync-meta-pv
+  volumeName: local-kopiur-data-pv
   accessModes:
     - ReadWriteOnce
   storageClassName: ""
   resources:
     requests:
-      storage: 20Gi
+      storage: 10Ti

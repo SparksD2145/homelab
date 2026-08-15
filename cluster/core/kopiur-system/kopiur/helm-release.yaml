@@ -12,4 +12,8 @@ spec:
     namespace: flux-system
   values:
     global:
-      tolerations: []
+      tolerations:
+        - key: "machine-cold"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"

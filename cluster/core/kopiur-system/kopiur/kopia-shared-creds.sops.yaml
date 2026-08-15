@@ -1,0 +1,24 @@
+apiVersion: v1
+stringData:
+    KOPIA_PASSWORD: ENC[AES256_GCM,data:j01QeZSQ/wKtt4YV3hcdBg==,iv:MmefCBKqpzK0saTy3jFfd9V3S4vbtD8DSw6xmVLV4UQ=,tag:9eotscM58jIBWaFLFxqZDQ==,type:str]
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:5KG3PtyjSYDzXc5jgV9Ccg==,iv:slFc6HfmYh8mCOsAE42uFHBmstUrltu1cn+b26K5nh0=,tag:QyKdNuQiWy+vxdIqHYHpaw==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:8kWm3xRGZ1j0gIbKF0nsyg==,iv:odTmV8W1XCRVx5C+XKlhBnvqCbnDQXTS72Ut9uE2MEo=,tag:Dy38QUymcJYrcD8BjI07Tw==,type:str]
+kind: Secret
+metadata:
+    name: kopia-shared-creds
+    namespace: kopiur-system
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA0MXN4SnU3ZTN2bEgwbm5L
+            aE1qZExmMDJUeDJvalJZWE1mU1BPblBrN1NJCk1nV3U4TGp0d3M5d2YzeGdROUM2
+            VUxremVVWllONVU2bzJodk50NklBUFEKLS0tIHZmZXppMXAvT3N6QlYzbDdsWnFs
+            QUlwZndKNG1meTJZUHZBSTdHYVRBQ1EK6GO15QnFvo9Z68Ix6rExNfjjVFYoInWv
+            pWxGJtH+nepwjzP5hMvhPxvQ8p4gVAjaRgkkucbQnlpSyYFd8tY91w==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1rhy2neq0qg7y6svfu2pcyd85z3wkgspkgzz4jcmguypymk3e958qzhgwqx
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-15T20:34:27Z"
+    mac: ENC[AES256_GCM,data:EaOTDIse6S4BInnT38NrE+jKOP0l0wOBPei9weEdJhRp8yJvjbof3QX+7dSBBxjzr3mBGzh9fdiJaCBiXw4s0ODytC96Dgfj+De27lYdSvM85dpBrgWu3LZM157xHAo4eGE/gN0O4zI0z1jvkCYjK7UNBRbnJr732x0UAeB6cIk=,iv:b8g80x0nqdjDzEcg97OMW+0BELoVMjvlm+qzTEvlWTE=,tag:Gm/u5v1LkUChV1yOUtCA8g==,type:str]
+    version: 3.13.3

@@ -2,4 +2,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - garage-s3
+  - helm-release.yaml
+  - cluster-repo.yaml
+  - kopia-shared-creds.sops.yaml

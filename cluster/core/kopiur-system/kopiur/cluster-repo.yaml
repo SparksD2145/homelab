@@ -1,0 +1,31 @@
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: ClusterRepository
+metadata:
+  name: kopiur-repository
+spec:
+  backend:
+    s3:
+      endpoint: backups.sparks.codes:3900
+      bucket: backups
+      prefix: ""
+      region: us-east-1
+      tls:
+        disableTls: true
+      auth:
+        secretRef:
+          name: kopia-shared-creds
+          namespace: kopiur-system
+  encryption:
+    passwordSecretRef:
+      name: kopia-shared-creds
+      namespace: kopiur-system
+      key: KOPIA_PASSWORD
+  allowedNamespaces:
+    all: true
+  identityDefaults:
+    hostnameExpr: "namespace"
+    usernameExpr: "namespace + '-' + policyName"
+  maintenance:
+    namespace: kopiur-system
+  create:
+    enabled: true # initialize the repo if it does not exist yet (default: false)
