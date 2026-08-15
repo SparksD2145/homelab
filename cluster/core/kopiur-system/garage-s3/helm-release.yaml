@@ -57,7 +57,7 @@ spec:
               TZ: "America/Chicago"
             envFrom:
               - secretRef:
-                  name: volsync-garage-secrets
+                  name: kopiur-garage-secrets
     service:
       main:
         controller: main
@@ -101,7 +101,7 @@ spec:
       config:
         enabled: true
         type: configMap
-        name: volsync-garage
+        name: kopiur-garage
         globalMounts:
           - path: /etc/garage.toml
             subPath: configuration.toml
@@ -110,10 +110,10 @@ spec:
         globalMounts:
           - path: /data
         type: persistentVolumeClaim
-        existingClaim: local-volsync-data-pvc
+        existingClaim: local-kopiur-data-pvc
       meta:
         enabled: true
         globalMounts:
           - path: /meta
         type: persistentVolumeClaim
-        existingClaim: local-volsync-meta-pvc
+        existingClaim: local-kopiur-meta-pvc
