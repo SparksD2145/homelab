@@ -23,7 +23,7 @@ spec:
   allowedNamespaces:
     all: true
   credentialProjection:
-    enabled: true
+    allowed: true
   identityDefaults:
     hostnameExpr: "namespace"
     usernameExpr: "namespace + '-' + policyName"

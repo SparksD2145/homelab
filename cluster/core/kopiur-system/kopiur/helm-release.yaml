@@ -17,3 +17,6 @@ spec:
           operator: "Equal"
           value: "true"
           effect: "NoSchedule"
+    features:
+      credentialProjection:
+        enabled: true
