@@ -1,0 +1,36 @@
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotPolicy
+metadata:
+  name: home-assistant
+  namespace: home
+spec:
+  repositories:
+    - kind: ClusterRepository
+      name: kopiur-repository
+  credentialProjection:
+    enabled: true
+  copyMethod: Direct
+  sources:
+    - pvc:
+        name: home-assistant-pvc
+  retention:
+    keepDaily: 7
+    keepWeekly: 4
+
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotSchedule
+metadata:
+  name: home-assistant-nightly
+  namespace: home
+spec:
+  # Which recipe (SnapshotPolicy) to invoke each firing.
+  policyRef:
+    name: home-assistant
+  schedule:
+    # Jenkins-style H pins a deterministic per-schedule minute.
+    cron: "0/2 * * * *"
+    jitter: 30m
+    # GitOps-friendly default: do not fire immediately on create.
+    runOnCreate: true
