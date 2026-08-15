@@ -20,7 +20,7 @@ spec:
   mover:
     securityContext:
       runAsUser: 1000
-      runAsGroup: 1000
+      runAsGroup: 100
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
