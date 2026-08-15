@@ -39,7 +39,7 @@ spec:
   policyRef:
     name: home-assistant
   schedule:
-    cron: "0/2 * * * *"
+    cron: "0 8 * * *"
     jitter: 30m
     # GitOps-friendly default: do not fire immediately on create.
     runOnCreate: true
