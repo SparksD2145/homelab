@@ -4,6 +4,7 @@ resources:
   - cert-manager
   # - external-dns
   - external-snapshotter
+  - kopiur
   - mariadb-operator
   - metallb
   - rook-ceph
