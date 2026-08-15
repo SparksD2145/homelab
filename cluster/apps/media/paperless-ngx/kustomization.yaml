@@ -7,5 +7,3 @@ resources:
   # - helm-release-valkey.yaml
   - helm-release-smb.yaml
   - pvc-paperless.yaml
-  - restic-backup.yaml
-  - restic-repo.sops.yaml

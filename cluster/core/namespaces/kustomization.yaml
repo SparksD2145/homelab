@@ -15,4 +15,3 @@ resources:
   - nginx.yaml
   - rook-ceph.yaml
   - tools.yaml
-  - volsync-system.yaml

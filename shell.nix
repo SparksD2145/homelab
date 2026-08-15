@@ -16,7 +16,7 @@ pkgs.mkShell {
     opentofu
     ipmitool
     minio-client
-    restic
+    kopia
 
     # Utilities
     gitleaks
