@@ -31,8 +31,8 @@ spec:
               tag: v0.12.0
             env:
               TZ: "America/Chicago"
-              GARAGE_UI_GARAGE_ENDPOINT: http://kopiur-garage.kopiur-system.svc.cluster.local:3900
-              GARAGE_UI_GARAGE_ADMIN_ENDPOINT: http://kopiur-garage.kopiur-system.svc.cluster.local:3903
+              GARAGE_UI_GARAGE_ENDPOINT: http://kopiur-garage-main.kopiur-system.svc.cluster.local:3900
+              GARAGE_UI_GARAGE_ADMIN_ENDPOINT: http://kopiur-garage-main.kopiur-system.svc.cluster.local:3903
             envFrom:
               - secretRef:
                   name: kopiur-garage-secrets
