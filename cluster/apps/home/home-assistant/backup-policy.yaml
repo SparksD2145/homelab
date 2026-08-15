@@ -17,6 +17,16 @@ spec:
   retention:
     keepDaily: 7
     keepWeekly: 4
+  mover:
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
 
 ---
 apiVersion: kopiur.home-operations.com/v1alpha1

@@ -26,6 +26,11 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: true
       automountServiceAccountToken: false
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 100
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
     controllers:
       main:
         containers:
