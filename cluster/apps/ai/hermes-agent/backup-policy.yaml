@@ -33,7 +33,7 @@ apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
 metadata:
   name: hermes-agent-daily
-  namespace: home
+  namespace: ai
 spec:
   # Which recipe (SnapshotPolicy) to invoke each firing.
   policyRef:
