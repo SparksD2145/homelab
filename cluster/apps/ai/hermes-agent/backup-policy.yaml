@@ -2,8 +2,8 @@
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotPolicy
 metadata:
-  name: home-assistant
-  namespace: home
+  name: hermes-agent
+  namespace: ai
 spec:
   repositories:
     - kind: ClusterRepository
@@ -13,7 +13,7 @@ spec:
   copyMethod: Direct
   sources:
     - pvc:
-        name: home-assistant-pvc
+        name: hermes-agent
   retention:
     keepDaily: 7
     keepWeekly: 4
@@ -32,12 +32,12 @@ spec:
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
 metadata:
-  name: home-assistant-nightly
+  name: hermes-agent-daily
   namespace: home
 spec:
   # Which recipe (SnapshotPolicy) to invoke each firing.
   policyRef:
-    name: home-assistant
+    name: hermes-agent
   schedule:
     cron: "0 8 * * *"
     jitter: 30m
