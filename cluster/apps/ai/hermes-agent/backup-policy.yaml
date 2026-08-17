@@ -19,8 +19,8 @@ spec:
     keepWeekly: 4
   mover:
     securityContext:
-      runAsUser: 1000
-      runAsGroup: 100
+      runAsUser: 10000
+      runAsGroup: 10000
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
