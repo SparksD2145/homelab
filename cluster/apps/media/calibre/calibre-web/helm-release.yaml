@@ -25,8 +25,8 @@ spec:
               tag: version-0.6.12
             env:
               TZ: America/Chicago
-              PUID: "1000"
-              PGID: "100"
+              PUID: "0"
+              PGID: "0"
             resources:
               requests:
                 cpu: 10m
@@ -34,10 +34,6 @@ spec:
               limits:
                 cpu: 50m
                 memory: 256Mi
-            securityContext:
-              runAsUser: 1000
-              runAsGroup: 100
-              runAsNonRoot: true
     service:
       main:
         controller: main
