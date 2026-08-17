@@ -36,6 +36,7 @@ with pkgs;
   parted
   sshpass
   sshfs
+  zoxide
 
   # nix related
   #
@@ -59,7 +60,6 @@ with pkgs;
   fluxcd
   sops
   age
-  fasd
   ntfy-sh
 
   # development
