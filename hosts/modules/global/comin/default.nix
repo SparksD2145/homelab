@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.nixosModules.comin =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       imports = [
         inputs.comin.nixosModules.comin
@@ -31,5 +31,10 @@
         secrets."comin/gh_token" = { };
         secrets."comin/forgejo_token" = { };
       };
+
+      # Add global token for github pulls
+      nix.settings.extra-config = ''
+        !include ${config.sops.secrets."comin/gh_token".path}
+      '';
     };
 }
