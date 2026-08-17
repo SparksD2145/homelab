@@ -5,3 +5,4 @@ resources:
   - calibre
   - calibre-web
   - pvc-calibre.yaml
+  - backup-policy.yaml

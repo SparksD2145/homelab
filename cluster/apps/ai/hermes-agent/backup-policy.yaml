@@ -5,9 +5,9 @@ metadata:
   name: hermes-agent
   namespace: ai
 spec:
-  repositories:
-    - kind: ClusterRepository
-      name: kopiur-repository
+  repository:
+    kind: ClusterRepository
+    name: kopiur-repository
   credentialProjection:
     enabled: true
   copyMethod: Direct
@@ -39,7 +39,7 @@ spec:
   policyRef:
     name: hermes-agent
   schedule:
-    cron: "0 8 * * *"
+    cron: "0 */3 * * *"
     jitter: 30m
     # GitOps-friendly default: do not fire immediately on create.
-    runOnCreate: false
+    runOnCreate: true
