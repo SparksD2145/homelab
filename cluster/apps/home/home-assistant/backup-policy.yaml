@@ -32,7 +32,7 @@ spec:
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
 metadata:
-  name: home-assistant-nightly
+  name: home-assistant-daily
   namespace: home
 spec:
   # Which recipe (SnapshotPolicy) to invoke each firing.
