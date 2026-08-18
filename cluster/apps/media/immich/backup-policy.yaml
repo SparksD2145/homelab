@@ -1,0 +1,45 @@
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotPolicy
+metadata:
+  name: immich
+  namespace: media
+spec:
+  repository:
+    kind: ClusterRepository
+    name: kopiur-repository
+  credentialProjection:
+    enabled: true
+  copyMethod: Direct
+  sources:
+    - pvc:
+        name: local-immich-pvc
+  retention:
+    keepDaily: 7
+    keepWeekly: 4
+  mover:
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 100
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotSchedule
+metadata:
+  name: immich-daily
+  namespace: home
+spec:
+  # Which recipe (SnapshotPolicy) to invoke each firing.
+  policyRef:
+    name: immich
+  schedule:
+    cron: "0 */4 * * *"
+    jitter: 30m
+    # GitOps-friendly default: do not fire immediately on create.
+    runOnCreate: true

@@ -7,3 +7,4 @@ resources:
   - postgres-db.yaml
   - pvc-immich.yaml
   - pvc-ml-cache.yaml
+  - backup-policy.yaml
