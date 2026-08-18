@@ -16,6 +16,12 @@ spec:
         namespace: flux-system
       interval: 15m
   values:
+    defaultPodOptions:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 100
+        fsGroup: 100
+        runAsNonRoot: true
     controllers:
       server:
         strategy: RollingUpdate
@@ -47,7 +53,6 @@ spec:
             envFrom:
               - configMapRef:
                   name: immich-configmap
-
             resources:
               requests:
                 cpu: 100m
