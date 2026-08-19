@@ -5,3 +5,4 @@ resources:
   - ingress-internal.yaml
   - pvc-config.yaml
   - pvc-media.yaml
+  - backup-policy.yaml
