@@ -4,6 +4,7 @@ resources:
   - helm-release.yaml
   - helm-release-postgresql.yaml
   - helm-release-redis.yaml
-  # - helm-release-valkey.yaml
+  - helm-release-valkey.yaml
   - helm-release-smb.yaml
   - pvc-paperless.yaml
+  - backup-policy.yaml

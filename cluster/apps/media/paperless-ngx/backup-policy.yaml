@@ -1,0 +1,45 @@
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotPolicy
+metadata:
+  name: paperless-ngx
+  namespace: media
+spec:
+  repository:
+    kind: ClusterRepository
+    name: kopiur-repository
+  credentialProjection:
+    enabled: true
+  copyMethod: Direct
+  sources:
+    - pvc:
+        name: paperless-ngx-data
+  retention:
+    keepDaily: 7
+    keepWeekly: 4
+  mover:
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 100
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotSchedule
+metadata:
+  name: paperless-ngx-daily
+  namespace: media
+spec:
+  # Which recipe (SnapshotPolicy) to invoke each firing.
+  policyRef:
+    name: paperless-ngx
+  schedule:
+    cron: "0 */3 * * *"
+    jitter: 30m
+    # GitOps-friendly default: do not fire immediately on create.
+    runOnCreate: true
