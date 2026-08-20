@@ -32,14 +32,14 @@ spec:
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
 metadata:
-  name: jellyfin-daily
+  name: jellyfin
   namespace: media
 spec:
   # Which recipe (SnapshotPolicy) to invoke each firing.
   policyRef:
     name: jellyfin
   schedule:
-    cron: "0 */8 * * *"
+    cron: "0 8 */3 * *"
     jitter: 30m
     # GitOps-friendly default: do not fire immediately on create.
-    runOnCreate: true
+    runOnCreate: false
