@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 {
@@ -19,6 +20,7 @@
 
   # Force nvidia proprietary drivers
   hardware.nvidia.open = lib.mkForce false;
+  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.dc;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
