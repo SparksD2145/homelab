@@ -1,0 +1,43 @@
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotPolicy
+metadata:
+  name: forgejo
+  namespace: development
+spec:
+  repository:
+    kind: ClusterRepository
+    name: kopiur-repository
+  credentialProjection:
+    enabled: true
+  copyMethod: Direct
+  sources:
+    - pvc:
+        name: forgejo
+  retention:
+    keepDaily: 7
+    keepWeekly: 4
+  mover:
+    securityContext:
+      runAsUser: 10000
+      runAsGroup: 10000
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+  deletion:
+    onPolicyDelete: Delete
+---
+apiVersion: kopiur.home-operations.com/v1alpha1
+kind: SnapshotSchedule
+metadata:
+  name: forgejo
+  namespace: development
+spec:
+  policyRef:
+    name: forgejo
+  schedule:
+    cron: "0 */3 * * *"
+    jitter: 30m
+    runOnCreate: true
