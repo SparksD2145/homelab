@@ -27,7 +27,7 @@ spec:
       seccompProfile:
         type: RuntimeDefault
   deletion:
-    onScheduleDelete: Delete
+    onPolicyDelete: Delete
 ---
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
@@ -42,4 +42,4 @@ spec:
     jitter: 30m
     runOnCreate: true
   deletion:
-    onScheduleDelete: Delete
+    onPolicyDelete: Delete
