@@ -28,6 +28,7 @@ spec:
         type: RuntimeDefault
   deletion:
     onPolicyDelete: Delete
+    onScheduleDelete: Delete
 ---
 apiVersion: kopiur.home-operations.com/v1alpha1
 kind: SnapshotSchedule
@@ -41,5 +42,3 @@ spec:
     cron: "0 */4 * * *"
     jitter: 30m
     runOnCreate: true
-  deletion:
-    onPolicyDelete: Delete
