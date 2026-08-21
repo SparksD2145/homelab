@@ -16,6 +16,9 @@
       hardware.nvidia = {
         open = true;
         nvidiaSettings = true;
+
+        # Enable persistence daemon to keep driver loaded (standard for headless servers)
+        nvidiaPersistenced = true;
       };
 
       # Enable the nvidia driver for graphics and 32-bit support
