@@ -1,4 +1,8 @@
-{ inputs, self, ... }:
+{
+  inputs,
+  self,
+  ...
+}:
 {
   flake.nixosConfigurations.beta = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";

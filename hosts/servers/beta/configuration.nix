@@ -1,4 +1,5 @@
 {
+  lib,
   ...
 }:
 {
@@ -15,6 +16,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Force nvidia proprietary drivers
+  hardware.nvidia.open = lib.mkForce false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
