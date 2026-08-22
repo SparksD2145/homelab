@@ -1,7 +1,7 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "autoupdate": false,
-    "model": "localai/ternary-bonsai-27b",
+    "model": "localai/qwen3.8-27b-q8",
     "provider": {
         "localai": {
             "npm": "@ai-sdk/openai-compatible",
@@ -15,12 +15,6 @@
                         "output": 65536
                     }
                 },
-                "gemma-4-12b-agentic-fable5-composer2.5-v2-3.5x-tau2": {
-                    "limit": {
-                        "context": 100000,
-                        "output": 65536
-                    }
-                },
                 "deepseek-coder-v2:16b": {
                     "limit": {
                         "context": 128000,
@@ -28,6 +22,12 @@
                     }
                 },
                 "ternary-bonsai-27b": {
+                    "limit": {
+                        "context": 100000,
+                        "output": 65536
+                    }
+                },
+                "qwen3.8-27b-q4": {
                     "limit": {
                         "context": 100000,
                         "output": 65536

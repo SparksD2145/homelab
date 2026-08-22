@@ -5,56 +5,56 @@
   "agents": {
     // Main orchestrator: handles delegation and drives tasks to completion
     "sisyphus": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Deep autonomous worker: end-to-end implementation
     "hephaestus": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Strategic planner: interview mode before execution
     "prometheus": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Architecture consultant: complex design and debugging
     "oracle": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     "artistry": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     "deep": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     "quick": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Documentation and code search
     "librarian": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Fast codebase exploration
     "explore": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Visual tasks: UI/UX, images, diagrams
     "multimodal-looker": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Plan consultant: reviews and improves plans
     "metis": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Critic and reviewer
     "momus": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Continuation and long-running task handler
     "atlas": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     },
     // Lightweight task executor for simple jobs
     "sisyphus-junior": {
-      "model": "localai/ternary-bonsai-27b"
+      "model": "localai/qwen3.8-27b-q4"
     }
   }
 }
