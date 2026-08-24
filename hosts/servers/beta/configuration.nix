@@ -34,6 +34,7 @@
     path = [
       pkgs.coreutils
       pkgs.bash
+      config.hardware.nvidia.package
     ];
 
     # The exact script commands you want to execute
