@@ -24,8 +24,8 @@
   hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.dc;
 
   # Set nvidia power limits at boot
-  systemd.services.my-boot-script = {
-    description = "My custom system boot script";
+  systemd.services.nvidia-set-powerlimits = {
+    description = "Sets power limits in Watts for Nvidia compute cards";
 
     # Ensure the service starts late in the boot sequence
     wantedBy = [ "multi-user.target" ];
