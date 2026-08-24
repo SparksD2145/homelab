@@ -15,8 +15,6 @@ pkgs.mkShell {
     ansible
     opentofu
     ipmitool
-    minio-client
-    kopia
 
     # Utilities
     gitleaks
@@ -24,6 +22,7 @@ pkgs.mkShell {
     age
     go-task
     pre-commit
+    kopia
     jq
     yq
 
