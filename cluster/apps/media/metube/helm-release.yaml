@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: ghcr.io/alexta69/metube
-              tag: "2026.08.21"
+              tag: "2026.08.28"
             env:
               TZ: "America/Chicago"
               OUTPUT_TEMPLATE: "%(channel)s/%(title)s.%(ext)s"
