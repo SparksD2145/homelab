@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteMany
   local:
-    path: /mnt/local2/photos.sparks.codes
+    path: /mnt/local/photos.sparks.codes
   nodeAffinity:
     required:
       nodeSelectorTerms:
