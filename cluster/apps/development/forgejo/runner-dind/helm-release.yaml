@@ -96,7 +96,7 @@ spec:
           runner-daemon:
             image:
               repository: data.forgejo.org/forgejo/runner
-              tag: 13.0.0
+              tag: 13.1.0
             env:
               DOCKER_HOST: tcp://0.0.0.0:2375
               # DOCKER_CERT_PATH: /certs/client
