@@ -24,7 +24,7 @@ spec:
           main:
             image:
               repository: quay.io/keycloak/keycloak
-              tag: 26.7.2
+              tag: 26.7.3
             args:
               - start
             env:
