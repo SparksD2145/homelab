@@ -27,6 +27,5 @@ with pkgs;
 
   # Extras
   google-chrome
-  voxtype
   voxtype-vulkan
 ]
