@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 with pkgs;
 [
   virt-manager
@@ -24,4 +29,5 @@ with pkgs;
   # Extras
   google-chrome
   voxtype
+  (if config.hardware.graphics.enable then "voxtype-vulkan" else "")
 ]
