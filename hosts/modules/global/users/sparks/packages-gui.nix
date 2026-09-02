@@ -23,4 +23,5 @@ with pkgs;
 
   # Extras
   google-chrome
+  voxtype
 ]
