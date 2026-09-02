@@ -8,4 +8,4 @@ spec:
   interval: 15m
   url: oci://ghcr.io/home-operations/charts/kopiur
   ref:
-    tag: 0.10.6
+    tag: 0.10.7
