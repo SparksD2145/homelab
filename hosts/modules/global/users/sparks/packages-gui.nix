@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  config,
   ...
 }:
 with pkgs;
@@ -29,5 +28,5 @@ with pkgs;
   # Extras
   google-chrome
   voxtype
-  (if config.hardware.graphics.enable then "voxtype-vulkan" else "")
+  voxtype-vulkan
 ]
