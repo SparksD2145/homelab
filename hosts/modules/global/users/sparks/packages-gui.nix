@@ -27,5 +27,8 @@ with pkgs;
 
   # Extras
   google-chrome
-  voxtype
+
+  # Voice Dictation
+  voxtype-vulkan
+  vulkan-loader
 ]
