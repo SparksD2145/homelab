@@ -117,6 +117,8 @@ spec:
               url: "https://paypal.com"
             - name: Charles Schwab
               url: "https://www.schwab.com/"
+            - name: Fidelity
+              url: "https://www.fidelity.com/"
         - group: Shopping
           bookmarks:
             - name: Amazon
