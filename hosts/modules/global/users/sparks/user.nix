@@ -56,7 +56,7 @@
     home.packages = builtins.concatLists [
       (import ./packages.nix { inherit inputs pkgs; })
       (
-        if config.services.xserver.enable == true || config.programs.niri.enable == true then
+        if config.services.xserver.enable == true then
           import ./packages-gui.nix { inherit inputs pkgs; }
         else
           [ ]
