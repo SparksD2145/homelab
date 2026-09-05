@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: decolua/9router
-              tag: "0.5.65"
+              tag: "0.5.69"
             env:
               TZ: "America/Chicago"
               DATA_DIR: /app/data
