@@ -21,9 +21,8 @@ with pkgs;
   discord
 
   # video editing
-  davinci-resolve
+  # davinci-resolve
   ffmpeg
-  incron # Cron-like daemon which handles filesystem events
 
   # Extras
   google-chrome
