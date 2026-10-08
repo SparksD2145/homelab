@@ -31,7 +31,9 @@
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
     options bluetooth disable_ertm=Y
-
+    optionsiwlwifi 11n_disable=1
+    options iwlwifi power_save=0
+    options iwlmvm power_scheme=1
   '';
   security.polkit.enable = true;
 
