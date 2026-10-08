@@ -33,6 +33,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 
   # Add system packages
   environment.systemPackages = with pkgs; [
