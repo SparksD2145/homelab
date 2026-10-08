@@ -28,6 +28,16 @@
             psk = "$HOTSPOT_PSK";
           };
         };
+        temporary-wifi = {
+          connection.id = "temporary-wifi";
+          connection.type = "wifi";
+          wifi.ssid = "$TEMPORARY_SSID";
+          wifi-security = {
+            auth-alg = "open";
+            key-mgmt = "wpa-psk";
+            psk = "$TEMPORARY_PSK";
+          };
+        };
       };
     };
   };
