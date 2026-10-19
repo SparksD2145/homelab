@@ -1,0 +1,203 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: unifi-os-server
+  namespace: networking
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 15m
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/lemker/unifi-os-server
+              tag: v1.8.0
+            env:
+              TZ: "America/Chicago"
+              HOST_IP: &hostIP 10.10.201.2
+              UOS_SYSTEM_IP: 10.10.201.2
+            securityContext:
+              privileged: true
+            lifecycle:
+              postStart:
+                exec:
+                  command:
+                    [
+                      "/bin/bash",
+                      "-c",
+                      "echo $HOST_IP host.docker.internal >> /etc/hosts",
+                    ]
+            # resources:
+            #   limits:
+            #     cpu: 200m
+            #     memory: 2G
+            #   requests:
+            #     cpu: 50m
+            #     memory: 1G
+    persistence:
+      persistent:
+        enabled: true
+        globalMounts:
+          - path: /persistent
+        size: 20Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+      logs:
+        enabled: true
+        globalMounts:
+          - path: /var/log
+        size: 5Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+      data:
+        enabled: true
+        globalMounts:
+          - path: /data
+        size: 20Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+      srv:
+        enabled: true
+        globalMounts:
+          - path: /srv
+        size: 10Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+      unifi:
+        enabled: true
+        globalMounts:
+          - path: /var/lib/unifi
+        size: 20Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+      mongodb:
+        enabled: true
+        globalMounts:
+          - path: /var/lib/mongodb
+        size: 20Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+      rabbitmq:
+        enabled: true
+        globalMounts:
+          - path: /etc/rabbitmq/ssl
+        size: 10Gi
+        accessMode: "ReadWriteMany"
+        storageClass: ceph-filesystem
+    service:
+      main:
+        type: LoadBalancer
+        annotations:
+          metallb.io/loadBalancerIPs: *hostIP
+        controller: main
+        ports:
+          http:
+            enabled: true
+            port: 443
+          http1:
+            enabled: true
+            primary: false
+            port: 11443
+            protocol: TCP
+          http2:
+            enabled: true
+            primary: false
+            port: 11084
+            protocol: TCP
+          rtp:
+            enabled: true
+            primary: false
+            port: 5005
+            protocol: TCP
+          communication:
+            enabled: true
+            primary: false
+            port: 8080
+            protocol: TCP
+          id-hub:
+            enabled: true
+            primary: false
+            port: 9543
+            protocol: TCP
+          mobile-speedtest:
+            enabled: true
+            primary: false
+            port: 6789
+            protocol: TCP
+          hotspot-secured:
+            enabled: true
+            primary: false
+            port: 8444
+            protocol: TCP
+          support-files:
+            enabled: true
+            primary: false
+            port: 28082
+            protocol: TCP
+          aqmps:
+            enabled: true
+            primary: false
+            port: 5671
+            protocol: TCP
+          hotspot-redirect-0:
+            enabled: true
+            primary: false
+            port: 8880
+            protocol: TCP
+          hotspot-redirect-1:
+            enabled: true
+            primary: false
+            port: 8881
+            protocol: TCP
+          hotspot-redirect-2:
+            enabled: true
+            primary: false
+            port: 8882
+            protocol: TCP
+          stun:
+            enabled: true
+            primary: false
+            port: 3478
+            protocol: UDP
+          syslog:
+            enabled: true
+            primary: false
+            port: 5514
+            protocol: UDP
+          discovery:
+            enabled: true
+            primary: false
+            port: 10003
+            protocol: UDP
+    ingress:
+      main:
+        enabled: false
+        className: traefik
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Unifi"
+          hajimari.io/info: "Unifi Dashboard"
+          hajimari.io/icon: "access-point-network"
+        hosts:
+          - host: &host unifi-dashboard.sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - secretName: acme-crt-secret-sparks-codes
+            hosts:
+              - *host
