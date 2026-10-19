@@ -26,6 +26,7 @@ with pkgs;
 
   # Extras
   google-chrome
+  freecad
 
   # Voice Dictation
   voxtype-vulkan
