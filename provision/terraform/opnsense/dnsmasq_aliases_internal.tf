@@ -40,7 +40,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "search.sparks.codes",
     "speed-test.sparks.codes",
     "torrents.sparks.codes",
-    "unifi-dashboard.sparks.codes",
+    "unifi.sparks.codes",
     "zigbee2mqtt.sparks.codes",
     "zwavejs2mqt.sparks.codest",
 

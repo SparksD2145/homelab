@@ -20,7 +20,7 @@ resource "opnsense_unbound_host_override" "lb-unifi" {
   enabled     = true
   description = "Unifi Network Application"
 
-  hostname = "unifi"
+  hostname = "unifi-actual"
   domain   = "sparks.codes"
   server   = "10.10.201.2"
 }

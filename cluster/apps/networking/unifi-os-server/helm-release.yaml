@@ -50,49 +50,20 @@ spec:
         enabled: true
         globalMounts:
           - path: /persistent
-        size: 20Gi
-        accessMode: "ReadWriteMany"
-        storageClass: ceph-filesystem
-      logs:
-        enabled: true
-        globalMounts:
+            subPath: persistent
           - path: /var/log
-        size: 5Gi
-        accessMode: "ReadWriteMany"
-        storageClass: ceph-filesystem
-      data:
-        enabled: true
-        globalMounts:
+            subPath: log
           - path: /data
-        size: 20Gi
-        accessMode: "ReadWriteMany"
-        storageClass: ceph-filesystem
-      srv:
-        enabled: true
-        globalMounts:
+            subPath: data
           - path: /srv
-        size: 10Gi
-        accessMode: "ReadWriteMany"
-        storageClass: ceph-filesystem
-      unifi:
-        enabled: true
-        globalMounts:
+            subPath: srv
           - path: /var/lib/unifi
-        size: 20Gi
-        accessMode: "ReadWriteMany"
-        storageClass: ceph-filesystem
-      mongodb:
-        enabled: true
-        globalMounts:
+            subPath: unifi
           - path: /var/lib/mongodb
-        size: 20Gi
-        accessMode: "ReadWriteMany"
-        storageClass: ceph-filesystem
-      rabbitmq:
-        enabled: true
-        globalMounts:
+            subPath: mongodb
           - path: /etc/rabbitmq/ssl
-        size: 10Gi
+            subPath: rabbitmq
+        size: 75Gi
         accessMode: "ReadWriteMany"
         storageClass: ceph-filesystem
     service:
