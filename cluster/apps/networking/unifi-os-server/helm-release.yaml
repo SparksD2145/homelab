@@ -26,7 +26,7 @@ spec:
             env:
               TZ: "America/Chicago"
               HOST_IP: &hostIP 10.10.201.2
-              UOS_SYSTEM_IP: 10.10.201.2
+              UOS_SYSTEM_IP: unifi.sparks.codes
             securityContext:
               privileged: true
             lifecycle:
