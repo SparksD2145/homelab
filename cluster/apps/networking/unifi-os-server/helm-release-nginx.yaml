@@ -25,13 +25,13 @@ spec:
               tag: 1.31.7-perl
             env:
               TZ: America/Chicago
-            resources:
-              limits:
-                cpu: 50m
-                memory: 128Mi
-              requests:
-                cpu: 10m
-                memory: 64Mi
+            # resources:
+            #   limits:
+            #     cpu: 50m
+            #     memory: 128Mi
+            #   requests:
+            #     cpu: 10m
+            #     memory: 64Mi
     service:
       main:
         controller: main
@@ -48,7 +48,7 @@ spec:
           hajimari.io/info: "Unifi Dashboard"
           hajimari.io/icon: "access-point-network"
         hosts:
-          - host: &host unifi-dashboard.sparks.codes
+          - host: &host unifi.sparks.codes
             paths:
               - path: "/"
                 pathType: "Prefix"

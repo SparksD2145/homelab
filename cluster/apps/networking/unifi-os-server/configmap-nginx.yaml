@@ -8,14 +8,14 @@ data:
     config: |
         server {
             listen       8080;
-            server_name  unifi-dashboard.sparks.codes;
+            server_name  unifi.sparks.codes;
 
             location / {
                 # proxy_set_header Host $host;
                 proxy_set_header Host 10.10.201.2;
                 # proxy_set_header X-Real-IP $remote_addr;
                 # proxy_request_buffering off;
-                proxy_ssl_verify off;
+                # proxy_ssl_verify off;
 
                 # resolver 10.10.0.1;
                 set $backend "https://10.10.201.2:443";
