@@ -106,21 +106,23 @@ data:
       reindex: false
 
     genai:
-      provider: openai
-      # Required if provider is ollama. May also be used for an OpenAI API compatible backend with the openai provider.
-      base_url: https://ai.sparks.codes/v1
-      # Required if gemini or openai
-      api_key: "{FRIGATE_OPENAI_API_KEY}"
-      model: "gemma4:26b-a4b-it-qat"
-      provider_options:
-        context_size: 8192
-      # Optional: The default prompt for generating descriptions. Can use replacement
-      # variables like "label", "sub_label", "camera" to make more dynamic. (default: shown below)
-      # prompt: "Describe the {label} in the sequence of images with as much detail as possible. Do not describe the background."
-      # Optional: Object specific prompts to customize description results
-      # Format: {label}: {prompt}
-      # object_prompts:
-      #   person: "My special person prompt."
+      localai-main:
+        provider: llamacpp
+        base_url: https://local-ai.sparks.codes
+        model: qwen3-vl-4b-thinking
+        roles:
+          - descriptions
+          - chat
+        provider_options:
+          context_size: 128000
+      localai-embeddings:
+        provider: llamacpp
+        base_url: https://local-ai.sparks.codes
+        model: qwen3-vl-embedding-8b
+        roles:
+          - embeddings
+        provider_options:
+          context_size: 128000
 
     go2rtc:
       streams:
