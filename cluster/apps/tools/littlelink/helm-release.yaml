@@ -25,15 +25,15 @@ spec:
               tag: latest
             env:
               TZ: "America/Chicago"
-              META_TITLE: Thomas Ibarra - Links Page
-              META_DESCRIPTION: Thomas Ibarra - Links Page
-              META_AUTHOR: Thomas Ibarra <hello@imake.software>
+              META_TITLE: Thomas Kranz - Links Page
+              META_DESCRIPTION: Thomas Kranz - Links Page
+              META_AUTHOR: Thomas Kranz <hello@imake.software>
               THEME: Dark
               FAVICON_URL: https://www.gravatar.com/avatar/d22d82dec0d1b27fab6e5d770685e7d8
               AVATAR_URL: https://www.gravatar.com/avatar/d22d82dec0d1b27fab6e5d770685e7d8
               AVATAR_2X_URL: https://www.gravatar.com/avatar/d22d82dec0d1b27fab6e5d770685e7d8
-              AVATAR_ALT: Thomas Ibarra <hello@imake.software>
-              NAME: Thomas Ibarra
+              AVATAR_ALT: Thomas Kranz <hello@imake.software>
+              NAME: Thomas Kranz
               BIO: Chip-to-Ship, software engineering, and everything in-between.
               BUTTON_ORDER: GITHUB,FORGEJO,LINKED_IN,SOUND_CLOUD,TUMBLR,YOUTUBE
               CUSTOM_BUTTON_TEXT: Personal Git Repos
