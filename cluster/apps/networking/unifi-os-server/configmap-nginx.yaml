@@ -11,11 +11,25 @@ data:
             server_name  unifi.sparks.codes;
 
             location / {
+                proxy_ssl_verify off;
+                proxy_ssl_session_reuse on;
+                proxy_buffering off;
+
+                # WebSocket support
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+
+                # Standard proxy headers
                 proxy_set_header Host $host;
-                # proxy_set_header Host 10.10.201.2;
-                # proxy_set_header X-Real-IP $remote_addr;
-                # proxy_request_buffering off;
-                # proxy_ssl_verify off;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+
+                # Optional headers often needed by UniFi controllers
+                proxy_hide_header Authorization;
+                proxy_set_header Referer '';
+                proxy_set_header Origin '';
 
                 # resolver 10.10.0.1;
                 set $backend "https://10.10.201.2:443";
