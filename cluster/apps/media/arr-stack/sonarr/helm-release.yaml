@@ -33,7 +33,7 @@ spec:
           app:
             image:
               repository: lscr.io/linuxserver/sonarr
-              tag: 4.0.20-develop
+              tag: 5.0.0-develop
             env:
               TZ: America/Chicago
               PUID: 1000
