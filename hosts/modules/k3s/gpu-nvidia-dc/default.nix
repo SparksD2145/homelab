@@ -16,17 +16,26 @@
 
       hardware.nvidia = {
         # Set to 'true' for modern cards (Turing/Ampere or newer), 'false' for older cards
-        open = true;
+        open = false;
 
         # Use the Datacenter driver tracking package
-        package = config.boot.kernelPackages.nvidiaPackages.dc;
+        package = config.boot.kernelPackages.nvidiaPackages.dc_580;
+
+        powerManagement.enable = true;
 
         # Enable persistence daemon to keep driver loaded (standard for headless servers)
         nvidiaPersistenced = true;
+
+        nvidiaSettings = false;
       };
 
+      boot.extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.dc_580 ];
+
       # Enable the graphics driver layer
-      hardware.graphics.enable = true;
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
 
       # Force-load video drivers even on headless server environments
       # services.xserver.videoDrivers = [ "nvidia" ];
