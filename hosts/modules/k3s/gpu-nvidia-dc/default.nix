@@ -19,8 +19,12 @@
         open = false;
 
         # Use the Datacenter driver tracking package
-        package = config.boot.kernelPackages.nvidiaPackages.dc_570;
+        package = config.boot.kernelPackages.nvidiaPackages.dc;
 
+        # Disable GSP loading
+        gsp.enable = false;
+
+        # Enable Power management
         powerManagement.enable = true;
 
         # Enable persistence daemon to keep driver loaded (standard for headless servers)
@@ -28,6 +32,8 @@
 
         nvidiaSettings = false;
       };
+
+      boot.kernelParams = [ "nvidia.NVreg_EnableGpuFirmware=0" ];
 
       # Enable the graphics driver layer
       hardware.graphics = {
@@ -38,7 +44,7 @@
       # Force-load video drivers even on headless server environments
       # services.xserver.videoDrivers = [ "nvidia" ];
 
-      # 3. Enable NVIDIA Container Toolkit & CDI Support
+      # Enable NVIDIA Container Toolkit & CDI Support
       hardware.nvidia-container-toolkit.enable = true;
       hardware.nvidia-container-toolkit.mount-nvidia-executables = true;
 
