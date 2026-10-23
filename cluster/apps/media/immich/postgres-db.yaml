@@ -36,6 +36,8 @@ spec:
       # -- Number of instances
       instances: 1
 
+      imageName: ghcr.io/cloudnative-pg/postgresql:17.2-pgvector-0.8.6
+
       # -- Image pull policy. One of Always, Never or IfNotPresent. If not defined, it defaults to IfNotPresent. Cannot be updated.
       # More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
       imagePullPolicy: IfNotPresent
