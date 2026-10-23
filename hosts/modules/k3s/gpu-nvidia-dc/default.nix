@@ -19,7 +19,7 @@
         open = false;
 
         # Use the Datacenter driver tracking package
-        package = config.boot.kernelPackages.nvidiaPackages.dc_580;
+        package = config.boot.kernelPackages.nvidiaPackages.dc_550;
 
         powerManagement.enable = true;
 
@@ -29,7 +29,7 @@
         nvidiaSettings = false;
       };
 
-      boot.extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.dc_580 ];
+      boot.extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.dc_550 ];
 
       # Enable the graphics driver layer
       hardware.graphics = {
