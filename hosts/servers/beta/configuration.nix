@@ -19,33 +19,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set nvidia power limits at boot
-  systemd.services.nvidia-set-powerlimits = {
-    description = "Sets power limits in Watts for Nvidia compute cards";
-
-    # Ensure the service starts late in the boot sequence
-    wantedBy = [ "multi-user.target" ];
-
-    # Inject dependencies into the script's PATH environment variable
-    path = [
-      pkgs.coreutils
-      pkgs.bash
-      config.hardware.nvidia.package
-    ];
-
-    # The exact script commands you want to execute
-    script = ''
-      # Set power limits on bootup.
-      nvidia-smi -i 0 -pl 150
-      nvidia-smi -i 1 -pl 175
-    '';
-
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
