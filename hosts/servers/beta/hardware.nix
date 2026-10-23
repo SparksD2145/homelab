@@ -37,6 +37,11 @@
     ];
   };
 
+  # Force nvidia proprietary drivers
+  hardware.nvidia.open = lib.mkForce false;
+  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.dc_580;
+  hardware.nvidia.modesetting.enable = true;
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

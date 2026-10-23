@@ -19,10 +19,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Force nvidia proprietary drivers
-  hardware.nvidia.open = lib.mkForce false;
-  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.dc;
-
   # Set nvidia power limits at boot
   systemd.services.nvidia-set-powerlimits = {
     description = "Sets power limits in Watts for Nvidia compute cards";
