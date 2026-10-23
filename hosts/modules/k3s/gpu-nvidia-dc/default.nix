@@ -29,7 +29,7 @@
       hardware.graphics.enable = true;
 
       # Force-load video drivers even on headless server environments
-      services.xserver.videoDrivers = [ "nvidia" ];
+      # services.xserver.videoDrivers = [ "nvidia" ];
 
       # 3. Enable NVIDIA Container Toolkit & CDI Support
       hardware.nvidia-container-toolkit.enable = true;
