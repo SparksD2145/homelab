@@ -301,7 +301,12 @@ spec:
         enabled: false
 
     # -- Database management configuration.
-    databases: []
+    databases:
+      - name: app
+        ensure: present
+        extensions:
+          - name: vector
+            version: "0.8.6"
       # - name: app                      # -- Name of the database to be created.
       #   ensure: present                # -- Ensure the PostgreSQL database is present or absent - defaults to "present".
       #   owner: app                     # -- Owner of the database, defaults to the value of the `name` key.
