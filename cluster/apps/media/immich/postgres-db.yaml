@@ -304,6 +304,7 @@ spec:
     databases:
       - name: app
         ensure: present
+        owner: app
         extensions:
           - name: vector
             version: "0.8.6"
