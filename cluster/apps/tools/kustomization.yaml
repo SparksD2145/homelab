@@ -9,5 +9,6 @@ resources:
   - netboot.xyz
   - ntfy
   - openspeedtest
+  - orca-slicer
   - searxng
   - shlink

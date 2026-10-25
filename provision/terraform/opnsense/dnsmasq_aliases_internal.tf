@@ -32,6 +32,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "netboot.sparks.codes",
     "notify.sparks.codes",
     "obsidian.sparks.codes",
+    "orcaslicer.sparks.codes",
     "paperless.sparks.codes",
     "photos.sparks.codes",
     "pxe.sparks.codes",
