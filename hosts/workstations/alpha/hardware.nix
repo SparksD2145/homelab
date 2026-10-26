@@ -23,7 +23,10 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "iwlwifi"
+  ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
     xpadneo
@@ -78,5 +81,4 @@
   # enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.xpadneo.enable = true;
-
 }
