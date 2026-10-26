@@ -6,7 +6,8 @@
         "localai": {
             "npm": "@ai-sdk/openai-compatible",
             "options": {
-                "baseURL": "https://local-ai.sparks.codes/v1"
+                "baseURL": "https://local-ai.sparks.codes/v1",
+                "chunkTimeout": false
             },
             "models": {
                 "gemma4:26b-a4b-it-qat": {

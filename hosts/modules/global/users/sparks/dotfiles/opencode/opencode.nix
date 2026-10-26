@@ -2,11 +2,11 @@
 {
   home-manager.users.sparks = {
     # OpenCode config
-    home.file.".config/opencode/opencode.json" = {
+    home.file.".config/opencode/opencode.jsonc" = {
       enable = true;
       force = true;
-      target = ".config/opencode/opencode.json";
-      source = ./opencode.json;
+      target = ".config/opencode/opencode.jsonc";
+      source = ./opencode.jsonc;
     };
   };
 
