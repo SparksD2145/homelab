@@ -27,7 +27,15 @@ with pkgs;
   # Extras
   google-chrome
   freecad
-  orca-slicer
+  (pkgs.symlinkJoin {
+    name = "wrapped-orca-slicer";
+    paths = [ pkgs.orca-slicer ]; # The original package
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/orca-slicer \
+        --set WEBKIT_DISABLE_DMABUF_RENDERER "1" \
+    '';
+  })
 
   # Voice Dictation
   voxtype-vulkan
