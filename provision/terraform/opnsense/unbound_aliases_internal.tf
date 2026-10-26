@@ -70,15 +70,6 @@ resource "opnsense_unbound_host_alias" "svc-bambuddy-sparks-codes" {
   domain      = "sparks.codes"
 }
 
-resource "opnsense_unbound_host_alias" "svc-orcaslicer-sparks-codes" {
-  override = opnsense_unbound_host_override.lb-internal-services.id
-
-  enabled     = true
-  description = "OrcaSlicer"
-  hostname    = "orcaslicer"
-  domain      = "sparks.codes"
-}
-
 resource "opnsense_unbound_host_alias" "svc-books-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 

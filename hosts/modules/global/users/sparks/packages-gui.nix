@@ -27,6 +27,7 @@ with pkgs;
   # Extras
   google-chrome
   freecad
+  orca-slicer
 
   # Voice Dictation
   voxtype-vulkan
