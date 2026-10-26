@@ -15,6 +15,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.wireless.enable = false; # Ensure wpa_supplicant is disabled
 
   # Enable Docker Containers
   virtualisation.docker = {
