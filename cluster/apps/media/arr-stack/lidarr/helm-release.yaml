@@ -33,7 +33,7 @@ spec:
           app:
             image:
               repository: lscr.io/linuxserver/lidarr
-              tag: 3.1.6-develop
+              tag: 3.2.0-develop
             env:
               TZ: America/Chicago
               PUID: 1000
