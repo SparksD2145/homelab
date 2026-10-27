@@ -13,9 +13,6 @@
     variant = "";
   };
 
-  # Enable NumLock at login
-  services.displayManager.sddm.autoNumlock = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
