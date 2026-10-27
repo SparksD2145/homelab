@@ -15,7 +15,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
+  networking.wireless.enable = lib.mkForce false;
 
   # Enable Docker Containers
   virtualisation.docker = {
