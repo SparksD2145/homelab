@@ -32,6 +32,7 @@ spec:
               CUDA_ERROR_LEVEL: "50"
               NVIDIA_VISIBLE_DEVICES: "all"
               LOCALAI_API_KEY: ${AI_LOCALAI_API_KEY}
+              LOCALAI_MODEL_LOAD_FAILURE_COOLDOWN: "0"
             resources:
               requests:
                 memory: 16Gi
