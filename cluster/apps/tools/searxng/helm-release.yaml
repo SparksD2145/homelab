@@ -26,6 +26,7 @@ spec:
             env:
               TZ: "America/Chicago"
               SEARXNG_PORT: 8080
+              SEARXNG_SETTINGS_PATH: /etc/searxng/settings.override.yaml
     service:
       main:
         controller: main
@@ -57,12 +58,12 @@ spec:
     persistence:
       config:
         enabled: true
+        type: secret
+        name: searxng-config
         globalMounts:
-          - path: /etc/searxng
-        storageClass: ceph-filesystem
-        accessMode: ReadWriteMany
-        size: 2Gi
-        retain: true
+          - path: /etc/searxng/settings.override.yaml
+            readOnly: false
+            subPath: config.yaml
       data:
         enabled: true
         globalMounts:
