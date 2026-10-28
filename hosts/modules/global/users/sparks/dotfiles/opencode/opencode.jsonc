@@ -1,5 +1,5 @@
 {
-    "$schema": "https://opencode.ai/config.json",
+    // "$schema": "https://opencode.ai/config.json",
     "autoupdate": false,
     "model": "localai/qwen3.8-27b-q8",
     "provider": {
@@ -16,12 +16,6 @@
                         "output": 65536
                     }
                 },
-                "deepseek-coder-v2:16b": {
-                    "limit": {
-                        "context": 128000,
-                        "output": 65536
-                    }
-                },
                 "ternary-bonsai-27b": {
                     "limit": {
                         "context": 100000,
@@ -31,6 +25,24 @@
                 "qwen3.8-27b-q4": {
                     "limit": {
                         "context": 200000,
+                        "output": 65536
+                    }
+                },
+                "qwen3.8-27b-obliterated-q4": {
+                    "limit": {
+                        "context": 200000,
+                        "output": 65536
+                    }
+                },
+                "qwopus3.6-27b-coder-compat-mtp": {
+                    "limit": {
+                        "context": 32000,
+                        "output": 65536
+                    }
+                },
+                "tess-4.5-27b-q4": {
+                    "limit": {
+                        "context": 32768,
                         "output": 65536
                     }
                 }
