@@ -39,6 +39,16 @@
     ];
   };
 
+  fileSystems."/mnt/media" = {
+    device = "/dev/disk/by-uuid/be2d7923-5d0d-4177-822f-7f2e279da621";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "acl"
+      "nofail"
+    ];
+  };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
