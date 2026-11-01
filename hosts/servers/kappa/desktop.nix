@@ -19,7 +19,10 @@
   services.displayManager.autoLogin.user = "sparks";
 
   # Remote Desktop
-  services.gnome.gnome-remote-desktop.enable = true;
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session"; # gnome wayland session
+  services.gnome.gnome-remote-desktop.enable = true; # needs gnome-remote-desktop bWackend to work!!
+  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   environment.shells = with pkgs; [ zsh ];
   environment.systemPackages = with pkgs; [
