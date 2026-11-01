@@ -18,6 +18,9 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sparks";
 
+  # Remote Desktop
+  services.gnome.gnome-remote-desktop.enable = true;
+
   environment.shells = with pkgs; [ zsh ];
   environment.systemPackages = with pkgs; [
     obs-studio
