@@ -19,4 +19,7 @@
   services.displayManager.autoLogin.user = "sparks";
 
   environment.shells = with pkgs; [ zsh ];
+  environment.systemPackages = with pkgs; [
+    obs-studio
+  ];
 }
