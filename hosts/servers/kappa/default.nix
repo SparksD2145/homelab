@@ -5,7 +5,6 @@
 
     modules = [
       ./configuration.nix
-      ./desktop.nix
 
       # Shared Host Modules
       self.nixosModules.hosts-global
