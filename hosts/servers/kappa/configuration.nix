@@ -5,6 +5,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
+    ./k3s.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -19,11 +20,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Enable Docker Containers
-  virtualisation.docker = {
-    enable = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
