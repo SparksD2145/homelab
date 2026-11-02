@@ -30,6 +30,8 @@ spec:
               tag: "latest"
             env:
               TZ: "America/Chicago"
+            securityContext:
+              privileged: true
     service:
       main:
         controller: main
