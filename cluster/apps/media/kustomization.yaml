@@ -7,6 +7,7 @@ resources:
   - jellyfin
   - metube
   - navidrome
+  - obs-studio-vhs
   - paperless-ngx
   # - qbittorrent
   # - sftp-access
