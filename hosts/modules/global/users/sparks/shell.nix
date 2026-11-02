@@ -69,5 +69,13 @@
         eval "$(devenv hook zsh)"
       '';
     };
+
+    programs.kitty = {
+      enable = true;
+      settings = {
+        cursor_trail = 3;
+        cursor_trail_decay = "0.1 0.5";
+      };
+    };
   };
 }
