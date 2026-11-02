@@ -77,7 +77,7 @@ spec:
         enabled: true
         type: emptyDir
         medium: Memory
-        sizeLimit: 512Mi
+        sizeLimit: 2Gi
         globalMounts:
           - path: /dev/shm
       dev-video0:
