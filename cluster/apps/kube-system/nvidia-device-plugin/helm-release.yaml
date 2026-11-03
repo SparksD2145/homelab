@@ -29,3 +29,7 @@ spec:
                   operator: In
                   values:
                     - "true"
+    tolerations:
+      - key: machine-vhs
+        operator: Exists
+        effect: NoSchedule
