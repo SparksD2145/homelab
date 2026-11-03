@@ -35,7 +35,11 @@
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
+
+  # disable intel wifi card
   boot.blacklistedKernelModules = [ "iwlwifi" ];
+
+  # enable polkit
   security.polkit.enable = true;
 
   # boot.kernelParams = [
@@ -59,6 +63,15 @@
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/edf2d275-802e-4962-8487-9d70cdb0b310";
     fsType = "ext4";
+  };
+  fileSystems."/mnt/arm-storage" = {
+    device = "/dev/disk/by-uuid/68535107-67cc-494c-8347-915a8696f536";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "nofail"
+      "acl"
+    ];
   };
 
   swapDevices = [ ];
