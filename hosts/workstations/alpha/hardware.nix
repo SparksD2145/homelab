@@ -25,6 +25,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "kvm-intel"
+    "sg"
+    "iscsi_tcp"
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
