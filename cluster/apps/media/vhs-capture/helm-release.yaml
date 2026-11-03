@@ -95,3 +95,7 @@ spec:
         enabled: true
         type: hostPath
         hostPath: /dev/video1
+      dev-snd:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/snd
