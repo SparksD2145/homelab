@@ -51,6 +51,9 @@
 
   swapDevices = [ ];
 
+  hardware.nvidia.open = lib.mkForce false;
+  hardware.nvidia.branch = lib.mkForce "legacy_580";
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
