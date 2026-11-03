@@ -29,6 +29,7 @@ spec:
             image:
               repository: patrickstigler/docker-obs-ndi
               tag: "latest"
+              pullPolicy: IfNotPresent
             env:
               TZ: "America/Chicago"
             securityContext:
