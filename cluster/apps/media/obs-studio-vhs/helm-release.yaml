@@ -27,7 +27,7 @@ spec:
         containers:
           main:
             image:
-              repository: patrickstigler/docker-obs-ndi
+              repository: asparon/obs-ndi
               tag: "latest"
               pullPolicy: IfNotPresent
             env:
