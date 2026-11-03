@@ -71,8 +71,6 @@
       "defaults"
       "nofail"
       "acl"
-      "uid=1000"
-      "gid=100"
     ];
   };
 
