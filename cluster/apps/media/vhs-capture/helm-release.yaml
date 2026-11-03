@@ -17,7 +17,6 @@ spec:
       interval: 15m
   values:
     defaultPodOptions:
-      runtimeClassName: nvidia
       tolerations:
         - key: machine-vhs
           operator: Exists
@@ -34,11 +33,6 @@ spec:
               TZ: "America/Chicago"
             securityContext:
               privileged: true
-            resources:
-              requests:
-                nvidia.com/gpu: 1
-              limits:
-                nvidia.com/gpu: 1
     service:
       main:
         controller: main
