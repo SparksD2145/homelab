@@ -16,9 +16,6 @@ kubectl label node tango node-role.kubernetes.io/gpu=true
 # Beta
 kubectl label node beta node-role.kubernetes.io/gpu=true
 
-# Kappa
-kubectl label node kappa node-role.kubernetes.io/gpu=true
-
 # Lambda
 # kubectl label node lambda services/gaming=true
 # kubectl label node lambda services/minecraft=true

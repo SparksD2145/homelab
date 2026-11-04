@@ -41,7 +41,6 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "speed-test.sparks.codes",
     "torrents.sparks.codes",
     "unifi.sparks.codes",
-    "vhs.sparks.codes",
     "zigbee2mqtt.sparks.codes",
     "zwavejs2mqt.sparks.codest",
 
