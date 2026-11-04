@@ -5,7 +5,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
-    ./k3s.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -17,6 +16,11 @@
   boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_mSATA_250GB_S33GNX0JA14228V"; # or "nodev" for efi only
 
   networking.hostName = "kappa"; # Define your hostname.
+
+  # Enable Docker Containers
+  virtualisation.docker = {
+    enable = true;
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
