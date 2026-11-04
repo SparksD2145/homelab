@@ -1,5 +1,4 @@
 {
-    // "$schema": "https://opencode.ai/config.json",
     "autoupdate": false,
     "model": "localai/qwen3.8-27b-q8",
     "provider": {

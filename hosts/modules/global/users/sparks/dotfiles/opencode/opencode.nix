@@ -1,17 +1,12 @@
 { pkgs, config, ... }:
 {
   home-manager.users.sparks = {
-    # OpenCode config
-    home.file.".config/opencode/opencode.jsonc" = {
+    programs.opencode = {
       enable = true;
-      force = true;
-      target = ".config/opencode/opencode.jsonc";
-      source = ./opencode.jsonc;
+      settings = builtins.fromJSON (builtins.readFile ./opencode.json);
     };
-  };
 
-  home-manager.users.sparks = {
-    # OpenCode config
+    # Openagent config
     home.file.".config/opencode/oh-my-openagent.jsonc" = {
       enable = true;
       force = true;

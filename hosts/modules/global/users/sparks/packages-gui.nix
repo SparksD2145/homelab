@@ -11,7 +11,6 @@ with pkgs;
   scrcpy
 
   # development
-  opencode
   snip
   bun
 
