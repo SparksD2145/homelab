@@ -2,6 +2,10 @@
 - hosts: nixos
   become: true
   tasks:
+    - name: Stop Comin Service
+      ansible.builtin.systemd_service:
+        name: comin
+        state: stopped
     - name: Reset Comin directory
       ansible.builtin.file:
         path: /var/lib/comin
