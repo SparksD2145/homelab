@@ -10,4 +10,7 @@
     defaultWindowManager = "startplasma-x11";
     openFirewall = true;
   };
+
+  displayManager.auto.enable = true;
+  displayManager.auto.user = "sparks";
 }
