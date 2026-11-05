@@ -19,6 +19,7 @@
         vimPlugins.vim-yaml
         vimPlugins.ansible-vim
         vimPlugins.vim-polyglot
+        vimPlugins.ctrlp-vim
       ];
 
       extraConfig = ''
