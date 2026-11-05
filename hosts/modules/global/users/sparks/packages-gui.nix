@@ -20,7 +20,7 @@ with pkgs;
   discord
 
   # video editing
-  # davinci-resolve
+  davinci-resolve
   ffmpeg
 
   # Extras
