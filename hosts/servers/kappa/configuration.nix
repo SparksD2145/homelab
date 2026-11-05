@@ -6,6 +6,7 @@
     # Include the results of the hardware scan.
     ./hardware.nix
     ./nvidia.nix
+    ./desktop.nix
   ];
 
   # Use the GRUB 2 boot loader.
