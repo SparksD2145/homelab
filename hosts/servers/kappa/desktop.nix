@@ -11,6 +11,6 @@
     openFirewall = true;
   };
 
-  displayManager.auto.enable = true;
-  displayManager.auto.user = "sparks";
+  services.displayManager.auto.enable = true;
+  services.displayManager.auto.user = "sparks";
 }
