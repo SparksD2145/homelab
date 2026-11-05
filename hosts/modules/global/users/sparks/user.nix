@@ -21,7 +21,7 @@
   # System Configuration
   users.users.sparks = {
     isNormalUser = true;
-    description = "Thomas Ibarra";
+    description = "Thomas Kranz";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -66,7 +66,7 @@
     # basic configuration of git
     programs.git = {
       enable = true;
-      settings.user.name = "Thomas Ibarra";
+      settings.user.name = "Thomas Kranz";
       settings.user.email = "hello@iwrite.software";
       lfs.enable = true;
     };
