@@ -49,6 +49,7 @@
     packages = [
       "app.freelens.Freelens"
       "com.github.wwmm.easyeffects"
+      "com.github.johnfactotum.Foliate"
     ];
   };
 
