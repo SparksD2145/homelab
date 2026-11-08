@@ -33,7 +33,7 @@ spec:
           app:
             image:
               repository: lscr.io/linuxserver/prowlarr
-              tag: 3.0.0-develop
+              tag: 3.0.1-develop
             env:
               TZ: America/Chicago
               PUID: 1000
