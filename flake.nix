@@ -25,9 +25,6 @@
     # comin, used for managing gitops configurations
     comin.url = "github:nlewo/comin";
     comin.inputs.nixpkgs.follows = "nixpkgs";
-
-    # llm-agents, used for deploying llm agents and tools
-    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs =

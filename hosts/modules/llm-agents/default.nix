@@ -1,11 +1,10 @@
-{ inputs, ... }:
+{ ... }:
 {
   flake.nixosModules.hosts-llm-agents =
     { pkgs, ... }:
     {
-      environment.systemPackages = with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      environment.systemPackages = with pkgs; [
         opencode
-        oh-my-opencode
       ];
     };
 }
