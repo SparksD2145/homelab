@@ -2,7 +2,7 @@
 {
   home-manager.users.sparks = {
     programs.opencode = {
-      enable = false;
+      enable = true;
       settings = builtins.fromJSON (builtins.readFile ./opencode.json);
     };
 

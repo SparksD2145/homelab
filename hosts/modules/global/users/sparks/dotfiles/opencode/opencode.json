@@ -49,7 +49,5 @@
         }
     },
     "lsp": {},
-    "plugin": [
-        "oh-my-openagent"
-    ]
+    "plugin": []
 }
