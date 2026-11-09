@@ -12,7 +12,6 @@
       # Shared Host Modules
       self.nixosModules.hosts-global
       self.nixosModules.hosts-workstations-shared
-      self.nixosModules.hosts-llm-agents
     ];
   };
 }
