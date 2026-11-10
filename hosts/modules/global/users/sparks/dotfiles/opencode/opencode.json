@@ -6,7 +6,8 @@
             "package": "aisdk:@ai-sdk/openai-compatible",
             "settings": {
                 "baseURL": "https://local-ai.sparks.codes/v1",
-                "chunkTimeout": false
+                "chunkTimeout": false,
+                "apiKey": "{env:LOCALAI_API_KEY}"
             },
             "models": {
                 "gemma4:26b-a4b-it-qat": {
