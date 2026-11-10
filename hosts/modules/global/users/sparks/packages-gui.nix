@@ -35,8 +35,4 @@ with pkgs;
         --set WEBKIT_DISABLE_DMABUF_RENDERER "1" \
     '';
   })
-
-  # Voice Dictation
-  voxtype-vulkan
-  vulkan-loader
 ]
