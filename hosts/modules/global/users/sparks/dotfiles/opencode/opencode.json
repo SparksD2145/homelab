@@ -1,10 +1,10 @@
 {
-    "autoupdate": false,
+    "update": "disable",
     "model": "localai/qwen3.8-27b-q8",
-    "provider": {
+    "providers": {
         "localai": {
-            "npm": "@ai-sdk/openai-compatible",
-            "options": {
+            "package": "aisdk:@ai-sdk/openai-compatible",
+            "settings": {
                 "baseURL": "https://local-ai.sparks.codes/v1",
                 "chunkTimeout": false
             },
@@ -49,5 +49,5 @@
         }
     },
     "lsp": {},
-    "plugin": []
+    "plugins": []
 }
