@@ -2,16 +2,8 @@
 {
   home-manager.users.sparks = {
     programs.opencode = {
-      enable = false;
-      settings = builtins.fromJSON (builtins.readFile ./opencode.json);
-    };
-
-    # Openagent config
-    home.file.".config/opencode/oh-my-openagent.jsonc" = {
       enable = true;
-      force = true;
-      target = ".config/opencode/oh-my-openagent.jsonc";
-      source = ./oh-my-openagent.jsonc;
+      settings = builtins.fromJSON (builtins.readFile ./opencode.json);
     };
   };
 
