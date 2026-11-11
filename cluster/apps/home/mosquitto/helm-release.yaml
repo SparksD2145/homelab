@@ -36,8 +36,8 @@ spec:
               MQTTUI_ADMIN_USER: admin
               MQTT_BROKER: mqtt.sparks.codes
             envFrom:
-              secretRef:
-                - name: mqttui-secrets
+              - secretRef:
+                  - name: mqttui-secrets
     persistence:
       config:
         enabled: true
