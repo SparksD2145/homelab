@@ -21,22 +21,48 @@ spec:
         containers:
           main:
             image:
-              repository: bunkeriot/bunkerm
-              tag: "v2.1.0"
+              repository: eclipse-mosquitto
+              tag: "2.1.2-alpine"
             env:
               TZ: "America/Chicago"
-              HOST_ADDRESS: &host mqtt.sparks.codes
+      web:
+        containers:
+          main:
+            image:
+              repository: terdia07/mqttui
+              tag: "v2.0"
+            env:
+              TZ: "America/Chicago"
+              MQTTUI_ADMIN_USER: admin
+              MQTT_BROKER: mqtt.sparks.codes
+            envFrom:
+              secretRef:
+                - name: mqttui-secrets
     persistence:
       config:
         enabled: true
+        type: configMap
+        name: mosquitto
+        globalMounts:
+          - path: /mosquitto/config/mosquitto.conf
+            subPath: mosquitto.conf
+      data:
+        enabled: true
         existingClaim: local-bunkerm-pvc
         globalMounts:
-          - path: /etc/mosquitto
+          - path: /mosquitto/config
             subPath: config
-          - path: /var/lib/mosquitto
+          - path: /mosquitto/data
             subPath: data
-          - path: /data
-            subPath: auth
+          - path: /mosquitto/log
+            subPath: logs
+      pwfile:
+        enabled: true
+        type: secret
+        name: mosquitto-secrets
+        globalMounts:
+          - path: /mosquitto/config/pwfile
+            subPath: users
     service:
       main:
         type: LoadBalancer
@@ -45,12 +71,17 @@ spec:
         controller: main
         ports:
           http:
-            port: 2000
+            port: 9001
           mqtt:
             enabled: true
             port: 1883
+      web:
+        controller: web
+        ports:
+          http:
+            port: 5000
     ingress:
-      main:
+      web:
         enabled: true
         className: "traefik"
         annotations:
@@ -60,7 +91,7 @@ spec:
           hajimari.io/icon: "home-automation"
           hajimari.io/targetBlank: "true"
         hosts:
-          - host: *host
+          - host: &host mqtt-dashboard.sparks.codes
             paths:
               - path: "/"
                 pathType: "Prefix"
