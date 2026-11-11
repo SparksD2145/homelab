@@ -30,7 +30,7 @@ spec:
           main:
             image:
               repository: terdia07/mqttui
-              tag: "v2.0"
+              tag: "v2.0.2"
             env:
               TZ: "America/Chicago"
               MQTTUI_ADMIN_USER: admin
