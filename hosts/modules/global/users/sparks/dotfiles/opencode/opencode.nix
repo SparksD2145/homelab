@@ -7,7 +7,7 @@
     };
 
     home.sessionVariables = {
-      LOCALAI_API_KEY = "$(yq -r '.local_ai_key' < ${config.sops.secrets.LOCALAI_API_KEY.path})";
+      LOCALAI_API_KEY = "$(yq -r '.local_ai_key' ${config.sops.secrets.LOCALAI_API_KEY.path})";
     };
 
   };
@@ -17,7 +17,6 @@
     mode = "0440";
     owner = config.users.users.sparks.name;
     group = config.users.users.sparks.group;
-    path = "/home/sparks/.local/share/opencode/auth.yaml";
     sopsFile = ./auth.sops.yaml;
     key = "";
   };
