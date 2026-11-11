@@ -37,7 +37,7 @@ spec:
               MQTT_BROKER: mqtt.sparks.codes
             envFrom:
               - secretRef:
-                name: mqttui-secrets
+                  name: mqttui-secrets
     persistence:
       config:
         enabled: true
