@@ -25,11 +25,11 @@ resource "opnsense_unbound_host_override" "lb-unifi" {
   server   = "10.10.201.2"
 }
 
-resource "opnsense_unbound_host_override" "lb-emqx" {
+resource "opnsense_unbound_host_override" "lb-mqtt-actual" {
   enabled     = true
-  description = "Emqx loadbalancer"
+  description = "MQTT loadbalancer"
 
-  hostname = "mqtt"
+  hostname = "mqtt-actual"
   domain   = "sparks.codes"
   server   = "10.10.201.3"
 }

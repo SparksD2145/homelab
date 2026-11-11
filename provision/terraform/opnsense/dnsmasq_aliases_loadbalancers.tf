@@ -6,10 +6,10 @@ resource "opnsense_dnsmasq_host" "lb-unifi" {
   ip_addresses = ["10.10.201.2"]
 }
 
-resource "opnsense_dnsmasq_host" "lb-emqx" {
+resource "opnsense_dnsmasq_host" "lb-mqtt-actual" {
   description = "Emqx loadbalancer"
 
-  hostname     = "mqtt"
+  hostname     = "mqtt-actual"
   domain       = "sparks.codes"
   ip_addresses = ["10.10.201.3"]
 }

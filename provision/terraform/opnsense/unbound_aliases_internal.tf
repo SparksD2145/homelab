@@ -143,12 +143,12 @@ resource "opnsense_unbound_host_alias" "svc-codeserver-esphome-sparks-codes" {
   domain      = "sparks.codes"
 }
 
-resource "opnsense_unbound_host_alias" "svc-emqx-dashboard-sparks-codes" {
+resource "opnsense_unbound_host_alias" "svc-mqtt-sparks-codes" {
   override = opnsense_unbound_host_override.lb-internal-services.id
 
   enabled     = true
-  description = "EMQX dashboard"
-  hostname    = "emqx-dashboard"
+  description = "MQTT dashboard"
+  hostname    = "mqtt"
   domain      = "sparks.codes"
 }
 
