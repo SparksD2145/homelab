@@ -12,7 +12,8 @@
     mode = "0440";
     owner = config.users.users.sparks.name;
     group = config.users.users.sparks.group;
-    sopsFile = ./auth.sops.yaml;
+    sopsFile = ./auth.sops.txt;
+    path = "/home/sparks/.config/opencode/localai-auth.txt";
     key = "";
   };
 }

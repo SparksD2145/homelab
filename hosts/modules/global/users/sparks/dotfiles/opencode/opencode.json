@@ -7,7 +7,7 @@
             "settings": {
                 "baseURL": "https://local-ai.sparks.codes/v1",
                 "chunkTimeout": false,
-                "apiKey": "{env:LOCALAI_API_KEY}"
+                "apiKey": "{file:~/.config/opencode/localai-auth.txt}"
             },
             "models": {
                 "gemma4:26b-a4b-it-qat": {
