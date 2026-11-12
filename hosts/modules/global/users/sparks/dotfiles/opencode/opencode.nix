@@ -5,11 +5,6 @@
       enable = true;
       settings = builtins.fromJSON (builtins.readFile ./opencode.json);
     };
-
-    home.sessionVariables = {
-      LOCALAI_API_KEY = "$(yq -r '.local_ai_key' ${config.sops.secrets.LOCALAI_API_KEY.path})";
-    };
-
   };
 
   # OpenCode Authentication config
