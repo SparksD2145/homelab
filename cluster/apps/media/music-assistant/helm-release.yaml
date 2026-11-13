@@ -39,13 +39,30 @@ spec:
     ingress:
       main:
         enabled: true
-        className: traefik
+        className: "traefik"
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/appName: "Music Assistant"
           hajimari.io/info: "Music streaming helper"
           hajimari.io/icon: "music-circle"
           hajimari.io/targetBlank: "true"
+        hosts:
+          - host: &host music.sparks.codes
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+                service:
+                  identifier: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: acme-crt-secret-sparks-codes
+      external:
+        enabled: true
+        className: "cloudflare-tunnel"
+        annotations:
+          hajimari.io/enable: "false"
         hosts:
           - host: &host music.sparks.codes
             paths:
