@@ -23,7 +23,7 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/music-assistant/server:latest
+              repository: ghcr.io/music-assistant/server
               tag: "2.10.11"
             env:
               TZ: "America/Chicago"
