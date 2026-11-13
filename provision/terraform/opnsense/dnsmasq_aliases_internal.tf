@@ -28,6 +28,7 @@ resource "opnsense_dnsmasq_host" "lb_internal-services" {
     "metube.sparks.codes",
     "monitoring.sparks.codes",
     "mqtt.sparks.codes",
+    "music.sparks.codes",
     "navidrome.sparks.codes",
     "netboot.sparks.codes",
     "notify.sparks.codes",
