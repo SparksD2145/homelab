@@ -58,7 +58,6 @@
         christian-kohler.path-intellisense
         rust-lang.rust-analyzer
         continue.continue
-        astro-build.astro-vscode
       ];
     };
   };
