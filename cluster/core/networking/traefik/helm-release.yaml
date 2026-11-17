@@ -44,7 +44,6 @@ spec:
             from: All
     service:
       type: LoadBalancer
-      externalTrafficPolicy: Cluster
       annotations:
         metallb.io/loadBalancerIPs: 10.10.201.1
 
