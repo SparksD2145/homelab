@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: eclipse-mosquitto
-              tag: "2.1.2-alpine"
+              tag: "2.1.4-alpine"
             env:
               TZ: "America/Chicago"
       web:
