@@ -43,7 +43,8 @@ spec:
           namespacePolicy:
             from: All
     service:
-      type: LoadBalancer
+      spec:
+        type: LoadBalancer
       annotations:
         metallb.io/loadBalancerIPs: 10.10.201.1
 
