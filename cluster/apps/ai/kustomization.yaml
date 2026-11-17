@@ -7,4 +7,4 @@ resources:
   - hermes-agent
   - obsidian
   # - open-webui
-  - tailscale-ingress.yaml
+  # - tailscale-ingress.yaml
