@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   # - calibre
   # - calibre-web
+  - calibre-web-nextgen
   - pvc-calibre.yaml
   - backup-policy.yaml
