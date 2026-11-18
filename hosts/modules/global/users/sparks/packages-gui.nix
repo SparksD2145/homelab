@@ -15,7 +15,6 @@ with pkgs;
   bun
 
   # fun stuff
-  obs-studio
   vlc
   discord
 

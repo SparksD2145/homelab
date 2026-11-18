@@ -27,6 +27,7 @@
       "wheel"
       "dialout"
       "input"
+      "video"
       (if config.virtualisation.docker.enable then "docker" else "")
       (if config.virtualisation.libvirtd.enable then "libvirtd" else "")
     ];
