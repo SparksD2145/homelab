@@ -37,7 +37,11 @@
       };
 
       # Force-load video drivers even on headless server environments
-      # services.xserver.videoDrivers = [ "nvidia" ];
+      # Hack for getting the nvidia driver recognized
+      services.xserver = {
+        enable = false;
+        videoDrivers = [ "nvidia" ];
+      };
 
       # Enable NVIDIA Container Toolkit & CDI Support
       hardware.nvidia-container-toolkit.enable = true;
