@@ -53,7 +53,7 @@
   };
 
   # Enable tailscale
-  services.tailscale.enable = true;
+  # services.tailscale.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
