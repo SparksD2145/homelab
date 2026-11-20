@@ -12,14 +12,9 @@
       nixpkgs.config.allowUnfree = true;
       nixpkgs.config.nvidia.acceptLicense = true;
 
-      hardware.nvidia.datacenter.enable = true;
-
       hardware.nvidia = {
         # Set to 'true' for modern cards (Turing/Ampere or newer), 'false' for older cards
         open = false;
-
-        # Use the Datacenter driver tracking package
-        package = config.boot.kernelPackages.nvidiaPackages.dc;
 
         # Disable GSP loading
         gsp.enable = false;
