@@ -16,7 +16,8 @@
 
       # K3s
       self.nixosModules.k3s-agent
-      self.nixosModules.k3s-gpu-nvidia-dc
+      self.nixosModules.k3s-gpu-nvidia
+      self.nixosModules.k3s-gpu-nvidia-v100
     ];
   };
 }

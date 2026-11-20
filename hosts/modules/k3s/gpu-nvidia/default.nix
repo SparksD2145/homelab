@@ -22,8 +22,10 @@
       };
 
       # Enable the nvidia driver for graphics and 32-bit support
-      hardware.graphics.enable = true;
-      hardware.graphics.enable32Bit = true;
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
 
       # Hack for getting the nvidia driver recognized
       services.xserver = {
@@ -36,6 +38,7 @@
         "nvidia-x11"
         "nvidia-settings"
       ];
+      nixpkgs.config.nvidia.acceptLicense = true;
 
       # Configure containerd to use the nvidia-container-runtime for GPU support in containers
       services.k3s.containerdConfigTemplate = ''
