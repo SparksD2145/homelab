@@ -36,10 +36,10 @@ spec:
             resources:
               requests:
                 memory: 16Gi
-                nvidia.com/gpu: 2
+                nvidia.com/gpu: 3
               limits:
                 memory: 32Gi
-                nvidia.com/gpu: 2
+                nvidia.com/gpu: 3
     persistence:
       config:
         enabled: true
