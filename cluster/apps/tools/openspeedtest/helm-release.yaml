@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: openspeedtest/latest
-              tag: v2.0.8
+              tag: v2.0.9
             env:
               TZ: America/Chicago
     service:
