@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: ghcr.io/new-usemame/calibre-web-nextgen
-              tag: v4.1.71
+              tag: v4.1.72
             env:
               TZ: America/Chicago
               PUID: "0"
