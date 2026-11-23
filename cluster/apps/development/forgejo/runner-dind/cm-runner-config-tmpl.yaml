@@ -227,7 +227,14 @@ data:
           token: <RUNNER_TOKEN>
           uuid: <RUNNER_UUID>
           labels:
-            - docker:docker://docker.io/library/docker:dind
+            # Standard general-purpose Node.js images (required by many standard Actions)
+            - "ubuntu-latest:docker://data.forgejo.org/oci/node:20-bookworm"
+            - "ubuntu-22.04:docker://data.forgejo.org/oci/node:20-bookworm"
+            - "ubuntu-24.04:docker://data.forgejo.org/oci/node:22-bookworm"
+            - "debian:docker://docker.io/library/node:lts"
+
+            # Generic label if you specify `container: image:` directly in your workflow YAML
+            - "docker:docker://data.forgejo.org/oci/node:lts"
 kind: ConfigMap
 metadata:
   name: forgejo-runner-config-template
