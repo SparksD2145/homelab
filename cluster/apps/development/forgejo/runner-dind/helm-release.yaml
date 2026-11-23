@@ -96,6 +96,15 @@ spec:
         storageClass: ceph-filesystem
         size: 2Gi
 
+      runner-configdir:
+        enabled: true
+        globalMounts:
+          - path: /var/lib/actions
+        type: persistentVolumeClaim
+        accessMode: ReadWriteMany
+        storageClass: ceph-filesystem
+        size: 20Mi
+
       runner-secret:
         enabled: true
         globalMounts:
