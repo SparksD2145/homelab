@@ -70,7 +70,7 @@ spec:
                 if [ -f "/var/lib/actions/actions-runner-secret" ]; then
                   echo "Runner already registered." ;
                 else
-                  forgejo forgejo-cli actions generate-secret > /var/lib/actions/actions-runner-secret ;
+                  forgejo forgejo-cli actions generate-runner-token > /var/lib/actions/actions-runner-secret ;
                   forgejo forgejo-cli actions register --name "actions-runner" --secret-file /var/lib/actions/actions-runner-secret > /var/lib/actions/actions-runner-uuid ;
                   echo "Runner Registered!";
                 fi;
