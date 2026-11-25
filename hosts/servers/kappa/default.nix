@@ -8,7 +8,7 @@
 
       # Shared Host Modules
       self.nixosModules.hosts-global
-      self.nixosModules.hosts-power-management
+      self.nixosModules.hosts-servers
     ];
   };
 }
