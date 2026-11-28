@@ -15,6 +15,9 @@
     'ghcr.io/fluxcd/notification-controller',
     'ghcr.io/fluxcd/source-controller',
   ],
+  nix: {
+    enabled: true
+  },
   flux: {
     managerFilePatterns: [
       '/cluster/.+\\.ya?ml$/',
