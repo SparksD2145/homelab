@@ -8,11 +8,11 @@
         self.nixosModules.hosts-power-management
       ];
 
-      # Systemd timer for poweroff at 1:30 AM nightly.
+      # Systemd timer for poweroff at 11:30 PM nightly.
       systemd.timers."poweroff-nightly" = {
         wantedBy = [ "timers.target" ];
         timerConfig = {
-          OnCalendar = "*-*-* 1:30:00 America/Chicago";
+          OnCalendar = "*-*-* 23:30:00 America/Chicago";
           Unit = "poweroff-nightly.service";
         };
       };
